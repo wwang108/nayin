@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>癸巳 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">癸巳</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>癸巳地带合，乃流远澄清之水，若溢之以水，在火木荣方，音中无土，则有济物惠施之德也。</div><div class="content-item note"><div class="content-type">注释</div>自绝之水，但人道有绝，天道岂有绝焉？自带金长生位，合金自能生成。见甲子为得禄，母旺资体。尤嫌土音。同类相资，如见甲寅、丙午之类，可用真火显扬，大富贵。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸巳水</div>水之息流入海，喜亥子乃变化</div><div class="content-item text"><div class="content-type">正文</div>癸巳为自绝之水，名曰涸流，若遇丙戌丁亥庚子壮厚之土，其涸可待；若得三合生旺之金生之，则源泉混混，盈科而进也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>癸巳乙卯自绝自死之水，乃至阴退藏、真精啬养凝成贵气，贵局秉之，类是妙道君子，夙体常德，有功及物。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>壬辰癸巳长流水</div><div class="content-item question"><div class="content-type">问答</div>“何以壬辰癸巳曰长流水？”答曰：“气傍离宫，火明势盛，来之不穷，纳之不溢，乃曰长流水。”《论》曰：势极东南，贵乎安静，重见休囚，息而美乐，加以生旺，反成汨没水。金不要逢火，土宜外護。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>大海、长流，泥沙莫堰。</div><div class="content-item text"><div class="content-type">正文</div>大海水壬戌、癸亥，长流水壬辰、癸巳。井泉水甲申、乙酉，大溪水甲寅、乙卯。</div><div class="content-item text"><div class="content-type">正文</div>长流之水，城头阻截。</div><div class="content-item text"><div class="content-type">正文</div>壬辰、癸巳又怕戊寅、己卯。</div><div class="content-item text"><div class="content-type">正文</div>壬辰、癸巳，得朝宗而福如东海。</div><div class="content-item text"><div class="content-type">正文</div>壬辰、癸巳长流也。朝宗谓壬戌、癸亥也。然壬辰遇癸亥为佳，癸巳见壬戌为美。若辰见戌为日德见魁罡，不吉。</div><div class="content-item text"><div class="content-type">正文</div>才成七步，都缘癸巳叠壬辰。</div><div class="content-item text"><div class="content-type">正文</div>癸巳长流水，巳宫有翼宿，主文章礼乐，故云。</div><div class="content-item text"><div class="content-type">正文</div>大驿之土，木难制而火无功，得水则旷远绵延。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉为大驿土。既厚，则不必火生，木克无妨。唯得水则人烟凑集，舟车通远方，成大都会也。亦须长流、大海为胜。</div><div class="content-item text"><div class="content-type">正文</div>长流水、涧下水学问源渊。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>长流水者，混混无穷，滔滔不竭，就下必纳于东南，顺流自归于辰巳。此水喜金生养，金要白蜡、钗钏，以天干有庚辛真金，地支辰巳就位相生，戌亥为归源之地；剑锋纯是金水，箔金水木居东，皆以吉论。海中，砂中无取，嫌土蹇涸。而土有堤防之用，六土之中，取庚辛、丙丁为吉，戊己无用。遇火则相刑，而有既济之妙。内壬辰喜见丁卯、丁酉，癸巳喜见戊子、戊午，以天干合化故也。灯头癸巳，尤喜见甲辰；山头壬辰，尤喜遇乙亥。化龙归禄，取义更佳。逢木虽漂泛，而桑拓癸丑为山，杨柳癸未为园，年时得此水围之，为水绕花堤，大贵格也。松柏、石榴，天干有金相生。大林、平地，虽嫌有土，而癸巳见戊辰，壬辰见己亥，俱吉。水为同类，涧下则丁壬合化，天上则雨露相资；井泉、大溪无益；海乃众流所归，而壬辰之龙，得癸亥则龙跃天门，春夏秋生为吉；或龙潜大海，则冬生乃宜，柱中须先得金为妙。又壬辰为自印之水，再见壬辰则刑，刑则自害，见戊戌则冲，冲则泛滥，主凶。癸巳，自绝之水，名为涸流，若遇丙戌、丁亥、庚子、辛丑之土，其涸可待，柱中如得三合生旺之金生之则吉。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>长流水</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">长流水是说辰为水库，金长生于巳又生出了水，壬癸水决库，源终不竭，长流推进，辰又为龙意，龙泉吐水，逢大海水称谓龙跃天门。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画着长流水，是纳音喻象意义的引伸，人们说长流水生年的人，财源滚滚不断，也有点意思，以象意比拟，此水最忌城头土、大驿土截流。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸巳水</div>水之不息，流入海，喜亥子，乃变化。天乙、官贵、德合、伏马、破字、曲脚。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>辰为水库，巳为金的长生之地，金既长生，旺而又遭巳火灼化生水，水性之存，以辰中库水而逢金泉，又有壬癸水相助，水旺出库，源终不竭，故称之为长流水。</div><div class="content-item text"><div class="content-type">正文</div>长流水位居于东南巽门，以安静为贵，逢金生水则吉。忌水，水多则易泛滥，尤其见大海水，性格柔中带刚，少年辛苦，艺海生涯，怀才不遇，肯遭小人嫉妒。但观其长流水势，为东渡之水，其人怀才，必以东渡而顺流南下，以其源宗世居东南之巽门就势安身，名扬四海声震寰宇，才知其之贵矣。故生长在长流水之年，生月有大海水，或再有泉中水、大溪水之命的人，水天一色，泛滥遭苦，终有报国之道，即是辛苦之人，此格名为哪吒搅海，必须以城头土镇之，成为横空出世的金猴之格。</div><div class="content-item text"><div class="content-type">正文</div>但凡长流水出世的人，以见火为财星，但此水不遇它同，比如：见甲辰乙巳覆灯火，辰有龙之意，龙见龙泉则成为龙归大海之格。所以，长流水出生的人，生在覆灯火之月，天河水之日，成为飞龙腾海，必是出将入相之贵。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">长流水生年的人，以见金生水则吉，比如</div>生在剑锋金之月，炉中火之日，炉火化金，金水持源，此乃为禄海寿星之命。</div><div class="content-item text"><div class="content-type">正文</div>长流水最忌土克，克则遭囚身之苦，比如，遇城头土月令，或遇大驿土生月，此为龙舟截道之命，难免有凶祸夭折之灾，如果再有大海水助势，则成淹身没劫之灾，或者生在天河水之日，可以化险为夷。</div><div class="content-item text"><div class="content-type">正文</div>长流水生年的人，命中有土，必须有生水的金来相助。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>长流水者，此时水势盛极东南，气傍离宫，火明势盛，水得归库，水势长流推进，混混无穷之水，滔滔不竭之流，其势就下，纳于东南。</div><div class="content-item text"><div class="content-type">正文</div>此水顺流，归于辰龙水库，故命书有人乘龙背入海之说。</div><div class="content-item text"><div class="content-type">正文</div>此水喜逢金生养，以白蜡金、钗钏金，天干有庚辛真金，地支有辰巳就位相生，戌亥为归源之地，此水逢剑锋金纯是金水，金箔金水木居东，都以吉论，六土之中，取庚辛丙丁为吉，遇火相刑，但有既济之妙功。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">长流推进之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">势极东南，傍离归库之水。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬辰</div>自库之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">神龙之水，喜雷电及春夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">壬辰自库之水，池沼水积之地，壬辰水为正印之水，含清明润沃之德，含容弘大，心识如镜，春夏得之作大福大慧，忌金来决破，再见壬辰称谓自刑之命，别辰无咎，见水土多都吉，惟忌见壬戌、癸亥、丙子之水生旺太过，此水则成汗漫无归。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜逢春夏，喜水土雷电。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌金多决口，忌大海水泛滥无归，秋冬逢之则奸诈无德。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸巳</div>自绝之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">不息之水归流入海，喜逢亥子乃发生变化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自绝之水，名曰涸流，若得丙戌、丁亥、庚子壮厚之土，其涸流可待蓄积，若得三合生旺之金生之，则源泉混混盈盈而进之，癸巳乙卯自绝自死之水，乃至阴退，藏真精啬养，凝成贵气格局之类，是为妙道君子，夙体常德有功于物。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">申子辰水局济身，巳酉丑金局化水，则源终归海，喜秋冬水旺。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌火旺灼伤，其水则成涸流。（注：涸流，干枯的河流）</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">金水归源格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此水为长流推进之水，滔滔不竭之流纳于东南，自归辰巳。</div><div class="content-item text"><div class="content-type">正文</div>此水喜金生养，金以见白蜡金、钗钏金为最吉，因为此二金天干庚辛为真金化水，地支辰巳就位相生，戌亥为金水归源之地，命书称之谓金水归源格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>再以剑锋金纯是金水，金箔金水木居东，见之皆以吉论。</div><div class="content-item text"><div class="content-type">正文</div>海中金以地支互换为吉，再有申酉合化主贵。</div><div class="content-item text"><div class="content-type">正文</div>砂中金则无取嫌弃。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金水归源格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">白蜡金、钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">剑锋金、金箔金主吉；海中金再见申酉合化主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此水嫌弃砂中金，不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">金到辰巳为福禄归源之旺地，故以长流水见金为金水归禄，主贵。但以砂中金为宝质坚硬，藏于砂内之金，其性寡恩少义，故以长流水见之嫌弃。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论土</h4></div><div class="subsection"><h4 class="subsection-title">壁上堤防格</h4><div class="content-item text"><div class="content-type">正文</div>长流水者，东流滔洼，若逢土重，则此水蹇涸，但以见土，有堤防之用。在六种土中，以取天干为庚辛丙丁为吉，逢戊己无用。</div><div class="content-item text"><div class="content-type">正文</div>比如，壬辰见庚子壁土，癸巳见辛丑壁土，为壁土堤防格，再以见木，主贵。</div><div class="content-item text"><div class="content-type">正文</div>再以见丙辰丁巳砂中土，庚午辛末路旁土，逢之以禄贵为吉。</div><div class="content-item text"><div class="content-type">正文</div>屋上土有戌亥对冲，见之则为不吉。</div><div class="content-item text"><div class="content-type">正文</div>城头土有戊己重土，此水逢之蹇涸，一生多有疾厄之灾。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">壁土堤防格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬辰见庚子壁上土，癸巳见辛丑壁上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再见木，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌城头土戊己重土，多有疾厄之灾；屋上土戌亥对冲，逢之不吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">长流水为东归长流推进之水，故以见壁上土为高崖筑堤之土，再以见木为堤岸护坡，主贵。但以城头土重土截流，屋上土戌亥冲堤，故不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水逢禄贵格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">盖以纳音六土中，以天干庚辛丙丁逢之为吉，戊己土无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">长流水者，千里推进之长流，需要金的滋养，砂中土在金的长生之地，路旁土天干属金，这些土含火化金而生水，故称之为水逢禄贵之格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">化龙归禄格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此水见火相刑，但也有既济之妙。</div><div class="content-item text"><div class="content-type">正文</div>比如，壬辰长流水，喜见丁卯炉中火、丁酉山下火。</div><div class="content-item text"><div class="content-type">正文</div>癸巳长流水，喜见戊子霹雳火、戊午天上火，是以天干合化为妙。覆灯火，以癸巳长流水尤喜见甲辰覆灯火。</div><div class="content-item text"><div class="content-type">正文</div>山头火以壬辰长流水尤喜遇乙亥山头火，命书称之谓化龙归禄格，主贵，这种格局取义更佳，也有龙归大海之说。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">化龙归禄格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬辰长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙亥山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水以壬辰喜见丁卯炉中火、丁酉山下火，主禄贵。癸巳喜见戊子霹雳火、戊午天上火、甲辰覆灯火，主禄贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">盖以乙亥有天门之水的意义，再以火到辰巳为归禄旺地，壬辰纳音为水，但有化龙之意，故称之为化龙归禄，也名龙归大海。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论木</h4></div><div class="subsection"><h4 class="subsection-title">水绕花堤格</h4><div class="content-item text"><div class="content-type">正文</div>此水见木，虽主漂流，但以见桑柘木癸丑为山，杨柳木癸未为园，若年时得此水园，命书称之谓水绕花堤格，必主大贵。</div><div class="content-item text"><div class="content-type">正文</div>见松柏木、石榴木，因为天干庚辛金化水相生，此水见之，则为有养，主吉。</div><div class="content-item text"><div class="content-type">正文</div>大林木、平地木虽天干嫌其土旺，但以癸巳长流水见戊辰大林木；壬辰长流水见己亥平地木，俱以吉论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水绕花堤</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">桑柘木、杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">松柏木、石榴木庚辛化水主吉，大林木以戊辰见癸巳为吉；平地木以己亥见壬辰主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">长流水喜山，以桑柘木癸丑为山。此水喜养木，杨柳木癸未为园林花木之库，故以水绕花堤之称，必主大贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论水</h4></div><div class="subsection"><h4 class="subsection-title">龙跃天门格</h4><div class="content-item text"><div class="content-type">正文</div>长流水者，滔滔不竭之流，混混不穷之水。此水以见同类之水，以为水源归流。</div><div class="content-item text"><div class="content-type">正文</div>比如，见涧下水，天干丁壬合化，主贵。</div><div class="content-item text"><div class="content-type">正文</div>逢天河水，则以雨露相资，主富。</div><div class="content-item text"><div class="content-type">正文</div>遇井泉水、大溪水则无益。</div><div class="content-item text"><div class="content-type">正文</div>但以逢大海水，乃属泉流所归，壬辰长流之龙，得癸亥，命书称之谓龙跃天门，春夏秋生为吉。</div><div class="content-item text"><div class="content-type">正文</div>此格如生于冬天，命书称之谓龙潜大海，乃宜柱中须先得金为妙。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">龙跃天门格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬辰长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸亥大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">春夏秋生名为龙跃天门，冬天生名为龙潜大海。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">长流水者，东归大海之流，癸亥为天门安静海水，再以壬辰为水龙归海，必显其威。但以春夏秋生者，龙行盛世，称之谓龙跃天门，冬天生者，阳气潜藏，则称之谓龙潜大海。</span></div></div></div><div class="subsection"><h4 class="subsection-title">刑冲克害格</h4><div class="content-item text"><div class="content-type">正文</div>盖以壬辰之水为自印之水，若再见壬辰，则以自刑，自刑则为自害。</div><div class="content-item text"><div class="content-type">正文</div>此水见戊戌冲，冲则泛滥，主凶。</div><div class="content-item text"><div class="content-type">正文</div>再以癸巳为自绝之水，名为涸流。若遇丙戌丁亥屋上土、庚子辛丑壁上土，其水则干涸以待，但柱中如得三合生旺之金生水而养之，则吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">雨露相资格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬辰长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">涧下水丁壬合化，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">井泉水、大溪水无益。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">长流水者，滔滔不竭之流，此水最喜天干庚辛丙丁之养，故以见丙午丁未天河甘露之水，称之雨露相资格，主贵禄。再以涧下水丁壬合化生养，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬辰见壬辰为自害，见戊戌对冲泛滥主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此水以癸巳长流水见丙戌丁亥屋上土，名为涸流干竭，俱以柱中逢三合为吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">盖以纳音阴阳交错为吉，如果壬辰见壬辰，则以同性相斥自害，辰戌相冲，水流决堤无归而泛滥成灾。屋上土为琉金屋瓦，见之截流，但以逢申子辰合化、巳酉丑合化为吉。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

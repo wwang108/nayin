@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辛亥 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">辛亥</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>辛亥地禄印，乃本旺禄休之金，得平火之革（甲辰尤可，以期革去重水，禄气得用），然后制于克伐，或冲击于金水之中，得以平安守职，富贵优游。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛亥金</div>钟鼎实物，喜木及火土</div><div class="content-item text"><div class="content-type">正文</div>庚戌辛亥坚成之金，不可见火，恐有所伤，若得水土相之为贵。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>庚戌火墓之金，有刚烈自恃之暴，秋冬庶几沉厚，春夏动生悔咎，君子执兵刑之权，小人恣犷悍之性。辛亥金禀干健纯明中正之气，春秋冬三时吉，夏七吉三凶，贵格乘之，体仁守义，若带刑杀，肆暴贪功。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>庚戌辛亥钗钏金</div><div class="content-item question"><div class="content-type">问答</div>“何以庚戌辛亥曰钗钏金？”答曰：“气方藏伏，形体已残，煆炼首饰已成其状，乃曰钗钏金也。”《论》曰：形已成器，华饰光燦，厌乎生旺，贵乎藏体，火盛伤形，终为不善。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>炉中之火，能克钗钏之金。</div><div class="content-item text"><div class="content-type">正文</div>丙寅、丁卯，干头、纳音皆火。庚戌、辛亥为钗钏金。遇之有刑凶。</div><div class="content-item text"><div class="content-type">正文</div>灯火照金钗，孤惸寥落。</div><div class="content-item text"><div class="content-type">正文</div>辛亥见乙巳是，此论女命。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未，值辛亥而女子娉婷。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未杨柳木也。女子生于春月，更逢辛亥为钗钏金，岂不腰脚婀娜、玉貌娉婷。诗曰：桑出罗兮柘出绫，绫罗妆束出聘婷。娉婷红粉歌金缕，歌与桃花柳絮听。壬子、癸丑亦然用此。但四柱喜见贵神，若见咸池主淫荡。若见己巳巽风者乃无主杨花，随风漂泊，亦非吉也。</div><div class="content-item text"><div class="content-type">正文</div>壬子、癸丑桑柘之材，值辛亥珠围翠绕。</div><div class="content-item text"><div class="content-type">正文</div>见前。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>钗钏金者，美容首饰，增光腻肌，偎红倚翠之珍，枕玉眠香之宝，此金藏之闺阁，唯宜静水，井涧、溪流，见之皆吉，多见则泛，海水贫夭。天河辛亥见之无妨。丙午真火，庚戌所忌，以午戌凑成火局，有伤此金故也。太阳火日生显耀，覆灯火夜间显耀，故皆宜见，但甲辰、乙巳与庚戌、辛亥相冲，阴阳交见为妙。戊子、己丑与丙午、丁未相持，二火忌迭，见之非贫即夭。炉中火，庚戌最忌，辛亥见之，丙辛化水稍吉。山下、山头俱不宜见，若有水济亦可。柱中有木，此金入于匣中，有福贵方吉。土见砂中，相生相养，更有涧下水助，荣华富贵。金喜剑锋，则成造化。箔金增光钗钏，须假微火济之，除此二金，别金无用。若命中只有金水，更无夹杂，为金白水清，在活法推之。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>钗钏金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">钗钏金是说庚辛金居于戌土火库，火盛伤形，柔金炼形，真金藏形，变为凤冠妆饰，用者为贵，藏者入匣，入匣则不显其贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画着金簪首饰，术士说钗钏金不如海中金多，表示其年生人财源不多，图谱上的象意也许是贵重，也许是不多，很难确切解释。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛亥金</div>锺鼎宝物，喜木火及土。正禄马、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>五行金的属性，运行到戌的位置，处于衰败，运行到亥的位置，处于病贫交加，所以，贫困的金处于衰败阶段，金的质量也在衰败中柔弱无力，称之为钗钏金。钗钏金是黄金受火炼而伤藏了自己的本来性能，铸成了贵重的首饰器以装点它人的富贵，来荣耀自己的光明。</div><div class="content-item text"><div class="content-type">正文</div>如果说贵重的首饰，就是黄金实用意义的最高贵阶段，那么，黄金也就没有什么可贵，最可贵的是物体能够求得存在其本性。</div><div class="content-item text"><div class="content-type">正文</div>如果将通过炼铸劫伤的钗钏金用为最高贵的装饰品，那么，出身艰辛的钗钏金用为人命来说，屈身荣耀虚渺的高贵，终究会吃抛弃的苦头。</div><div class="content-item text"><div class="content-type">正文</div>钗钏金出生的人，最怕遇火伤形，光彩全无，遇井泉水、涧下水、大溪水较为吉利，如遇大海水则石沉大海，命格难免贫困夭折，如遇砂中土，则可生身，成为朽金出土之贵。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>盖以金到戌亥之位，金气藏伏，其形体也藏匿，而经炼首饰，已成其形体状物，称为成器首饰之金，如果以其用，藏之以闺阁，则无所施为，金的功用也就此毕。</div><div class="content-item text"><div class="content-type">正文</div>若作为美容首饰，其功用则能增加其光彩，细腻其肌肤，作为偎红依翠之珍，枕玉眠香之宝金。</div><div class="content-item text"><div class="content-type">正文</div>此金惟宜静水，恰似宝金藏匣，含有福贵方吉，但见水多，其金则流泛，见大海水，则主贫困夭折。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">金气衰柔喻象之金。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">炼首饰，妆藏闺阁，妆饰成器之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚戌</div>坚成之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">刃剑之金，喜微火及木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">坚成之金，不可见火，恐有所伤，若得水土相助之为贵。庚戌火墓之金，有刚烈自恃之暴，秋冬庶几沉厚，春夏动生悔吝，君子执兵刑之权，小人恣狂悍之性。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜生秋冬，喜井泉、涧下、大溪之静水皆吉，但水多则金泛。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌火，尤以炉中火、丙午太阳真火大忌。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛亥</div>纯明之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">钟鼎之金，喜木火及土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">辛亥金禀乾健纯明中正之气，春秋冬之时吉，逢夏七分吉三分凶，贵格乘之礼仁守义，若带刑杀，恃暴贪功，如有水济，辛亥之金则成入匣福贵之命。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">适宜春、秋、冬三时吉，夏生七分吉三分凶，喜覆灯火、剑锋金。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌霹雳火、天河水，逢之非贫则夭。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">清水福贵格</h4><div class="content-item text"><div class="content-type">正文</div>盖以钗钏金为闺阁藏匣之金，枕玉眠香之宝，喜宜清静之水润身，故喜见井泉水、涧下水、大溪水，柱中没有刑冲克害为吉，称为清水富贵之格。</div><div class="content-item text"><div class="content-type">正文</div>但以此金虽为成器而受火炼，其质微弱，如果见水多，其金则泛，再见大海水其金则主贫夭。</div><div class="content-item text"><div class="content-type">正文</div>天河水以辛亥钗钏金见之无妨，但丙午天河水实质为真火，见到庚戌钗钏金以午戌汇成火局，则有自刑伤残之危。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">清水富贵格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚戌辛亥钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此格以钗钏金见井泉水，涧下水，大溪水，柱中无刑冲，为清水富贵格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以辛亥钗钏金见天河水也吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">丙午天河水为真火，庚戌钗钏金逢之自刑伤残。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以钗钏金见清水，为清水富贵格，但以丙午天河水为真火之水，以庚戌钗钏金逢之则伤其形体。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">凤冠成祥格</h4><div class="content-item text"><div class="content-type">正文</div>此格以钗钏金见太阳火以日生显曜，见覆灯火则以夜间生为显曜，虽然二火都不适宜，但以甲辰乙巳覆灯火与庚戌辛亥钗钏金相冲，以阴阳交见为妙。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>甲辰见辛亥，乙巳见庚戌，避免了柱中辰戌与辛亥相冲，命书称为阴阳交错格。</div><div class="content-item text"><div class="content-type">正文</div>这样阴阳交错的组合，钗钏金在白天生显示了自己的光华，夜间生衬托出了自己的细腻，则成为贵格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">凤冠成祥格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚戌辛亥钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛亥见甲辰覆灯火；庚戌见乙巳覆灯火，以夜生为妙，称之凤冠成祥。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此金见太阳火，以日生为贵；见覆灯火，以夜生为贵，也称阴阳交错之贵格，又为日耀钗金。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见覆灯火，以阴阳交换为妙，不然，有刑冲之伤。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种以生时为重点的阴阳交换格局，故称之为凤冠成祥，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">杂火宜忌格</h4><div class="content-item text"><div class="content-type">正文</div>由于钗钏金质微性弱，如果以见霹雳火与天河水，因为二火中戊子己丑与丙午丁未相持互相冲煞，二火不宜叠见，见之非贫即夭。</div><div class="content-item text"><div class="content-type">正文</div>炉中火以庚戌钗金最忌，如果以辛亥钗金见之，命中丙辛能化水稍吉。</div><div class="content-item text"><div class="content-type">正文</div>山下火，山头火俱不宜见，但柱中有水济之也吉，此金见水则入于匣中，有福贵方成贵格，但以多见水，此金永远入匣，则亦为不贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">杂火宜忌格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">钗钏金</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">本意</div>霹雳火与大河水并见，非贫即夭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">炉中火以庚戌钗金最忌，见辛亥钗金稍吉；山下火，山头火俱不宜见，但有水济此金入匣方成贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">但以此金多见水则永远入匣，也不为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金最忌炎火伤刑，但有水救入匣，也可入贵免灾，此金如果见水太多，入匣存身，也不为贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、杂论</h4><div class="content-item text"><div class="content-type">正文</div>盖以钗钏金虽以成器，但见土为生身，土以见砂中土相生养,更有涧下水相助，则成荣华富贵之势。</div><div class="content-item text"><div class="content-type">正文</div>金以见剑锋金则能修成补锋造化之功能，逢金泊金则能增加其光辉，但柱中须有微火济身方能显曜，除此二金别金无用。</div><div class="content-item text"><div class="content-type">正文</div>若命中只有金水，更无夹杂，则为金白水清格，以此推理而活用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金白水清格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">四柱只有金水，没有夹杂。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种清贵格，在这种格局中，只有金水，没有夹杂，主一生清贵廉洁，但以无冲破为吉，比如辰戌冲，巳亥冲则不为贵，再以见水太多，组成宝金入匣，也不为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">荣华富贵格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚戌辛亥钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚戌见丁巳砂中土，辛亥见丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">盖以见砂中土为金养旺土，再有涧下水淘洗，使钗钏金增光显耀。称之谓荣华富贵格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">微火剑金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见微火，比如：覆灯火，山下火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌炎火焚烧，其它金无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以见覆灯火最妙，也称之谓灯花拂剑格，再有钗钏金的装饰，则成为凤冠拂剑之贵。</span></div></div><div class="content-item text"><div class="content-type">正文</div>六火</div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

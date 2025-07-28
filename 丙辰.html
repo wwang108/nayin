@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丙辰 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丙辰</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丙辰禄自裕，乃发施养生之土，喜于火助，不畏掩冲，夫如是者，自然荣贵。</div><div class="content-item note"><div class="content-type">注释</div>包藏之土，最喜东南之火，如丙寅、丁卯、甲辰、乙巳、戊午等。最忌见木冲破，尤忌戊辰、戊戌之木。见诸金亦为喜，是遇子散鬼之道，甲午乙未尤喜。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙辰土</div>堤岸，喜金及木</div><div class="content-item text"><div class="content-type">正文</div>丙辰自库之土厚且壮，喜甲辰恶戊辰，此土凡不能伤，盖丙火也。辰为火偏库，土已成器，惟嫌戊戌己亥辛卯戊辰之木。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丙辰土为正印，建五福吉会之德，禀之者，类皆享大有为，不贵即富，惟犯冲者多为僧道。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙辰丁巳沙中土</div><div class="content-item question"><div class="content-type">问答</div>“何以丙辰丁巳谓之沙中土？”答曰：“气以承阳，发生已过，成齐未来，乃曰沙中土也。”《论》曰：包根荄而秀华蕚淫之，以水养之，以土吐英华而壮枝干，恶之者火，嫌之者金，木疎气散，究竟不宜。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>丙辰遇壬戌而珠沉沧海。</div><div class="content-item text"><div class="content-type">正文</div>丙辰为沙中土，壬戌为大海水。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>砂中土者，浪回所积，波渚而成，龙蛇盘隐之宫，陵谷变迁之地。此土清秀，唯喜清金养之，更得犯净之土，主早贵。钗、砂、剑、箔此四金清秀相助，如丙人见辛亥，为丙丁入于乾户，号曰驾海长虹，又有星拱北之论，皆贵格也。更得水相涵，尤为上吉，若无水而时日得天上火照，亦可。如丙辰、乙未、癸酉、戊午，此命有二金资养，却全无水，得太阳火照，故贵。如丁巳、癸卯、己未、壬申，此命二金资养，得天上火照，亦贵。然戊午太燥，己未稍缓，寿夭不同。水以井涧清洁为吉，若有金以养之，贵；如此土已得金养而日时有海水，便坏造化。癸亥轻清，丙人见之，限运逢，亦主显荣，余水无用。火喜太阳，在格号为朱雀腾空，主贵；山头、山下、炉中、覆灯诸火若无水济，主寿夭。木爰桑拓、杨柳，以此土能载二木故也。余木却以禄马贵人参之，如日中刑破冲克之木，虽见之有何造化？不如无为吉。五行最忌土相刑，路旁安身，有金木资生，亦主福庆；大驿往来，最不宜见，纵有金水亦凶，余土尤不为吉。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>沙中土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">沙中土是说土库既绝，丙丁火旺于辰巳，旺火复兴生土，火旺灼土流气，火灼土气，土藏于砂内，所以，象意引伸为沙中土，沙中土是龙蛇盘金之土，砂涌浪迹陆地。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的沙中土，好象很少而薄弱，术士说这是命中土很薄，怕遇木克，但以沙中土最喜桑柘木生长，再逢杨柳木，称之谓柳绿桑红格。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙辰土</div>堤岸，喜金及木。禄库、正印、华盖、截路、平头、聋哑。</div><div class="content-item text"><div class="content-type">正文</div>**条目1:**</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>五行中的土墓葬在辰，绝灭在巳，而丙丁火冠带旺于辰巳，旺火又复兴生了土，这种绝灭之土又复兴起来，就像在烈日下灼烤的砂粒，碎砂成土，所以称之为砂中土。砂中土本身并不值钱，但由于辰巳这两个位置虽然是土的墓葬之地，但也是金的长生之地，土绝了，又生出金子来，说明这种沙里含着金砂子。</div><div class="content-item text"><div class="content-type">正文</div>既然砂中土含着金砂子，需要清水淘洗出来方能显贵，所以，一个人如果出生在砂中土之年，生月又是砂中金，又出生在泉中水的日子里，清水潺潺，金砂出土，则称之为淘金出土之贵，这种命局遇上太阳火的流年，称之为七星显曜格，必为贵人高抬提携，荣曜当年，成为孔雀开屏之势。</div><div class="content-item text"><div class="content-type">正文</div>但由于沙中土是藏金微薄的金矿之土，不能遇炎火焚烧化身，此土则不能生金。</div><div class="content-item text"><div class="content-type">正文</div>由于沙中土内含有金的成份，过木反而形伤根荄，或者克了土的本性，而不能生金，只有桑柘木、杨柳木能在沙中土里生活，喜金并美，喜水淘金，但不能遇大海水沉金。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>砂中土者，浪回所积，波涌陆地而成，龙蛇盘隐之宫，陵谷变迁之地。</div><div class="content-item text"><div class="content-type">正文</div>砂中土者，丙火冠带于辰，丁火帝旺于巳，二火相遇，气以承阳，发生效应已过，成济未来之功，此土惟喜清金养之，更得清净之土主早贵。此土逢钗钏金、砂中金、剑锋金、金箔金这些清秀之金相助，则号称驾海长虹，更得水来相助尤为上吉。</div><div class="content-item text"><div class="content-type">正文</div>但此土如果见到大驿土往来踩轧，此土则不能翻身，主凶。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">阳气生发，喻象之土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">土过巳宫，成齐未来，陵谷变迁之土。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙辰</div>自库之土，厚且壮实，凡木不能克伤，是因丙火入辰为偏库之土，惟嫌戊辰己巳大林木，辛卯松柏木克而不合；再以丙辰土有五福吉会之德，逢者不贵则富，惟犯冲者多为僧道。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜逢金助实，柔木育物。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌冲杀则为僧道。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁巳</div>自绝之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">低湿地带之土，喜火及西北。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自绝之土，又不为绝，盖因一土居二火之下，父母之乡，乘天属之恩，故不为绝，木不能克，火多益佳，丁巳含东南旺数，得之者含容福寿。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜宜旺火及西北地带，或以东南方旺土之乡。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌水旺淹煞。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">驾海长虹格</h4><div class="content-item text"><div class="content-type">正文</div>砂中土者，凌谷变迁之地，波涌陆迹而成。</div><div class="content-item text"><div class="content-type">正文</div>此土清秀，惟喜清金养之，更得清静之土，主早贵。</div><div class="content-item text"><div class="content-type">正文</div>比如逢钗钏金、砂中金、剑锋金、金泊金，此四金为清秀之金相助，例如：丙辰砂土生人，见辛亥钗金，为丙午入于乾户，命书号称驾海长虹格。</div><div class="content-item text"><div class="content-type">正文</div>此格更得清水相涵，尤为上等贵格，例如，此格再见丙子涧下水，称为星拱北辰之贵格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">驾海长虹格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见辛亥钗钏金，也名丙入乾户。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">逢金箔金，砂中金、剑锋金、钗钏金相助，更得清静之土，主早贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙辰见辛亥，丙辛合化，亥为天户，故也名丙入乾户，再以亥为天门海水，钗金有妆点之意，又有古颂“天河配”中王母金钗画银河之说，故将此格称喻为驾海长虹格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">星拱北辰格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛亥钗钏金，丙子涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见钗钏金、砂中金，剑锋金、金箔金再得清静之土，主早贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种演变格局，在丙入乾户的格局上得涧下水，丙为阳明之火，子为正北坎水，故有在天为北辰之说，故以星拱北辰而命名，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">光明磊落格</h4><div class="content-item text"><div class="content-type">正文</div>此格是在星拱北辰的格局基础上，不用见水，而时日得天上火照耀，即称之谓光明磊落。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>丙辰砂中土，见乙未砂中金，再见癸酉剑锋金，更得戊午天上火，此命有二金资养，全无水济，而得太阳火照耀，形成了光明磊落的格局。</div><div class="content-item text"><div class="content-type">正文</div>再如丁巳砂土见癸卯金泊金，己未天上火，壬申剑锋金，此命有二金资养，更得天上火照耀，也是光明磊落之格。</div><div class="content-item text"><div class="content-type">正文</div>但是，这两种格局，其中有戊午太阳火太燥，己未稍暖，其寿命也有所不同。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">光明磊落格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙未砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸酉剑锋金，戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局是以砂中土得金而全无水济，再得太阳火的照耀，构成了光明磊落的格局，使墓葬在辰巳的砂土见太阳火又复兴起来，土又生出了金子，再逢运行水乡，相辅相济而主光明磊落，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">光明磊落格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁巳砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸卯金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">己未天上火，壬申剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见戊午天上火太燥，己未天上火稍暖，但其寿命也各有不同。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种光明磊落的格局从直观上看，剑锋金逢真火有退锋之危，从性格上分析，则以光明磊落，但从质量上看，遇水乡行运，其锋必威，遇火乡行运，其锋必减。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">龙蛇盘金格</h4><div class="content-item text"><div class="content-type">正文</div>砂中土者，波浪涌流退潮，形成的陆迹之地，而以为龙蛇盘隐之宫室，所以水以见井泉水，涧下水之清洁水为吉，若命中再得清金养之，称之谓龙蛇盘金之格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>如果此土已得金而养之，而日时再得大海水，则坏其造化，但癸亥大海水属清静之水，丙辰人见之，或者限运逢之，也主显达荣耀。此土见其它水则无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">龙蛇盘金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此土见井泉水，涧下水，再得清金养之，称之龙蛇盘金格主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此土以丙辰砂中土见癸亥大海水，或者运行大海水，主显达荣耀，见其它水无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此土得金，而日时再见壬戌大海水，则坏其造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">砂中土为波涌陆地，龙蛇盘隐之宫，涧下水为地中行流之水，再得清金养之，故称龙蛇盘金之妙。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">朱雀腾空格</h4><div class="content-item text"><div class="content-type">正文</div>盖因砂中土，属浪回所积之地，龙蛇盘隐之土，最喜太阳火照耀，命书称之谓朱雀腾空格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>其它火以见山头火，山下火，炉中火，覆灯火诸火若无水济，则主寿夭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">朱雀腾空格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">太阳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此土逢山头火，山下火，炉中火，覆灯火若无水济，则主寿夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此土最喜太阳火的照耀而绝地逢生，太阳火在六神中名为朱雀，故以砂中土见太阳火称谓朱雀腾空，但以见其它火若无水济就为不吉了。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论木</h4></div><div class="subsection"><h4 class="subsection-title">柳绿桑红格</h4><div class="content-item text"><div class="content-type">正文</div>砂中土者，波涌陆迹之土，陵谷变迁之地，其土厚实，能载二木，最喜桑柘木，杨柳木，此土逢之，命书称之为柳绿桑红格，主少年荣耀。此土见其它土却以禄马贵人论之，但如日中有冲破克之，也不会有什么造化，却就以不见木为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">柳绿桑红格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">桑柘木，杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见其它木，则以禄马贵论之</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌日中有冲破克之，则无造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以砂中土最适宜桑柘木，杨柳木的栽培而成功，故称之谓柳绿桑红格，一生主荣耀，但以见其它木，若无刑克冲破，以见禄马贵人分别论之。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论土</h4></div><div class="subsection"><h4 class="subsection-title">旁土福庆格</h4><div class="content-item text"><div class="content-type">正文</div>砂中土者，五行最忌逢土相刑。</div><div class="content-item text"><div class="content-type">正文</div>但以路旁土论之，此土逢之，则能安身，再有金木资生，也主傍土福庆之格。</div><div class="content-item text"><div class="content-type">正文</div>此土逢大驿土属驿道之土，常有人流往来，则最不宜见，纵有金水，亦主凶夭。</div><div class="content-item text"><div class="content-type">正文</div>见其它土尤为不吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">旁土福庆格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再有金木相资。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此土逢大驿土人流驿道的踩踏，纵有金水，也主凶夭，见其它土尤为不吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">砂中土者，浪回所积之土，路旁土者，旺火灼伤之土，所以，砂中土见路旁土最能存身，再有金木相资，称之谓旁土福庆格，主福禄。</span></div></div><div class="content-item text"><div class="content-type">正文</div>**条目2:**</div><div class="content-item text"><div class="content-type">正文</div>砂中土者，浪回所积，波涌陆地而成，龙蛇盘隐之宫，陵谷变迁之地。</div><div class="content-item text"><div class="content-type">正文</div>砂中土者，丙火冠带于辰，丁火帝旺于巳，二火相遇，气以承阳，发生效应已过，成济未来之功，此土惟喜清金养之，更得清净之土主早贵。此土逢钗钏金、砂中金、剑锋金、金箔金这些清秀之金相助，则号称驾海长虹，更得水来相助尤为上吉。</div><div class="content-item text"><div class="content-type">正文</div>但此土如果见到大驿土往来踩轧，此土则不能翻身，主凶。</div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

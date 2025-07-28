@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庚申 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">庚申</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>庚申神头禄，乃未坚柔末之木，春相夏旺，金重而得火，土重而得水，则为出常之器。（戊午、庚申，彼我得之超异）</div><div class="content-item note"><div class="content-type">注释</div>干支皆金，绝处成体。只喜生旺，见金旺则破命，夭。喜甲寅水对生，真气交互。见壬寅为还魂格，换旺有寿。喜子午而成格，居丑未而贫贱。水生而性柔，同类可比助，四时皆可用。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚申木</div>榴花，喜夏不宜秋冬</div><div class="content-item text"><div class="content-type">正文</div>庚申辛酉二金居木上，因金以成器，忌再见金，致毁其器，若见甲申乙酉水则入格也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">玉霄宝鉴云：</span>庚申辛酉属木，以相克取之，木性辛者惟石榴木，故配之以石榴者，取其性也。他木至午则死，惟石榴木至午而旺，盖得其性故也。庚申自绝木，为魂游神变之气，此生者类非凡器，常格主赋性颖异，豪放不羁，入贵格则是英杰之才，立不世之功。辛酉失位之木，木因金乡乘之者，涉世多艰，惟对以癸卯金，则刚柔相济，挺拔出群，决取巍科。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">烛神经云：</span>魂贵天游，故庚申之木，不嫌于死绝，独坐而守庚申是也。注云：庚申自绝木也，木于臓属肝，肝藏魂，木体绝，则魂游于天，故庚申之木不嫌死绝，所以贵于天游。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">鬼古遗文云：</span>辛酉期生旺。注云：辛酉气绝之木，欲生旺以为荣也。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>庚申辛酉石榴木</div><div class="content-item question"><div class="content-type">问答</div>“何以庚申辛酉曰石榴木？”答曰：“气归静肃，物渐成实。木居金中，其味辛，故曰石榴木也。”《论》曰：秋果成实，渐次凋零，土厚则根深蒂固，支干茂盛，果实坚刚。金多则损，甚木见则形焦槁，水润木并终始成齐。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>诸木凡六，总受制于剑锋。</div><div class="content-item text"><div class="content-type">正文</div>平地木斧斤亦虑，石榴木刀剑堪虞。</div><div class="content-item text"><div class="content-type">正文</div>戊戌、己亥为平地木，庚申、辛酉为石榴木。</div><div class="content-item text"><div class="content-type">正文</div>金箔之金，火不克而土不生，遇木则光华灿烂。</div><div class="content-item text"><div class="content-type">正文</div>壬寅、癸卯金箔金也。金既微矣，火亦不克土亦不生。一遇石榴木则光华灿烂，绚彩成文，庄严妙相，金碧辉煌。自然之理也。</div><div class="content-item text"><div class="content-type">正文</div>松柏石榴兼杨柳，六木会合最为奇。金箔白蜡海金沙，三宝同山亦可爱。</div><div class="content-item text"><div class="content-type">正文</div>车躓马颠，只为戊申逢柝木。</div><div class="content-item text"><div class="content-type">正文</div>土病于申，申为传送主道路，且为大驿土。倘寅字冲之则车躓马颠矣。</div><div class="content-item text"><div class="content-type">正文</div>石榴还当夏令。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>石榴木者，性辛如姜，花红似火，数颗枝头，累累多子，房内莹莹。干支纯金而纳音属木，乃木之变者也。可以移盆内而妆做山，故喜成器之土，以为根基。城头为上，屋上次之，然必阴阳交见，则丙辛、丁庚互官，戊辛、己寅互印，主吉。路、壁、驿、砂四土有山助之，亦吉。若无何用，见金砂中最吉。箔金显干支水木而纳音金，榴木干支金而纳音木，皆脱去本性而互换归旺。以木旺寅卯，金旺申酉，各得其位，谓之功侔造化格，主大贵。海中乙丑为山，更逢水助则吉。或壁上城头，亦得剑锋，就位相克，最凶。若先有砂金，能制其毒，亦不为害。水见天河，雨露相滋。井泉、溪涧，清水浇灌。大海太泛滥，非贫则夭，有艮土稍得。太阳、霹雳二火虽喜，不宜并见。炉中寅卯旺位本吉，再加别火则凶。若此木生于五月，日时止带一火，谓之石榴喷火，主贵。桑柘、大林、杨柳三木皆喜见之。见桑柘癸丑为山，见大林戊辰脱体，见杨柳花红柳绿，皆主功名。见松柏则强，见平地则大。若无别物夹杂，则禄绕红围，亦主富贵。如得城土为基，水运为助，享福优游，最为长久。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>石榴木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">石榴木是说深秋之际，是金旺克木，阴气升起的季节，万物休囚，惟有石榴木复兴成宝，这就是大自然的变化，因时生物的神秘现象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画有石榴树，枝头石榴至宝，有人说，石榴花开红又大，莹莹珍珠吐心房，表示珍贵的象征，也不无道理， 只是石榴木生于五月，称之石榴喷火，其人生活作风潇洒。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚申木</div>榴花，喜夏，不宜秋冬。建禄马、八专、杖刑、破字、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>申为七月，酉为八月，此时强金克木，万物凋零。只有石榴树接受秋金之气而结出果子，所以把庚申辛酉称之为石榴木。</div><div class="content-item text"><div class="content-type">正文</div>阳气潜藏秋风高爽，气候渐凉，万物结实，石榴树居于秋金之上，其味道与众不同，石榴既为秋宝，物以稀则为贵，这就是大自然变幻难测的克化合成。</div><div class="content-item text"><div class="content-type">正文</div>由于石榴木纳受庚辛金之气质，本性坚强结实，与土、木、水、金往往能化合成吉，唯大海水势起汪洋，相遇主贫困病痛，遇天上火为含珠吐贵，遇霹雳火为寒梅映雪，遇炉中火为梅兰竹，遇其它火则预示凶。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">石榴木常含富贵，俗话说</div>五月的石榴红似火，故出生五月的石榴命人，再有土的相助，则成为石榴喷火之贵，必是郎才女貌，但遇屋上土则不能生根。</div><div class="content-item text"><div class="content-type">正文</div>石榴树有孔雀开屏之贵，与柔情的杨柳木生活在一块，则称花红柳绿之格，如为女性，则成多情的柳眉杏口之佳人。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>石榴木者，本以属金，而纳音属水，是取其金木相克而反生出了石榴木，这就是大自然的奥秘之贵，特殊条件下生出了特殊的物质。</div><div class="content-item text"><div class="content-type">正文</div>盖以木性辛者，唯有石榴木，木居金地，萤萤珍珠味成辛，辛如姜花红似火，数颗枝头，妆饰山景，是取其时性之偏，故喜见成器之土为根基，以见城头土为上，屋上土次之。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">居金而生宝木之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">木宝味辛，偏性喷火，妆景之木。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚申</div>自绝之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">石榴木，喜夏不宜秋冬。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">石榴木居金而反得其木，是因金气纳于木而以为成器之木，忌再见金伐则致毁，若见甲申乙酉泉中水则入贵格。庚申自绝之木，称为魂游神变，遇此日生者类非凡器，主赋性颖异，浪漫生涯，入贵格则是英杰之才，立不世之功，因为庚申之木，不怕死绝，五脏属肝，肝藏魂木绝则魂游天下，而逢死绝则富贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜夏生喷火，逢无绝则富贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌再见金伐则致毁。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛酉</div>气绝之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">石榴籽，喜秋及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">辛酉失位之木，困于金乡，得之者，涉世多于艰难，惟喜见癸卯金箔金则刚柔相济，挺拔出群，决取巍科文印，称之谓魂贵天游。辛酉气绝之木，期盼生旺，欲以生旺则以富贵，喜逢海中金，更逢水助则吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜逢生旺则以荣贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌强金克毁，见大海水则贫夭。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论土</h4></div><div class="subsection"><h4 class="subsection-title">成土妆饰格</h4><div class="content-item text"><div class="content-type">正文</div>石榴木者，本以属金，而纳音属木，萤萤红似珍珠，盆栽妆点山景，是以为成器之木。</div><div class="content-item text"><div class="content-type">正文</div>此木见成器之土以为根基，故逢城头土为妆点山景之贵格。见屋上土则次之，然以阴阳交换相见为贵。</div><div class="content-item text"><div class="content-type">正文</div>比如，逢城头土，以戊寅见辛酉，己卯见庚申，互为印星，主吉。如果见屋上土，则以丙戌见辛酉，丁亥逢庚申，互为官贵，主吉。</div><div class="content-item text"><div class="content-type">正文</div>此木逢路旁土，壁上土，大驿土，砂中土四土有山助之也吉，若无山助，其土无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">石榴妆景格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚申辛酉石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛酉石榴木见戊寅城头土，庚申石榴木见己卯城头土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以辛酉见丙戌屋上土，庚申见丁亥屋上土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此木见路旁上，壁上上，大驿土，砂中土有山依靠也吉，无山见之无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木者，纳庚含辛之树，妆饰山景之木，室内可以盆栽，故以见城头土为妆饰山景，逢屋上土为孔雀开屏之贵，是以见成器之土为贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论金</h4></div><div class="subsection"><h4 class="subsection-title">功侔造化格</h4><div class="content-item text"><div class="content-type">正文</div>石榴木者，身居金位而生变为木，是大自然物质元素，在特定时空光条件下的奇妙变化，在相对条件下，此木喜金状实，以见砂中金最吉。</div><div class="content-item text"><div class="content-type">正文</div>以金泊金来论，金泊金干支属水木，而纳音是金，皆脱去干支本性，反而互换为旺，以常规，木旺寅卯，金旺申酉，各得其位，这种互换归旺的格式，命书称之谓功侔造化格，意思是平等互换，各得互利之格。</div><div class="content-item text"><div class="content-type">正文</div>这种格局的人生，一生必属无私，天下为公，必主大贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">功侔造化格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚申辛酉石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中金最吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">庚申逢癸卯金箔金，辛酉逢壬寅金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">侔是相等相济之意。石榴木者，纳庚含辛之木，常怀富贵之志，夏生石榴喷火，秋生气爽质坚，此木与金箔金相逢常以天下为公，必主大贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">海金石榴格</h4><div class="content-item text"><div class="content-type">正文</div>石榴木者，山景之树，妆点之木。</div><div class="content-item text"><div class="content-type">正文</div>此木逢海中金，其金为含金宝气，再以乙丑海金有山，此木依山畔海，其景妆实，更逢清水助之，则为海金石榴之美，主吉，或得壁上土，城头土以为根基，此格主贵。</div><div class="content-item text"><div class="content-type">正文</div>此木逢剑锋金就位相克，必是刀兵相见主凶，是以剑锋金其气凝毒，必须先有砂中金能制其毒，也不为害。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">海金石榴格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">以乙丑海中金有山可依，再逢清水助主吉，或得壁上土，城头土为根基，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">剑锋金就位相克，必主刀兵之灾，必须先有砂中金制其毒，也不为害。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木者，生于强金克木之月，得金气而其木质坚，故以见海中金含宝气，此木逢之最吉，称之海金石榴格，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论水</h4></div><div class="subsection"><h4 class="subsection-title">银河度石榴</h4><div class="content-item text"><div class="content-type">正文</div>石榴木者，居金位而素坚之木。</div><div class="content-item text"><div class="content-type">正文</div>此木得金气而味辛是以其木质反常，故以天河水为银河雨露之水，其水无形，其气养育万物，可以滋润石榴木，此木逢之，生机有源，其木可养壮观，称之谓银河度石榴。</div><div class="content-item text"><div class="content-type">正文</div>此木逢井泉水，大溪水，涧下水清水灌溉，其木则显更美，</div><div class="content-item text"><div class="content-type">正文</div>但见大海水泛滥，石榴木非贫困则夭折，如果命中有艮山之土，稍为安定。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">银河渡石榴</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">井泉水，大溪水、涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此木逢大海水，非贫困则夭折，如果命中有艮山之土，稍为安定。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木者，生于金气之时，而其木质属素坚之木，是以木质反常，天河水为无形之水，其甘露养育万物，故以见天河水为银河渡石榴，再得清水灌溉，山土为根基，必是成材之贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论火</h4></div><div class="subsection"><h4 class="subsection-title">石榴喷火格</h4><div class="content-item quote"><div class="content-type">引用</div><span class="author">石榴木者，居金位而生，得太阳火照耀，其木姜花红火，故有民谚云：</span>五月的石榴红似火之说，也是民谚有经验，故此木生于五月日时，命书称谓石榴喷火格。男命逢之，才华显达，女命逢之一代佳人。</div><div class="content-item text"><div class="content-type">正文</div>此木虽喜太阳火、霹雳火更显其旺，但二火不能并见。</div><div class="content-item text"><div class="content-type">正文</div>炉中火以寅卯旺于本位，主吉，但若再有其它火就位，此木则主凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">石榴喷火格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">太阳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">生于午月，日时柱中只见一火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌太阳火，霹雳火二火不能并见，主凶；炉中火就位相克，独见主吉，再有其它火则凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木居金位而生木，得太阳火照耀，石榴喷火其景美如画，生于五月日时，柱中只宜见一火为妙，男命才华显达，女命佳人风流。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4></div><div class="subsection"><h4 class="subsection-title">石榴脱体格</h4><div class="content-item text"><div class="content-type">正文</div>盖以石榴木依山畔水，见桑柘木以癸丑为山，此木可以相依，如果见大林木，也为脱体之木，但以戊辰合化为旺，统称之谓石榴脱体格，主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">石榴脱胎格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌仲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以石榴木纳庚合辛居金位而生出了木，遇戊辰而申辰合化水局，又以金见水流气化水而滋生了木，故以石榴木见戊辰称之为石榴脱体格，主贵，一生福禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">花红柳绿格</h4><div class="content-item text"><div class="content-type">正文</div>石榴木是生变之木，争强好胜之树，与杨柳木并美，命书称号为花红柳绿格，主贵；若见松柏木则主刚强。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">花红柳绿格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸丑桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木者，含珠吐贵之木，杨柳木者，春蚕吐翠，绿柳万丝之木，故以二木相见，称之谓花红柳绿格，主功名富贵，但忌女色坏运，再以见癸丑桑柘木有山可依，逢之醇香吐翠，常怀报国之志，心存万里之功德。</span></div></div></div><div class="subsection"><h4 class="subsection-title">绿远红园格</h4><div class="content-item text"><div class="content-type">正文</div>此木逢平地木，则显其伟大，如果命中没有其它夹杂冲破，命书称之谓绿远红园格，主富贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">绿远红园格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">平地木虽纳音为木，但以戌亥为天门之水，其水长生于申酉而资生了木，再以见戊戌有山的含意，此木依山畔水而石榴木喷火吐翠，故以见平地木为绿远红园之贵格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">享福优游格</h4><div class="content-item text"><div class="content-type">正文</div>还有一种命局叫享福优游格，是以城头土为根基，再得清水相助，这种命局最为福禄长久。</div><div class="content-item text"><div class="content-type">正文</div>这些格局在实际应用中，再加以权衡通辨，没有克破为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">享福优游格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再得清水助之</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">石榴木者，依山畔水之秀丽，以见城头土有山，再得清水相助，称之谓享福优游格，主贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

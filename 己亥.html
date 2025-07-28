@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>己亥 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">己亥</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>己亥地官承，乃粪水育苗之木，水多土而临旺（禄神得位，纳音相亲），皆有成就，然逢败绝为殃，亦主富贵荣盛。</div><div class="content-item note"><div class="content-type">注释</div>自生之木，生于春夏，济之以水，可生生不息。又因为土旺于亥子，所以禄神得位，尤喜于财，干支纳音水土皆喜。最怕金神得地，破纳音本命，如辛亥辛巳、癸酉、甲子。见壬申，如合月令则可取财，水生于申故也，不全为忌。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己亥木</div>蒿艾之芽，喜水及春夏</div><div class="content-item text"><div class="content-type">正文</div>己亥自生之木，根本繁盛，不忌众金，惟嫌辛亥、辛巳、癸酉之金，若见乙卯、丁未水，癸未木，未有不大贵。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>己亥木自生，挺英才秀拔之德，得之于特达处，类皆清贵少达。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>己亥之木，得时则清贵，非时则辛苦。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊戌己亥平地木</div><div class="content-item question"><div class="content-type">问答</div>“何以戊戌己亥为平地木？”答曰：“气归藏伏，阴阳闭塞，木气归荄，伏乎土中，乃曰平地之木也。”《论》曰：“形藏体伏，喜土相逢，若见乎火助，则子与母俱得以成其功，水势则恶乎，流波泛滥，滔滔而不知止，虽遇乎金，亦不畏其伤害形体，惟喜得水，相与并居，以俟春而同长，乎英华矣。”</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>平地木斧斤亦虑，石榴木刀剑堪虞。</div><div class="content-item text"><div class="content-type">正文</div>戊戌、己亥为平地木，庚申、辛酉为石榴木。</div><div class="content-item text"><div class="content-type">正文</div>己巳、戊辰，遇己亥而男儿超卓。</div><div class="content-item text"><div class="content-type">正文</div>大林木遇平地木，其参天之势。枝叶扶疏，垂荫万亩。岂不出人头地也？</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>平地木者，初生萌叶，始发枝条，唯资雨露之功，不喜雪霜之积，此乃地上之茂材，人间之屋木。戊戌为栋，已亥为梁，最宜互换见之，须以土为基，土爱路旁，为正格，更逢子午尤贵，以子午为天地正柱故也。屋、壁、城头三土以此木相资，中间有升化，尤吉；砂、驿无用，日时见之，主灾夭。火爱太阳、霹雳，最为显耀。炉中遇木则福，灯头无风则固，余火无水则凶。此已成之木，不宜剑金，有木相资则可；箔金增饰光辉。又天干合，地支旺，更有旁土为基，主大贵。余金无用。水见天河，为润泽，主吉。溪、海无山，俱凶。井泉、涧下虽吉，内甲申合丁丑为山，遇之尤吉。木见大林，有风摇动，主寿促。桑柘癸丑最吉，壬子己亥人，见之为贵，戊戌人不堪。松柏木倚辅平地为栋梁，更有土助，主贵。大抵此木恶金而喜水土，若生三冬时，得寅卯为寒谷回春，亦贵论也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>平地木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">戊己为中央土，戌亥指中国的地形西北为原野之地，古代大西北农民种地，以烧荒野草为种植手段，烧荒后再生的原野草木，喻象引伸为平地木，筑屋修房之木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上几苗干枯的平地木，按其象意，总不如松柏木常青有用，也不如大林木那样财源宽广，但以平地木若逢松柏木，即成为栋梁之材。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己亥木</div>蒿艾之茅，喜水及春夏。阙字、曲脚。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>戊己居中央之土，称谓之原野，亥为木的长生之地，树木生长在原野里，远远不是一棵树苗或一片树林，而被称之谓平地木。</div><div class="content-item text"><div class="content-type">正文</div>平地木的生长，惟有喜见雷行雨露的滋润，不喜欢霜雪浸蚀而落叶，比较起大树木来，林不丰也不广，多为被人采伐，因此不能见强金，尤其是遇到剑锋金之砍伐，则为不吉，喜水好土，遇木成林，不能见霹雳火焚烧毁身，如果生到冬天，再有涧下水相助，则成寒谷回春之贵命。比如，平地木生年的人，生月为涧下水，生日也为平地木，这样，平地木受水育而成林，寒冬秀林，则称之为寒谷回春之格，即使早年受些辛苦，但其乐无穷在后。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是平地木，生月为大溪水，木居旺地，再有大驿土相助，木植沃土，福地安居，则称之谓蓬莱出藕之贵，再遇长水东流，必显其贵。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>以五行之木，运行至戌亥，此时气归藏伏，阴阳闭塞，木气归根，伏于土中，平地木初生萌节，发放枝条，是以生长在地上的茂盛之材，人间修屋筑舍之木，或以地上蒿艾茅树之木。</div><div class="content-item text"><div class="content-type">正文</div>此木惟有逢雨露壮其成长，不喜霜雪凌寒之积，以戊戌为栋，己亥为梁材之用。</div><div class="content-item text"><div class="content-type">正文</div>此木以土为根基，最爱路旁土为正格，更逢子午尤为天地正柱，故以屋上土、壁上土、城头土相资尤吉。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">木气归根之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气归藏伏，阴阳闭塞，伏土之木。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊戌</div>土中之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">蒿艾之枯质木，喜火及春夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">土中之木，忌重见土，一生迍蹇，金不能克，盖金气至戌亥而散，遇金乃能致福，利见水多木盛而为贵格，戊戌之木孤根独立，和之以水火旺气，则有英明秀实之德，入格则文章显达，福禄始终，然乘天将之气，以能经历艰险节操不移，方见晚福。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜春夏，喜火，逢金致福，水多木盛为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌重土则一生艰难。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己亥</div>自生之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">蒿艾茅树，喜水及春夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自生之木，根本繁盛，不忌众金，若见乙卯、丁未水、癸未木则显其大贵。己亥自生挺直，英才秀拔之德，得之于处事和人，皆主清贵，主少年英才，由于是自生之木，则得时清贵、失时则辛苦。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜水济身，春夏繁盛，见乙卯大溪水、丁未天河水、癸未杨柳木则显其贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌嫌辛亥钗钏金、辛巳白蜡金、癸酉剑锋金，见之则不能发身。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论土</h4></div><div class="subsection"><h4 class="subsection-title">栋樑互换格</h4><div class="content-item text"><div class="content-type">正文</div>平地木者，地上茂树，人间屋木，戊戌为栋，己亥为樑，最宜互换，须以土为根基。</div><div class="content-item text"><div class="content-type">正文</div>此木见路旁土、壁上土、城头土三土以此木相资，中间有合化尤吉；见砂中土，大驿土无用，月时见之主灾夭。</div><div class="content-item text"><div class="content-type">正文</div>比如，己亥年生人遇路旁土，再得戊戌平地木，这种先樑后栋的位置互换，命书称之谓栋樑互换格，主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">栋樑互换格，天地正柱格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">已亥平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊戌平地木，再得路旁土为正格，更得子午为天地正柱，尤贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以见屋上土，壁上土，城头土逢合化尤吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">砂中土，大驿土无用，日时遇之主灾。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">戊戌为栋，己亥为樑，故称之为栋樑互换格，再以庚午路旁土生于子时，为天地正柱尤吉，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">炉火福禄格</h4><div class="content-item text"><div class="content-type">正文</div>平地木者，初生明节，始发枝条，惟喜雨露，此木逢太阳火，霹雳火最为显曜，称为神龙显曜格。</div><div class="content-item text"><div class="content-type">正文</div>见炉中火以木旺寅卯，又与其中卯与亥合，寅与戌合，再有清水助之，称谓炉火福禄格。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">再以见覆灯火无风，此木能固其身，主贵</div>甲辰逢己亥，乙巳遇戊戌为阴阳交错，无冲破为吉。</div><div class="content-item text"><div class="content-type">正文</div>见其它火若无水救，则主凶煞。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">炉火福禄格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊戌己亥平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己亥见丁卯炉中火，戊戌见丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再有清水制约</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">寅卯为木旺之地，又为火的长生之位，再以卯亥相合，寅戌相合，构成两种阴阳交错的格局，再有清水的制约，称之为炉火福禄格，主福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">神龙显耀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊戌已亥平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">太阳火，霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以覆灯火，甲辰逢已亥，乙巳见戊戌，名为阴阳交媾，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破，如果见其它火，若无水救，主凶煞。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">平地木者，栋樑之材，惟喜雨露，不喜霜雪，故以见天上火的照耀，霹雳火雷水资润而状发枝条，称之谓神龙显耀格，主贵禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论金</h4></div><div class="subsection"><h4 class="subsection-title">金箔增辉格</h4><div class="content-item text"><div class="content-type">正文</div>盖因此木为平地茂材，已成之木，如果逢剑锋金，再有其它木相助则吉，如再无其它木相助，此木逢之，则有砍削之危。</div><div class="content-item text"><div class="content-type">正文</div>此木逢金箔金增饰光辉，天干相合，地支逢旺，更有路旁土为根基，主大贵，称之谓金箔增辉格，金彩雕樑之贵。</div><div class="content-item text"><div class="content-type">正文</div>此木见其它金无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金泊增辉格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">金泊金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">更得路旁土为基。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见其它金无用</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">平地木者，栋樑之材，逢路旁土壮其根基，金泊金碧金描彩，故也称之谓金彩雕樑，见其它金无用。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论水</h4></div><div class="subsection"><h4 class="subsection-title">寒谷回春格</h4><div class="content-item text"><div class="content-type">正文</div>平地木者，成功茂材，不喜雪霜，惟喜雨露之资。此木喜见清水，逢天河水为银汉润泽之水，主吉。</div><div class="content-item text"><div class="content-type">正文</div>见大海水、大溪水有山则可依，无山俱凶。</div><div class="content-item text"><div class="content-type">正文</div>逢井泉水，涧下水虽吉，但以甲申泉中水合丁丑涧下水，以丑为山，最为上吉。</div><div class="content-item text"><div class="content-type">正文</div>大抵此木，恶金而喜水木，若生在三冬，时得寅卯，命书称之谓寒谷回春格，比如，平地木生于涧下水，再有炉中火助之，其人性格刚强，必是才华显达之人。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">寒谷回春格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">生在三冬，时得寅卯</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此木见天河水为银汉润泽，逢甲申泉中水，丁丑涧下水称之谓天禄赐福，再有炉中火助主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">逢大海水，大溪水无山可依俱凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这里包含三种格局：一，寒谷回春是以生于三冬见寅；二，银汉润泽是以见天河水资润；三，天禄赐福是以见清水再有炉中火助。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4></div><div class="subsection"><h4 class="subsection-title">松柏栋樑格</h4><div class="content-item text"><div class="content-type">正文</div>平地木者，初生明节，始发枝条，是生长在地上的茂盛之材，但以戊戌平地木，为孤根独立之木，己亥平地木为自生挺拔之木。</div><div class="content-item text"><div class="content-type">正文</div>此木若见大林木有风摇动根基，则主寿促；</div><div class="content-item text"><div class="content-type">正文</div>此木逢桑柘木最吉，但以己亥平地木见壬子桑柘木为贵，戊戌平地木则不可见。</div><div class="content-item text"><div class="content-type">正文</div>再以松柏木见平地木，则为刚柔倚辅，必为栋樑之材，更有土助，称为松柏栋樑材，主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">松柏栋樑格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">松柏木有肋</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以己亥平地木见壬子桑柘木主贵，戊戌平地木则不可见</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌大林木有风，摇杆拔根。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">平地木乃为筑屋栋樑之材，松柏木是驾殿栋樑之木，此二木相见，则成为功德建业之美，故称之松柏栋樑格。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

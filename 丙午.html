@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丙午 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丙午</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丙午神头禄，乃至阴之水，发于阳明，蒸气氤氲，何所不及，处金木旺（卯酉之地），而冲刑禄，得炎而财盛，始可贵矣。</div><div class="content-item note"><div class="content-type">注释</div>前文已云，气运之中，子为一阳，丑为二阳……至巳为六阳。午为一阴，阴气从此而向盛。午也为离明之地，水至此而成甘霖。不喜生旺，亦嫌死绝,故喜卯酉之地，日时重见二八门，可生万物。丙辛合化水，戊癸合化火。故水火之中，天河水、天上火由此而生。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙午水</div>月轮，喜夜及金水旺也</div><div class="content-item text"><div class="content-type">正文</div>丙午丁未银汉之水，土不能克，天上之水地金不能生也。生旺太过，反伤于万物，死绝太多，又不能生万物也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丙午至崇之水，体南方温厚之气，禀之者，类有道气灵变，颖异有为，魁众出伦。丁未具足三才全数，得冲正之气，禀之者主精神气全，性根高妙，尽变之道。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙午丁未天河水</div><div class="content-item question"><div class="content-type">问答</div>“何以丙午丁未曰天河水？”答曰：“气当升降，在高明火位，有水沛然作霖以通齐，乃曰天河水。”《论》曰：火弥空而夜水交之，水弥地下而夜火交之，生旺有济物之功，死囚有旱涸之患。金木相助，於功必厚，木火并行，炎势难当，必为损物也。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>涧下水澄清莹澈，天河水万派之宗。</div><div class="content-item text"><div class="content-type">正文</div>丙子、丁丑，丙午、丁未是。</div><div class="content-item text"><div class="content-type">正文</div>山头烈焰，也虞河汉甘霖。</div><div class="content-item text"><div class="content-type">正文</div>甲戌、乙亥为山头火，怕丙午、丁未之天河水。</div><div class="content-item text"><div class="content-type">正文</div>炉火剑金，银汉水会合而势愈锋芒。</div><div class="content-item text"><div class="content-type">正文</div>丙寅、壬申、丙午三者聚于八字之中，则火候匀停，淬砺功到，岂不成干将莫邪也哉？</div><div class="content-item text"><div class="content-type">正文</div>流泉贯海，达天津终始而环周无已。</div><div class="content-item text"><div class="content-type">正文</div>壬辰、壬戌、丙午会于一局，正如水流大海，量纳百川，复转昆仑，发源星宿。海中黄河之水天上来也。</div><div class="content-item text"><div class="content-type">正文</div>壁土难堪天水漏。</div><div class="content-item text"><div class="content-type">正文</div>庚子、辛丑遇丙午、丁未则有倾覆之患。</div><div class="content-item text"><div class="content-type">正文</div>庚寅、辛卯，逢天泽而寿比南山。</div><div class="content-item text"><div class="content-type">正文</div>庚寅、辛卯松柏木更逢丙午、丁未天河水而如甘霖降祥。或冬或夏，必享松龄。</div><div class="content-item text"><div class="content-type">正文</div>壬子生逢春月，得雨露而富积元黄女德。俭勤男子定招美妇，倘遇咸池奔淫无定。</div><div class="content-item text"><div class="content-type">正文</div>桑柘之木春生得气，诚然庚寅值冬天遇霜雪而节愈坚贞。松柏木生冬令，逢丙午为霜雪，岂不为霜雪岁寒之操也哉？</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>天河水者，乱洒六野，密沛千郊，淋淋泻下银河，细细飞来碧落。此乃天上雨露，发生万物，无不赖之。银河之水，土不能克，故见土不忌，而且有滋润之益。天上之水，地金难生，故见金难益，而亦有涵秀之情；生旺太过则为淫潦，反伤于物。死绝太多，则为旱干，又不能生物。要生三秋，得时为贵也。水喜长流、大海，内丙午宜癸巳、癸亥，丁未宜壬辰、壬戌，阴阳互见，尤吉。大溪乙卯为雷，井泉己酉为贵，俱以吉论。火喜霹雳，为神龙之火，与此水相济，而倏忽变化，云行雨施，岂有不贵？炉中火旺，大海水旺，如柱中得二火二水，上下上相济，谓之精神俱足，大贵格也。灯头有风，山头有贵，皆以吉论，又须以别水济之方吉。天上就位相克，则忌见之。木石榴、杨柳俱吉，大林有巽，平地有亥，亦吉。松柏、石榴遇丙辛合化，亦以吉论。《妙选》有灵槎入天河格，是取死绝无根之木，柱无土培则漂流，天河是也。土虽不能克，而柱逢庚午辛未，就位相克，土壅水滞，或水又冬生，则水结池塘，必主浊滥。余土如砂中、屋上皆吉，城头、大驿无用。壁上地支对冲，亦坏造化。水、金虽不能生，独辛亥钗金却属乾天，水在天上，只此最吉。余金亦取天干有庚辛、壬癸者为用，甲乙无益，再以禄马贵人参之始得。《妙选》又以水生人得庚子、壬子为云腾雨施，生春则旱，夏则潦，冬则寒，独三秋最吉。遇甲辰乙巳、庚辰辛巳，柱中有壬为云，有辰为龙，为风雨作霖；若生冬月，是为霜凝薄露，日时喜遇寅卯温和之气，可解斯冻，俱贵格也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>天河水</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">天河水是说午为太阳过宫，又有丙丁天干火，反而生出了水，只有天上银河水不能比及，生旺有济物之功，所以称之天河水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的天河水，是宇宙间无限之水，晚上天河出现，甘露遍布万物，人们理解为天上有一道天河，是王母娘娘一挥银钗画成的天河，如果说其年生的人命很旺，但也有苟且偷生者，其命一落千丈。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙午火</div>月轮，喜夜及秋，水旺也。喜神、羊刃、交神、平头、聋哑、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>丙丁属火，午又为火旺之地，而纳音的却是水，水从火中生出来，只有象银河这样的恒星河才会产生出水来，所以，喻象将丙午丁未之水引伸喻象为天河水。</div><div class="content-item text"><div class="content-type">正文</div>天河横空，元气高升，气势沛然作霖，化成甘露，降落成雨，又有着济生万物的功劳，这就强调了虽然水火相克，但宇宙间龙神生火，水自火出的大自然物理现象的变化，是饱含着现代科学物理实验的深奥玄机，这就是古人在长期观察天象变化，用智慧的模拟，形象了天的变化法则。</div><div class="content-item text"><div class="content-type">正文</div>由于天河水远在太空，地面五行对它来说非但无法克制，更能相得益彰而成生化济物之功。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">但由于天河水是宇宙间济生万物的阴气之水，内含有复杂的各种五行元素，谓有壁上土与之相冲，有损壁上土的造化之功，古谚云：</span>夫妻本是一层泥，去掉粗泥摸细泥。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>天河水者，火中之水，气当升降于高明之位，有水沛然作霖，惟有天上银河，才能有此水。</div><div class="content-item text"><div class="content-type">正文</div>此水乱漓六野，密布千郊，淋淋泻下银河，细细飞来碧落，乃是天上雨露，万物发生，无不依赖银河之水，故此水土不能克而见土无忌，而且见土有滋润之功，再以天上之水，地金不能生，故见金难以得益，但亦有涵秀之情。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">高明济世喻象之水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">升降高明，沛然作霖，济世之水。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙午</div>银河之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">月轮之水，喜夜及秋，水旺之地。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">丙午丁未银河之水，土不能克，天上之水，地金不能生，生旺太过反伤于万物，死绝太多又不能生万物，丙午至崇之水，体宜南方温厚之气，得之者，类有道气虚变，英异有为，魁众出伦之才。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜夜，宜秋水，体宜南方之生，得时得地者英才出众。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌生旺太过，死绝太多，生旺太过则伤物，死绝太多则不能育物。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁未</div>三才全数之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">火光之水，喜夜及秋水旺地。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">丙午丁未乃属银河之水，济世于天上之水则土不能克，地金不能生，生旺太过伤物，死绝太多则不能育物，得地于南方则显其英才有为，尤以丁未之水，具足三才全数，得冲正之气，禀于丁未之水者，主精神气全，性根高妙，能尽应变之道。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜夜及秋水，行运于南方则有为魁众出伦之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">生旺太过伤物，死绝太多不能育物。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">水映乾坤格</h4><div class="content-item text"><div class="content-type">正文</div>由于此水为天上银河特殊之水，若生于三秋者，得时为贵。</div><div class="content-item text"><div class="content-type">正文</div>此水喜见长流水、大海水。</div><div class="content-item text"><div class="content-type">正文</div>但再以参详，则以丙午天河水，喜见癸巳长流水，癸亥大海水。</div><div class="content-item text"><div class="content-type">正文</div>丁未天河水，喜见壬辰长流水，壬戌大海水，是以阴阳互见尤吉。</div><div class="content-item text"><div class="content-type">正文</div>再以喜见大溪水乙卯为雷，井泉水喜见乙酉为贵，俱以吉论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水映乾坤格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙午丁未天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙午见癸巳长流水、癸亥大海水，丁-未见壬辰长流水，壬戌大海水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格以生于三秋主贵，再以见大溪水乙卯为雷，井泉水乙酉为贵，俱以吉论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">天河水为天上银汉之水，见到地下东归海水之流，乾坤相映，生旺不决，故命名为水映乾坤，再生于三秋水旺之季，则有贵禄无穷之妙。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">精神俱足格</h4><div class="content-item text"><div class="content-type">正文</div>天河水为火中之水，最喜霹雳火为神龙之火，与此水相济变化而行云施雨，以济养发育万物之功德，主贵。</div><div class="content-item text"><div class="content-type">正文</div>再以见炉中旺火，大海旺水，如柱中得二火二水，上下相济，命书称之谓精神俱足格，主大贵。</div><div class="content-item text"><div class="content-type">正文</div>再以见灯头火有风，山头火有贵。皆以吉论，但又须以别水济之方吉。</div><div class="content-item text"><div class="content-type">正文</div>但以天上火就位相克，此水忌见。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">精神俱足格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见二火二水，以炉中火，大海水上下相济。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水以见灯头火有风，山头火有贵，再以别水济之俱以吉论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌天上火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">天河水者，火中之水，故以见水火有既济之功，则名之为精神俱足格，胸怀天下之志，蹈略世间之德。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论木</h4></div><div class="subsection"><h4 class="subsection-title">灵槎入天河格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此水为发生万物之水。</div><div class="content-item text"><div class="content-type">正文</div>此水见石榴木，杨柳木俱吉。</div><div class="content-item text"><div class="content-type">正文</div>见大林木有巽风，平地木有亥水都主吉。</div><div class="content-item text"><div class="content-type">正文</div>再以此水见辛卯松柏木，辛酉石榴木，则以丙午天河水逢之，丙辛合化互贵为禄，主吉，称谓之天河禄贵格。</div><div class="content-item text"><div class="content-type">正文</div>妙选有灵槎入天河格，是以此水逢死绝无根之木，主贵，但此格如柱中无土培植，则一生漂流天河（注：槎，意为木筏渡河）。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灵槎入河格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁未</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬午杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格如无土的培植，则一生漂泊天河。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">：以天河水为用，杨柳木则成木筏之功，故将天河水见杨柳木称之谓灵槎入河格，是木筏渡河的意思；再以见丁巳为火到禄位，此格如果没有土的制化，则一生漂泊于天河极位，就下不来了。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">天河禄贵格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙午天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛卯松柏木，辛酉石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水见石榴木、杨柳木、大林木、平地木俱主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙午天河水见辛卯松柏木、辛酉石榴木，皆以天干合化为禄贵天河，故称之谓天河禄贵格，但逢柱中有冲破就不吉了。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">水结池塘格</h4><div class="content-item text"><div class="content-type">正文</div>此水土虽不能克，但以柱中逢庚午辛末路旁土就位相克，则土塞水滞，或又以此水冬生，再见此土，则水结池塘，必主浊滥冬凝，遭受混混贫疾之苦。</div><div class="content-item text"><div class="content-type">正文</div>其它土如见砂中土，屋上土皆主吉。</div><div class="content-item text"><div class="content-type">正文</div>见城头土，大驿土无用。</div><div class="content-item text"><div class="content-type">正文</div>见壁上土地支对冲，也坏此水造化。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水绵池溏格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见路旁上则此水滞流，再以冬生，水结池溏混混疾贫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水见砂中土，屋上土皆主吉。城头土，壁上土无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌壁上土地支对冲，也坏此造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">路旁土者，火灼伤形之土，天河水逢之，阻滞水流，再生于冬天，则是冰凌溏塞，一生主疾贫艰辛。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论金</h4></div><div class="subsection"><h4 class="subsection-title">银汉度钗钏格</h4><div class="content-item text"><div class="content-type">正文</div>此水虽地金不能生之，但独以见辛亥虽然是钗钏金，却属天上风霜，水在天上，丙辛合化，此金则能生养，称之谓银汉度钗钏之贵格。</div><div class="content-item text"><div class="content-type">正文</div>再以见其它金，则取天干有庚辛壬癸之金者为用。如果天干是甲乙金者，见之无益，但又再以见禄马贵人参详始得妙选为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">银河渡钗钏</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙午天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛亥钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">以见其它金，则取天干有庚辛壬癸之金为用，天干甲乙金者，当见禄马贵人参详。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙午天河水见辛亥钗钏余，当取天干丙辛合化则能生养，故称之谓银河渡钗钏。见其它金，则依此类推。</span></div></div></div><div class="subsection"><h4 class="subsection-title">6、杂论</h4></div><div class="subsection"><h4 class="subsection-title">云腾雨施格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以天河水生人，柱中又得壁上土中庚子，桑柘木中壬子，命书称之谓云腾雨施格。</div><div class="content-item text"><div class="content-type">正文</div>但此格生人，生于春则旱，生于夏则潦，生于冬则寒。惟独生于三秋，则为贵，最吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">云腾雨施格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚子壁上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">壬子桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格生于春则旱，夏则潦，冬则寒，惟生于三秋为贵，最吉</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">天河水者，最喜见天干是庚辛壬癸的化生为雨露，故以见庚子壁上土，壬子桑柘木称谓云腾雨施，但以春旱，夏潦，冬寒的四季法则，惟独生于三秋最为高贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">风雨作霖格</h4><div class="content-item text"><div class="content-type">正文</div>再以天河水生人，柱中得甲辰乙巳覆灯火，或庚辰辛巳白蜡金，柱中再有天干壬者，为天河见云，以柱中有辰，为龙游天河，命书称之谓风雨作霖格。</div><div class="content-item text"><div class="content-type">正文</div>或者以此命生于冬月，是为霜凝薄露格，日时喜遇寅卯温和之气，可解此冻，俱为贵格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">，风雨作霖格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此水见覆灯火，白蜡金，再有天干壬水，又名龙游天河。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格以生冬月，称之霜凝薄露，日时喜逢寅卯解冻，俱为贵格，</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种变格的组合，以天河水生于春夏称风雨作霖，逢甲辰称谓龙游天河；见寅卯称天河解冻；生冬月谓霜凝薄露。</span></div></div><div class="content-item text"><div class="content-type">正文</div>总之，天河水四季如春，各有论说，依照天的法则，细细推之。</div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

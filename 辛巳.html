@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辛巳 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">辛巳</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>辛巳地官承，为资始之金，身坚而体柔，欲平火之制（甲辰、丙戌之类），若金助土成，则为光大之器。</div><div class="content-item note"><div class="content-type">注释</div>庚辰辛巳金，戊辰己巳木，多书都提到了“气”。这气令一来源于金木本身的特性。素来都言，子为一阳，丑为二阴。但在更早的五运六气理论之中，子为一阳，丑为二阳……至巳为六阳。有形之物经过巽风，过六阳巳而得刚健之气，或成英实，或仍体柔。但无一例外，都不喜旺火。此位金木，可以用平火，可以用水土，只要不犯忌讳，仍是相当的好命。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛巳金</div>金之生者杂沙石，喜火及秋</div><div class="content-item text"><div class="content-type">正文</div>辛巳自生之金，精神具足，体气完备，炎烈炽火而不忌，忌丙寅乙巳戊午之火，盖金生于巳而不能生，败于午绝于寅而气散，复见生旺之火，焉可当之。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>辛巳金为自生学堂，具英明瑰奇之德，秋冬得力十全，春夏七凶三吉，入贵格则主学行英伟，致身清贵，常怀济物之心。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">玉霄宝鉴云：</span>庚辰辛巳未成器金，宜见火，兼辛巳是自生，巳为火，得之者，光辉日新。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>庚辰辛巳白鑞金</div><div class="content-item question"><div class="content-type">问答</div>“何以庚辰辛巳谓之白鑞金？”答曰：“气渐发生，金尚在矿寄形于生养之乡，受西方之正色乃曰白鑞金也。”《论》曰：其金始捨母乡，子母当方分，当然自立须假火以成形，土盛则沉，盖谓方离土中，不应又见土故恶乎。土木金水等各得其中，方为荣贵。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>白蜡金、沙中金火来成器。</div><div class="content-item text"><div class="content-type">正文</div>庚辰、辛巳为白蜡金。</div><div class="content-item text"><div class="content-type">正文</div>覆灯之火，最怕巽风。</div><div class="content-item text"><div class="content-type">正文</div>甲辰、乙巳又怕见辛巳、癸巳也。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>白蜡金者，昆山片玉，洛浦遗珍，交栖日月之光，凝聚阴阳之气，形明体洁，乃金之正色也。此金惟喜火炼，须炉中炎火。然庚辰见之，若无水济，主贫夭，辛巳却以贵论，缘巳是金生之地，见丙寅化水逢贵故也。山下火生，早主荣贵，亦须木助方得。井泉、大溪俱为贵格。庚官在丁，辛官在丙，故庚见丁丑，官贵俱全；辛见丙子，不如癸巳更清，不贵即富。论中见木，逢多无益，以此金不能相克。若柱遇无气之火，却要木生，有禄马贵人方吉。见土只宜磨砌，方成器物，则吉，别土无用。金忌海、砂，为汨没，日时逢火则荣。若见清金，加水相助，火亦不爱，只怕冲刑。《妙选》有哨风猛虎格，以此金日时遇辛巳或乙巳是也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>白镴金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">白镴金是说辰巳之金，形质初凝，阴阳凝气，未能坚利，柔弱如白蜡，借意指铅锡之金，白镴金最喜砂土存身，同类相资润。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画着一支点燃的白蜡，旁边好象画着一个铅形的物体，象意模糊为白蜡在燃烧，术士说其年生的人，命很微薄，就象点燃的白蜡，微光淡薄。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛巳金</div>金之生者，杂沙石，喜火及秋。天德、福星、官贵、截路、大败、悬针、曲脚。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>庚金入于水库，凝天地阴阳之气息，交采日月之精华，形成于土层里，而后又与火在一起，形状性质初步形成，但还未能坚硬，形成五金中最柔之金（论：五金之属，上等金为黄金；次者白金、赤金，称为金、银、铜也；其次黑金为铁；青金为铅），铅为青金，锡为闲金，银铅之闲金即谓之白蜡金，所以说庚辰为阴阳凝气之金，辛巳为日月精华之金，日月阴阳之气交采炼为一体，皆称之谓庚辰、辛巳白蜡金。初质形成，其弱似黄，喜遇柔金柔火，方能显其富贵，如庚辰之金遇辛巳之金，或者乙巳之灯光，命书称之为哨风猛虎格，考试学业将有鸿图翰墨之兆。</div><div class="content-item text"><div class="content-type">正文</div>所以，庚辰年出生的人，生在辛巳之日，称之谓哨风猛虎格，必能成为翰林学子之说。</div><div class="content-item text"><div class="content-type">正文</div>假若是辛巳年生，生月为乙未沙中金，生日为丁酉山下火，这样形成柔金遇弱火锤炼，也能形成钗钏之贵，少年荣华，称之为扶珠吐艳之格。</div><div class="content-item text"><div class="content-type">正文</div>假若是庚辰年生，生月癸卯金箔金，生日乙酉泉中水，这样形成柔金遇弱水，称之谓龙泉探宝之格，少年方能显露才华。</div><div class="content-item text"><div class="content-type">正文</div>假若是庚辰年生白蜡金，丙辰月生于沙中土，再遇癸巳长流水日，属于有根之金，再遇长流水载金东流则称之为龙舟出水格，也能富贵。</div><div class="content-item text"><div class="content-type">正文</div>总之，白蜡金为性柔之金，喜柔火炼，遇弱水载金东流，遇柔金显贵，忌见强木克之夭折，强金则遭嫉妒，强火焚身，忌大海水沉金一生不得如意。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>以金居火土旺盛的地方，气质已经发生变化，金尚存于矿石，寄生于生养之乡，交接日月之光华，凝聚阴阳之气息，是形明体洁之金，命书说昆山片玉，洛浦遗珍，就是指白蜡金，象刚出昆山大石的无瑕白玉，水边河流入海砂金炮制遗留之铅锡宝金，然以庚辰铅锡之金见火炼而主贫，辛巳砂石之金见火炼则以成贵，是以其属性各有不同。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">形质初凝之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">金居火土之地，在矿寄形，未成器之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚辰</div>气聚之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">锡蜡之金，喜秋及微木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气聚之金，不用火制，其器自成，火盛反丧身，其器病衰，此金逢绝火无害，若见甲辰乙巳覆灯火，恶不可言。此金不能克众木，盖因我气聚存，有刚建沈厚之德，禀聪明疏通之性，春夏则祸，福倚秋冬，秀颖充实，入格则兼资文武，带煞则好弄兵权。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜秋冬，宜微木，入格则贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌火盛，避春夏。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛巳</div>自生之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">杂沙石之金，喜火及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">精神具足，体气完备之金，炎烈炽化而不会丧身，凡以金生于巳，而此金则不能生，此金败于午，绝于寅而气散，而后再以复见生旺之火。辛巳金为自生学堂，具有英明瑰奇之德，秋冬得力十全，春夏七凶三吉，入贵格则主学行英伟，致身清贵，与庚辛同见者光辉日新。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜秋冬得力，入格致身清贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌乙巳覆灯火，戊午天上火，生身之地不能再生而反克之。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">哨风猛虎格</h4><div class="content-item text"><div class="content-type">正文</div>盖因庚辰为气聚之金，辛巳为砂石之金，白蜡金交接日月之光华，凝聚阴阳之气息，乃为正色之金。庚辰白蜡金见辛巳白蜡金，以阴阳气息互补，日时再遇辛巳白蜡金或乙巳覆灯火，命书称之谓哨风猛虎格。</div><div class="content-item text"><div class="content-type">正文</div>此命生人以英材敏捷铸就基础，鸿图翰墨光辉日新。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">哨风猛虎格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚辰白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见辛巳白蜡金，或乙巳覆灯火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以壬辰为龙，庚辰为虎，辰巳为巽风出入之地，巳又为金的长生旺地，虎出巽风，故称为哨风猛虎格，主贵，命书又称之为翰墨英才。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">金龙福聚格</h4><div class="content-item text"><div class="content-type">正文</div>此格以庚辰白蜡金，见丁丑涧下水，盖以庚金官贵在丁位，丑为金库，丁丑为福聚之水，庚辰为阴阳凝气之金，庚辰又为金龙游水，故以金龙福聚论之。</div><div class="content-item text"><div class="content-type">正文</div>此格柱中再有丁酉山下火相助，官贵俱全，必为有道君子，贵达崇显之士。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金龙福聚格（也称金龙伏聚格）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚辰白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丁丑涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丁丑为山涧之水，这里指庚辰入于山涧之水化为金龙，故称之谓金龙福聚格，主贵，命书也称之为金龙游水。</span></div></div></div><div class="subsection"><h4 class="subsection-title">金蛇戏水格</h4><div class="content-item text"><div class="content-type">正文</div>此格以辛金官贵在丙，丙火官贵在巳，辛巳白蜡金见丙子涧下水，再逢癸巳长流水，水火即济，相得益彰，谓之金蛇戏水。柱中再有丙申山下火助力，则具英明魂奇之德，威武而置身清贵，常怀济物之心，一生不贵则富。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金龙戏水格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛巳白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙子涧下水、癸巳长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙申山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这里以蛇化龙，故以金龙戏水而名之，再以丙申山下火点缀山川，常怀济世之心，一生不贵则富。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">金水济世格</h4><div class="content-item text"><div class="content-type">正文</div>盖以白蜡金为正色之金，惟喜火，须得炉中火。然以庚辰金为铅锡之金，见火炼而无水济，则主贫困。辛巳为砂石之金，见火炼以贵格而论，缘由是以巳为金生之地，辛巳白蜡金见丙寅炉中火，再得乙卯大溪水，丙辛合化水为逢贵，乙庚合化金为强身，这样形成了官煞带贵，金水济身之强格，女性得之，必为女中强人。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金水济世格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛巳白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">乙卯大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以辛巳见丙寅，丙辛化水主贵，再见乙卯大溪水，巳为金、寅为火、卯为木，金木火旺，如果此格女性得之，必为女中强人，常怀济世之贵，故称为金水济世。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此金为初凝之金，遇无气之火，须有木助才能成器，有禄马贵人方吉。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、宜忌格</h4><div class="content-item text"><div class="content-type">正文</div>盖以白蜡金为洛浦遗珍之金，阴阳凝聚已经发生变化。若见木，逢多则无益，此金不能相克。如果柱中遇到无气之火，却要木助生之，有禄马贵人方吉。</div><div class="content-item text"><div class="content-type">正文</div>蜡金见土，只宜砂中土合化磨砌方成器物则吉，别土无用。</div><div class="content-item text"><div class="content-type">正文</div>金忌砂中金，海中金称汩没藏体，在日时柱中逢火则荣，只怕有刑冲克害，白蜡金则不能荣耀自身。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">砂土存身格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛巳白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌刑冲克害</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">白蜡金者，阴阳凝气于土层，砂中土最能存身，见其它土无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">同类相资格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中金、海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">日时逢火则荣</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌刑冲克害</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">白蜡金、砂中金、海中金这些金都是未成器之金，则以见火炼成为人间器饰之用，故以日时逢火则显其荣耀。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

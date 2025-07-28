@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乙丑 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">乙丑</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>乙丑禄官承，乃库墓守财之金，不嫌鬼旺之方，</div><div class="content-item text"><div class="content-type">正文</div>喜见禄财之地，水土砥砺，忽然有气，亦可以为器成材。</div><div class="content-item note"><div class="content-type">注释</div>见庚子，化成金神真气，又有换贵，上上之贵。</div><div class="content-item text"><div class="content-type">正文</div>尚嫌冲克，如己丑己未，冲克之余，土重金埋。</div><div class="content-item text"><div class="content-type">正文</div>和戊寅土可以组成昆山片玉，为何寅位金绝不忌？</div><div class="content-item text"><div class="content-type">正文</div>绝处逢母，戊癸真火，寅火生位炼金故也。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙丑金</div>为顽矿，喜火及南方日时</div><div class="content-item text"><div class="content-type">正文</div>乙丑自库之金，火不能克。盖退藏之金，苟无刑害冲破，未有不显荣者，独忌己丑戊午己未之火。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>乙丑金为正印，具大福德，秋冬富贵寿考，春夏吉中有凶，入格则建功享福，带煞类为凶会。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">玉霄宝鉴云：</span>甲子乙丑未成器金，见火则成，多见则吉。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲子乙丑海中金</div><div class="content-item question"><div class="content-type">问答</div>“甲子乙丑何以谓之海中金？”答曰：“气在包藏，而金居之使宁极则沉潜，乃曰海中金也。”《论》曰：其金形行水路，性弱体寒，生旺助之，可以济物；死绝加之，愈增困钝，当用火以成形，当用土以养性也。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>甲子、乙丑为海中金。</div><div class="content-item text"><div class="content-type">正文</div>海沙之金，偏喜陶熔炉冶。</div><div class="content-item text"><div class="content-type">正文</div>甲子、乙丑为海中金，甲午、乙未为沙中金，喜见丙寅、丁卯。</div><div class="content-item text"><div class="content-type">正文</div>乙丑再逢辛丑，须知坐破青毡。</div><div class="content-item text"><div class="content-type">正文</div>亦如上文。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>海中金者，宝藏龙宫，珠孕蛟宝，出现虽假于空冲，成器无借乎火力，故东方朔以蛤蚌名之，良有理也。《妙选》有珠藏渊海格，以甲子见癸亥，是不用火；逢空有蚌珠照月格，以甲子见己未，是欲合化互贵。盖以海金无形，非空冲则不能出现，而乙丑金库，非旺火则不能陶铸故也。如甲子见戊寅、庚午，是土生金，乙丑见丙寅、丁卯，是火制金。又天干逢三奇，此等格局，无有不贵。</div><div class="content-item text"><div class="content-type">正文</div>旧说甲子乙丑俱喜见炉中火。丙寅旺火，不喜木助。丁卯败火，却宜木助。覆灯、山下、山头诸火，性微不能炼金，故宜木助。天上火不能克金，须假凡火，再得水济，无冲破为佳。霹火就位相克，性主昏蒙，运如再犯，大凶。见木则无造化，以此金未能成器，不能制物故也。若月日有火而时遇木，却以财论，则吉。井泉、涧下、大溪、天河等水，无火，俱不宜见。海水亦不宜。</div><div class="content-item book_reference"><div class="content-type">典籍</div>然以《妙选》论之，则为贵格。据理，甲子见癸亥，逢生趋乾，何不可之有？路傍、屋壁、城头、大驿诸土，在日时柱中，天元支辰纳音俱无火制，主贱，中年夭。余见亦未然，以庚午辛未，戊寅己卯二土造化有情故也。如甲子见庚午，坎离相济。见辛未，官星带贵。乙丑见庚午，官贵互换。甲子见戊寅，绝地逢生，见己卯，天干合化。乙丑见戊寅，亦绝地逢生，见己卯则归禄带财。余土又当仍分年上禄马、贵人方准。沙土埋金，诚不宜见，有火亦不吉。柱中逢金，砂镴原未成器，海中又未成器，彼此无益，故无火不宜。剑、钗已成器，金相见有助。《妙选》谓之脱体化神，主贵。箔金亦好。如甲子见甲子，乙丑见乙丑，同类相资，柱中喜见一寅，见戊寅谓之昆山片玉，如甲子见乙丑，谓之干支连珠，非得火炼不可。即子平金神格之义也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>海中金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">海中金是说太极的开始，太阴气凝金于气海胞胎，等待太阳火冶炼冲出，鬼谷先生称喻为珠藏渊海。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">玉匣记图谱引伸为一片海水，画几个金元宝，象征海水中有金元宝，术士们将海中金说成是海水中藏着金元宝，其年生人财源通海，又说火克金，遇火年必有灾星。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙丑金</div>为顽矿，喜火及南方日时。福星、华盖、正印。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>甲乙原是人的头颈之象，代表万物萌芽的开始，子丑原是人体孕育之形，代表万物孕于胞胎，甲子乙丑都处于阴阳刚刚萌发的处女地。</div><div class="content-item text"><div class="content-type">正文</div>根据阴阳学说，子为湖海，丑为阴金处于金库，阴气至极而生金，水的帝旺在子，衰于丑，旺而反衰，阴气至极而生出了未成器之金。再以金的长生在巳，死于子，墓于丑，是阴金储蓄于气海胞胎之地，仿佛象下沉潜藏在海中的金子一样，故喻象引伸谓海中金。</div><div class="content-item text"><div class="content-type">正文</div>玉不琢，不成器，金不炼，不知贵，金沉气海，等于矿物入炉，阴阳为炭，鼎炉炼丹，火动生风，炼气化形，炼形取物。</div><div class="content-item text"><div class="content-type">正文</div>辨证哲学认为，内因是事物变化的因素，外因是事物变化的条件。海中金则是万物萌动的开始。</div><div class="content-item text"><div class="content-type">正文</div>海中金是生命力发展变化的开始，就象一个人的生命基因孕育在母腹气海胞胎，以待阴阳为化的条件成熟。假如一个人生年为海中金，生月有炉中火，生日有松柏木，有旺盛的生源给予条件，则成金猴还丹之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果生月为沙中土，生日为炉中火，此命即成为玉出昆岗之贵。</div><div class="content-item text"><div class="content-type">正文</div>由于海中金是沉于气海之阴金，最喜柔火炼之成形，但忌讳霹雳之火，因为霹雳火是神龙之火，神龙出自雷雨电火，见之则生灾变；忌大海水，因为水旺则石沉大海，一生贫困；喜土，但土厚金埋；喜木火同用，生旺成形，忌水流气，贫困病痛，见水，则以金木克之。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>甲子乙丑海中金，是以万物的生命基因之气，藏于气海龙宫（注：气海龙宫，借意指人体子宫为气海龙宫之喻象）虽有其名而无其形态，犹如人在母腹，宝气藏于气海龙宫，珠壁孕藏于蛟龙之室，称喻为未成器物之金，此金为宝气隐于龙宫，没有空间的五行神火冲击则不能出现，故假借戊午己未天上太阳火之火施功，方能成显为宝器，它形象的告诉人们，宝贵的生命基因，隐育于万物胞胎，宝贵的生命一旦在外因条件的协调下，生命即将从此开始。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">太极始生之宝气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">有名无形于气海未成器之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲子</div>从革之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">为宝物，喜金木旺地。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">其气散之，甲子金为进神，禀沉潜虚中之德，四时都吉，入贵格承旺气，则术业精微，主夺魁之荣。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜见戊申大驿土，戊申乃金的临官之地，其中土的长生在申位，又以金为土子，土旺了子必能生成；宜见癸巳长流水，因为金生于巳，金生了水旺于子，纳音各有所归，又称为朝元禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">丁卯、丁酉、戊午之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙丑</div>自库之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">为顽矿，喜火及南方日时。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自库之金，火不能克，但凡巳藏之金，自然无克害，一旦冲破库金，则不能显其荣华。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">乙丑为正印之贵，具有大福大德，秋冬富贵寿考，春夏吉中有凶，入格则建功享福。</span></div></div><div class="content-item text"><div class="content-type">正文</div>甲子乙丑乃属未成器之金，见火则成，多见则吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">带煞类为凶。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论火</h4></div><div class="subsection"><h4 class="subsection-title">蛤蚌隐海格</h4><div class="content-item text"><div class="content-type">正文</div>海中金以宝藏龙宫之珍，珠孕蛟龙之室为引喻，非借空冲不能成器，遇天上火施功而浮现，故东方朔给以蛤蚌隐海之誉称。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">蛤蚌隐海格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">珍珠隐藏于海中。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">珍珠隐育于蛟龙之室，非借天上火空冲施功才能浮现，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">蚌珠照月格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以甲子海中金，见到己未天上火，是以甲己合化互贵，因为海中金是无形之金，非空冲则不能出现，但天上火不能克金，须借凡火克化。比如：柱中有覆灯火遇水济（忌大海水），或者山头火、山下火遇木助，则成为宝金浮海之象，早年则富贵，命书称之为蚌珠照月格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">蚌珠照月格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">覆灯火遇水济，或山头火、山下火遇木助。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">蚌蛛映照月亮</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">己未是太阴火，故称月亮，珍珠辉映月亮。甲己化土生金，或遇覆灯火水济，或遇弱火木助，浮金现海，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">地三奇格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以乙丑海中金见丙寅丁卯炉中火，以天干乙丙丁为地三奇。</div><div class="content-item text"><div class="content-type">正文</div>盖因乙丑金为金库之金，又为顽矿之金，非旺火则不能铸冶。旧说甲子乙丑，都喜见炉中火，但丙寅旺火不喜木助，丁卯败火却宜木助，再以覆灯火、山下火、山头火性微不能炼金，故喜木助，天上火不能炼金，须得凡火，再得水济，但不能有冲破为佳。</div><div class="content-item text"><div class="content-type">正文</div>所以，乙丙丁三奇，时柱中再有木助，则为高贵显达之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">地三奇格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙寅丁卯炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">屋上土、壁上土、城头土、大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见霹雳火，性主昏蒙，再运逢大山则无造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">天干见到乙丙丁为地三奇局。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">天干顺布乙丙丁为地三奇，主大贵；逆布乙丙丁为假三奇，也有跳三奇主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">珠藏渊海格</h4><div class="content-item text"><div class="content-type">正文</div>此格以甲子海中金见癸亥大海水是不用空间火冲，命书称为珠藏渊海格，此格再得路旁土或者屋上土、壁上土、城头土、大驿土诸土浮金，柱中再有纳音火制化，必是才华隐欲的贵人。</div><div class="content-item text"><div class="content-type">正文</div>如果此格柱中无火制化，则主贫贱，中年夭折，但此格忌见霹雳火就位相克，性主昏蒙，运行再犯大山见木则无造化。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">珠藏渊海格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸亥大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">路旁土或屋上土、壁上土、城头土，大驿土，再得纳音火的制化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此局无火制化主贫，但忌见霹雳火；再以忌犯大山，见木则无造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">珍珠藏于深海。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">甲子海金为宝物，癸亥大海水为静水，故称珠藏渊海。此金遇土生浮，遇火冲疑，则成宝贵之物。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4></div><div class="subsection"><h4 class="subsection-title">天三奇格</h4><div class="content-item text"><div class="content-type">正文</div>天三奇格是指甲子海中金见戊寅城头土、庚午路旁土，诸土生金，城头土可以精卫镇海，以土生金而又浮金，路旁土得以海中金之水的灌溉而能育物，土又能生金，三者生养克化无不有贵之理，形成天上之三奇甲戊庚之贵格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">天三奇格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊寅城头土、庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">天干见到甲戊庚为天上真三奇主大贵，但以见到戊寅城头土、庚午路旁土为真奇贵人。也有见到其他甲戊庚，命中地支有牛羊者，是有天乙贵人星护命，再以命中财禄富贵分别论之。</span></div></div></div><div class="subsection"><h4 class="subsection-title">坎离相济格</h4><div class="content-item text"><div class="content-type">正文</div>此格以甲子海中金，见庚午路旁土，再见辛末路旁土，此为甲子与庚午坎离交媾相济，水土互生延年，甲子与辛未为官星带贵，又有路旁土得海中金之水的灌溉，则为官贵相济，相得益彰，则为福禄荣华，延年益寿之格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">坎离相济格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚午路旁土、辛末路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">甲子为海水，午未为天火，子午又为天地正柱，水火既济，故称坎离相济。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">路旁土是火灼伤形之土，遇甲子海水灌溉，其土发生育物生金之功，禾稼发荣之象，所以称之坎离相济之贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">绝地逢生格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以甲子海中金见戊寅城头土，为绝地逢生，以天干戊土生金，再见己卯城头土，天干甲与己合化生土而再生金，成为精卫填海，浮水生金之上格，柱中再有庚午路旁土，也形成天上三奇甲戊庚之格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">绝地逢生格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊寅城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格如果再见到庚午路旁土，则形成天三奇。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以甲子海金到寅位为金临绝地，但以海金见到城头土为镇海之金，故称之为绝地逢生之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">五行的金，运行绝地，古诗云：山穷水复疑无路，柳暗花明又一村。世界上任何物态，都在变化的相对条件下复兴发荣。</span></div></div></div><div class="subsection"><h4 class="subsection-title">归禄带财格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以乙丑海中金见戊寅城头土，亦为绝地逢生，再见己卯城头土，为归禄带财。是以城头土生海中金为食神归禄，命身财禄相生，命书称之谓归禄带财。</div><div class="content-item text"><div class="content-type">正文</div>此格以见其他土，乃分为年上禄马贵人方为准确，但以砂中土埋金，故不宜见，有火也不为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">归禄带财格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊寅城头土、己卯城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">单见戊寅城头土，也为绝地逢生。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌砂中土埋金，有火也不吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">寅卯二木到丑位，五行木性寄生冠带入于金库，故称归禄带财。但这种格局忌讳再见砂中土埋金，或者命中再有火生土，土厚则金不能浮现，如果单见戊寅城头土，则以金到寅位论为绝地逢生。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4></div><div class="subsection"><h4 class="subsection-title">脱体化神格（一）</h4><div class="content-item text"><div class="content-type">正文</div>脱体化神格是以甲子海中金是未成器之金，见到剑锋金、钗钏金等成器之金，相见有相得益彰之美，再以剑锋金见海中金为白刃凝霜增锋之利，钗钏金见海中金则显其宝金生光，若柱中再见白蜡金，则成为宝金连珠之上格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">脱体化神格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">剑锋金、钗钏金等成器之类金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再见白蜡金，则名为宝金连珠</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以甲子海中金见到成器之类的金，宝气化为装饰金，故称脱体化神，如果再见到白蜡金，则称之为宝金连珠格，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格运行太阳火的照耀，则辉光映射日月。如果运行山头火，则有退锋之疾。运行水地，则入匣流气。</span></div></div></div><div class="subsection"><h4 class="subsection-title">脱体化神格（二）</h4><div class="content-item text"><div class="content-type">正文</div>这种脱体化神格是以海中金为未成器之金，如果再逢砂中金、白蜡金也是未成器之金，虽也是宝金连珠，但这些金彼此之间同性相斥，互无补益，故以此命中无火不能克化而一生庸碌。</div><div class="content-item text"><div class="content-type">正文</div>但以这种格局命逢剑锋金、钗钏金成器之金，与海中金相见有助益为妙，再见金箔金为装饰之金，又为半成器之金，相见也吉，此格也为宝金连珠，相得益彰，形成第二种脱体化神格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">脱体化神格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">剑锋金、钗钏金、白蜡金、海中金，也称为宝金连珠。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以海中金再逢海中金，再有成器之类的金相助益，形成了第二种脱体化神的格局，实质上也是一种宝金连珠的格局。</span></div></div></div><div class="subsection"><h4 class="subsection-title">宝金连珠格（一）</h4><div class="content-item text"><div class="content-type">正文</div>此格为甲子海中金再见乙丑海中金，同位相得，海金连珠也称金神连珠，再逢诸火冶炼，则形成金猴还丹之贵，但金神为破财之神也能给人以福贵，必须看清钱财方能显贵，金神命如果行运到五行水旺之地，则以金水流气，就没有福气了。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">宝金连珠格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲子海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以海中金再见海中金，是以同类相资，故称为宝金连珠。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格以同类的海金相资，如果再运行水乡旺地，则成为金水流气，福气大减，但必须看轻钱财为贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">宝金连珠格（二）</h4><div class="content-item text"><div class="content-type">正文</div>此格是以乙丑海中金再见甲子海中金，子丑合化金库，谓之干支连珠，柱中再有诸火冶炼，海中之金则宝藏浮现，则以金神格论之。</div><div class="content-item text"><div class="content-type">正文</div>这种金神格也为破财之神，但也能给人以福贵，必须以钱财淡薄，但忌逢运行水乡，福气也就没有了。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">宝金连珠格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲子海金助音，再有其它火治炼，则宝金浮现。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">这种格局中，海金通过诸火冶炼而宝金浮现主贵，如果再运行水旺之地，金水流气，其金则没有福气，但必须以看轻钱财为贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">昆山片玉格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以乙丑海中金，再见乙丑海中金，为同类连珠相资，柱中喜见一寅，当见戊寅城头土，命书称为昆山片玉格。</div><div class="content-item text"><div class="content-type">正文</div>凡以城头土为土积艮山之土，见到海中金为精卫镇海，浮水生金，昆玉出岗之象。寅为艮山，丑也为艮山，艮山之土浮出海中宝金，官煞带贵，必是显达之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">昆山片玉格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">戊寅城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">乙丑海金为金库之金，再遇戊寅城头土中的寅为艮山。其一，是以城头土镇海浮金。其二，是以艮山为昆仑出玉之说，故称昆山片玉格。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

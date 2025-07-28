@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乙未 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">乙未</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>乙未禄印绶，乃强悍刚矿之金，欲金相用在火盛处，父子相乘，皆为珍宝。</div><div class="content-item note"><div class="content-type">注释</div>偏库之金，坐下不藏本音。和甲午过南方气散于地，故曰沙中金。喜于四季，旺火助之。亦可以用金木相成。坐下有库的纳音都忌刑冲有破，如己丑、己未火。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙未金</div>炉炭余金，喜大火及土</div><div class="content-item text"><div class="content-type">正文</div>乙未偏库之金，亦欲火制而土生之，则福壮气聚，忌己未、丙申、丁酉之火。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>乙未金在数为木库，又为天将，具纯仁厚义之德，无往不吉，贵格得之，是不世之英杰，魁镇士伦。常格得之，带杀冲犯，亦作小人中君子，眉寿人也。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲午乙未砂中金</div><div class="content-item question"><div class="content-type">问答</div>“何以甲午己未曰砂中金？”答曰：“气已成物，金居鬼盛之乡，碎若糜粉，乃曰砂中金也。”《论》曰：水济金辉，色光瑕莹，火助成形。木多财盛，土滞神昏，重金气盛，反为不美。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>海沙之金，偏喜陶熔炉冶。</div><div class="content-item text"><div class="content-type">正文</div>甲子、乙丑为海中金，甲午、乙未为沙中金，喜见丙寅、丁卯。</div><div class="content-item text"><div class="content-type">正文</div>甲午乙未，须逢丁卯乃为良。</div><div class="content-item text"><div class="content-type">正文</div>沙中金逢炉中火锻之成器。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>砂中金者，刚形布地，宝质藏砂，直教陶洗为珍，必须因人始贵。此金非炉火则不能制，但甲午见丙寅，寅中火生，寅午合局，柱无长生之土则燥，更值木助，主疾夭。丙午纳音虽水，而支干纯火，加逢尤凶。山头、山下、覆灯三火既有木生，克制此金，又须清水济之，决主少年荣贵。戊子、己丑，龙火相逢。子午有交媾之妙，甲己有合化之理，主贵，杂以凡火则不为奇。见水惟宜井泉、涧下、天河，清净则吉；长流、大溪，动而不静，并见则金泛不安；海水尤忌。见木有何关系？火衰却喜生扶，更有禄马贵人互换朝拱为上，如柱无火，逢一二木则危。若甲午见己巳，是谓采精金于黄碛，乃贵格也。金生于砂，得造化则吉，若更逢砂土，反有埋没之忧。路旁、大驿亦在所忌，有火庶几。城头戊寅，乙未喜见，谓之采精金于青沙，乃贵格也。唯丙戌之土中藏火库，乃喜见之金，为同类最喜，清气为上。海中，白蜡有火制亦得。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>沙中金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">沙中金是说火旺金败，火衰金旺，金入未土木库，金衰不能制木，藏于沙土之金，喻象引伸为沙中金，沙中金遇清水淘金则显其贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上所画沙中有黄金，世人引伸为沙中的金子，等于大海捞针，其年生人，就象沙子里找金子，一生很难得到财富，这是一种迷信的误解。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙未金</div>炉炭余金，喜大火及土。华盖、截路、曲脚、破字。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>午为火旺之地，又由甲乙木生火，火旺而金败，未为火衰之地，火衰了金则冠带才能成长；火刚衰败，金刚有形，金入未土木库，衰而返旺之金，又不能制木，因而也不能自夸，比喻为沙中金。</div><div class="content-item text"><div class="content-type">正文</div>沙中金如遇山下火、覆灯火等属性温柔的火炼，必主少年荣华，所以沙中金生年的人，生月是山下火，生日是覆灯火，则称之晨曦曙海之格，玉面朱颜之贵，必主少年荣华。</div><div class="content-item text"><div class="content-type">正文</div>但就其沙里淘金的意义来讲，金砂最怕长流水冲失，大海水淹没，如有井泉水的淘洗，天上火的照射，天河水的孕育，则显其贵，所以沙中金生年的人，如生在泉中水月令，天上火日子，则是金沙丽日之命格，再遇覆灯火年的锥炼，则是金簪冠珠之贵。</div><div class="content-item text"><div class="content-type">正文</div>沙中金最忌旺火的刑身焚烧而流矢（天上火除外），如遇沙中土、路旁土、大驿土则遭黄金埋土的覆盖，而成英雄无用武之地的屈辱。所以，即使是沙中金排成系列，如不遇流年柔火锥炼，沙中金则是有价而无用武地之金。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>砂中金气已成功，质自坚实，虽然混于砂内，但也独存于砂内，居于火位，又炼于火位，形刚布于大地，宝质藏于砂内，直教淘洗为珍品，非得炉中火炼，始觉贵重，但此金必须以人的出生五行配属分别而论。比如，砂中金见火则燥，再有木助，则主疾夭贫洗，虽以见丙午纳音为天河水，而丙午干支属纯火，非有其它清水相助之，才能为吉，不然加逢尤为凶。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">金旺逢火之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">质坚混于砂，居火炼于火，造器成物之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲午</div>自败之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">百炼精金，喜水木土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">强悍之金，过火生旺其器乃成，甲午金为进神，魁气具刚明之德，入贵格主科场建统众之功，非时带煞则暴戾克忍，寡恩少义，金伤强悍，又叫沙石金刚矿，喜杀抑火革，爱官鬼，壬子木没有甲午则性柔，甲午壬子配则阴阳专位，却有炳灵炜气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜逢秋冬吉，春夏凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">丁卯炉中火、丁酉山下火、戊子霹雳火，遭焚烧夭折。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙未</div>偏库之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">炉炭余金，喜大火及土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">偏库之金，宜火制而土生则福壮气聚，乙未之金在数为木库，又为天将聚气之金，有纯仁义厚之德，无往不吉。贵格得之则成不世之英杰，魁镇士伦；常格得之带煞冲犯也作小人中之君子眉寿之人。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜土旺济身生之。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌己未天上火、丙申丁酉山下火，炼身遭难。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">金猴还丹格</h4><div class="content-item text"><div class="content-type">正文</div>盖以砂中金宝质藏于砂内，直教淘洗为珍，非炉中火不能制化。</div><div class="content-item text"><div class="content-type">正文</div>但甲午砂中金见丙寅炉中火，寅中生火，寅午又合火局,柱中有长生之土制约，则成金猴还丹之贵，比如，城头土、屋上土，见其它土则有覆盖砂金之危。</div><div class="content-item text"><div class="content-type">正文</div>此格柱中若无土制约，再有木助，主疾夭，而且，砂中金如见天河水，丙午纳音虽为水，但丙午支干属纯火，加逢尤为大凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金猴还丹格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲午砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">城头上、屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格无土见木主疾夭，但以见其它土则有覆盖砂金之危，再以砂中金见大河水尤为大凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">甲午金者，砂石金刚矿金，其性刚强之德，寡恩少义，遇丙寅炉火冶炼成器，但须有城头土，屋上土的制约，故名为金猴还丹，其金藏砂，土重则金埋。</span></div></div></div><div class="subsection"><h4 class="subsection-title">济水淘金格</h4><div class="content-item text"><div class="content-type">正文</div>此格以沙中金初步形成，未能有用，须柔火炼，诸如山头火，山下火，覆灯火，这些火虽纳音为火，但支干既有木生克制此金，又须清水济之，诸如泉中水，涧下水，使金砂淘洗为珍贵，火炼成器，必主少年荣贵，但此格不能火盛，火盛则金败。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">济水淘金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">山头火，山下火，覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">必须有涧下水，泉中水淘洗。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格忌火盛则金败。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">砂中金者，质坚性刚，混于砂又独存于砂，直教淘洗为珍品，以清水为宜，故以见涧下水，泉中水为济水淘金格，盖以砂中金冶炼成器，但在此格中，火太盛则金败无存。</span></div></div></div><div class="subsection"><h4 class="subsection-title">神火交媾格</h4><div class="content-item text"><div class="content-type">正文</div>此格盖以沙中金见戊子己丑霹雷火为妙。</div><div class="content-item text"><div class="content-type">正文</div>霹雷火为龙神之火，子午相逢有龙神交媾之妙，夫妻必有和合之美，命中又有甲己合化之理，主贵。</div><div class="content-item text"><div class="content-type">正文</div>但此格见其它火则为不奇。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">神火交媾格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊子己丑霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格主贵，但以见其它火则不奇。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">以纳音而论，霹雳火为神龙之火，砂中金为藏砂之金，只有见神火震颠，才能冲出砂金，以地支而言，子午为天地正柱延年，丑未为金木交泰，故称谓神火交媾，但以其它火到位，则为不吉，此格以夫妻之爱，虽冲而交媾之美。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">青砂采金格</h4><div class="content-item text"><div class="content-type">正文</div>盖以砂中金如果四柱中无火，本身火衰则喜生扶，逢一二木互克有危，但若甲午砂中金见己巳大林木，天干甲己合化，命书称谓采金于青砂，乃主贵格。</div><div class="content-item text"><div class="content-type">正文</div>还有一种格局，是以金生于砂，得造化则吉，若逢砂中土，反有埋没之忧，就连路旁土，大驿土亦在所忌，但这种格局以有火为吉，另外，以乙未沙中金，见戊寅城头土，也为青砂采金，乃主贵格。</div><div class="content-item text"><div class="content-type">正文</div>再以砂中金见丙戌屋上土，乃因天干丙为纯火，戌为火库，逢之以吉为论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">青砂采金格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲午砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己巳大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格天干以甲己化土生金，又以地支巳为金的长生之地，大林木生于金的长生之地，又甲午砂金见面，故称之为青砂探金，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">青砂采金格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙未砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊寅城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙戌屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">砂中土，路旁土，大驿土有埋金之危，但以有火为吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">寅为戊土长生之地，功德以于库养万物，再见丙戌屋上土，寅木生火，戌为火宿之库，砂金逢戌库中的火冶炼，故称为青砂采金，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论金</h4></div><div class="subsection"><h4 class="subsection-title">砂金得意</h4><div class="content-item text"><div class="content-type">正文</div>盖以砂中金喜见同类，最喜青气为上，以见海中金、白蜡金，再有火制称为砂金得意格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">砂金得意格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">海中金，白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再有火制</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">砂中金为坚硬之金，海中金是宝气之金，白蜡金为初凝之金，砂中金在这些金的并美之下，显得更加伟大，再有火的制化，则称之为砂金得意，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论水</h4></div><div class="subsection"><h4 class="subsection-title">清水养金格</h4><div class="content-item text"><div class="content-type">正文</div>再以砂金珍宝，宜见清水，以井泉水、涧下水、天河水清静之水则吉，见长流水、大溪水、大海水流动而不静，更以并见则金氾流气而主不安，大海水尤忌之为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">清水养金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">井泉水，涧下水，天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见长流水，大溪水，大海水此金流动不安，尤忌大海水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">砂中金者，质坚性刚，混于砂又独存于砂，直教淘洗为珍品，故以见清水称之谓清水养金，但以见其它水流动不安，此金则无存身，尤忌大海水，此金则以石沉海底，杳无音讯。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

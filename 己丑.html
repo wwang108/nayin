@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>己丑 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">己丑</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>己丑神头禄，乃余光不凡之火，惟期体重不假奇财，若禄有资而命有成（见火光耀），方入康荣之贵局。</div><div class="content-item note"><div class="content-type">注释</div>之前戊辰时并未言明，神头禄就是干支一气。</div><div class="content-item text"><div class="content-type">正文</div>干支纯土木金水火，皆承一方之气。既如此，己丑干支得土之卦气，最喜丙午天河之水，亦喜戊午丙寅助火之势，</div><div class="content-item text"><div class="content-type">正文</div>干支得生，福禄坚厚。见甲寅夫妇相济，有清贵之德。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己丑火</div>电也，喜水及春夏、得土而晦</div><div class="content-item text"><div class="content-type">正文</div>戊子己丑水中之火，又曰神龙之火，遇水方贵，为六气之君可也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>戊子含精神辉光全实之气，作四时保生之福，入贵格则为大人君子，器宇含弘，富贵终吉。己丑为天将之火，又为天乙本家，含威福光厚之气，发越峻猛，贵局乘之，为将德，为魁名，而建功。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">烛神经云：</span>己丑胎养之火，其气渐隆，若遇丙寅戊午之火助之，可成济物之功。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊子己丑霹雳火</div><div class="content-item question"><div class="content-type">问答</div>“何以戊子己丑为霹雳火？”答曰：“气在一阳，形居水位，物未成收，水中之火，乃曰霹雳火也。”《论》曰：龙诵火经，圣诵水经，遇东南而升腾，逢西北而象暗，风雷际会终归变化之乡，旱涸加临，必作无成之兆。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>天上火、霹雳火不怕涧泉。</div><div class="content-item text"><div class="content-type">正文</div>戊午、己未，戊子、己丑是。二火不怕甲申、乙酉。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>霹雳火者，一缕毫光，九天号令，电掣金蛇之势，云驱铁马之奔。此火须资风水雷方为变化，若五行得值一件，皆主亨通。如日时见大海癸亥，为引凡入圣，己丑为上，戊子次之。见大溪乙卯为雷火变化，己丑为吉，戊子忌之。辰巳为风，运中遇之尤佳。天上水名为既济，主吉，遇之者禀性含灵，聪明特异。长流无用，涧下虽就位相克，此神火也，不忌，有风亦显。五行见木，辛卯有雷，大林有风，平地有天门，与此火相资，余木无用。土见路旁，加巽则吉，砂中丁巳有风，己卯有雷，得泉助之，亦主贵显。剑金加水，海金遇风，蜡金逢涧，皆吉，余金无用。见炉中丁卯为吉，戊子逢丙寅，太燥性凶，主夭。己丑见丙申，却得戊子，忌之。灯火东南巽地，有风最宜。戊午、己未天上火，日时遇之，防刑克。再考《妙选》，有烈风雷雨格，即霹雳见天河是也。有天地中分格，即戊子见戊午是也。有雷霆得门格，即戊子己丑日时遇卯是也。三格纯戊午，与前说不同。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>霹雳火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">霹雳火是水居正位，雷雨交加，闪电如金蛇当空，阴阳交错放电，此火出水而生火，古人认为，非龙神之火而不能比拟，是天地间物理放电刑罚万物，比喻为龙神出世之象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画意有横空电击，霹雳火之象，好象霹雳火年生人，性格象雷霆万钧之暴，一剎间烟消云散，一切大事负于九宵云外。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己丑火</div>雷也，喜水及春夏，得地而晦。华盖、大败、飞刃、曲脚、阙字。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>丑的五行属土，子的五行属水，水居正位，而与之为伍的丑土又属于金库能够生水，天干戊己乃属云雾之土，按理说土水相克为洪水流泥，而纳音所出的却是火，这是水中之火，非神龙之火不能比拟，神龙所到，无非风雨雷电之火，故喻象引伸为霹雳火。</div><div class="content-item text"><div class="content-type">正文</div>霹雳火势如电闪龙飞，铁马奔驰，变幻万象，所以霹雳火与水、土、木相遇，或吉或无害，遇大海水为龙行大海，遇大林木为神龙横空出世，所忌即火，因为二火相遇，性燥为凶。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是霹雳火之人，生月为大海水，生日为大林木，为龙行大海，形成搅水翻江之势，必是神龙出世之格，虽然一生不得安宁，专惩邪门歪道，但其贵至比天高。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为霹雳火，生月为大林木，生日为长流水，则是龙行夜雨，骊龙东奔之格，再遇流年大海水，其人必定神通显达，荣耀当年。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为霹雳火，生月为长流水，生日为松柏木，其材艰辛成长，坚实耐寒，形成盛夏寒松柏，再遇流年剑锋金，必为有用之材，富贵一生。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为霹雳火，生月为天河水，生日为大林木，则为龙行夜雨，好施善舍，仗义疏财，则称龙潭济世格，一生朋友四海，常享福禄。</div><div class="content-item text"><div class="content-type">正文</div>霹雳火生年的人，性刚暴躁，胆识过人，艰辛取财，肯遭小人嫉妒，难免遇有劫难缠绵。但遇贵人相携，晚年可享太平，忌与烈火相交，逢水方可成贵。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>霹雳火以戊子一阳居于水位，水中之火，非天上神龙霹雳不会有之。</div><div class="content-item text"><div class="content-type">正文</div>霹雳火者，一缕豪光横空出世，九天号令振撼环宇，以电击金蛇之气势，云驱万马之奔驰，故以此火须有风雷相助，方能变化万千，只要五行得值一件，都主享通。</div><div class="content-item text"><div class="content-type">正文</div>比如，日时见大海癸亥水，命书称之为引凡入圣格，见乙卯大溪水为雷火变化，遇天上水名为既济，遇之者，禀性含录，主聪明特异。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">电击金蛇之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">阳居水位神龙之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊子</div>神龙之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">雷行之火，喜水及春夏，得土则神。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">水中之火，又称神龙火，遇水方贵，六气之君火。戊子含精神辉光全实之气，作四时保生之福，入贵格则为大人君子，器宇含弘，富贵终吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜春夏，遇水方贵，得土而神，六气之君火，四时保生。（注：六气：风、寒、署、湿、燥、火）。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌丙寅炉中火太燥，主凶夭。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己丑</div>天将之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">电光之火，喜水及春夏，得地而晦。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">天将之火，又称天乙本家之火，含威福之气，发越峻猛，贵局称之为将德，为魁名而建功，丑为胎养之火，其气渐隆，若遇丙寅、戊午火助之，可成济物之功。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">忌己丑得戊子，</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌灯火则灭明。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">引凡入圣格</h4><div class="content-item text"><div class="content-type">正文</div>霹雳火者，电击金蛇之势，云驱铁马之奔，此乃九天号令之神火，盖以大自然雷水交加之火，必须资以风水雷电方可变化，五行得值一件，皆主亨通。</div><div class="content-item text"><div class="content-type">正文</div>比如，日时见癸亥大海水，命书称为引凡入圣，但以己丑见癸亥为上，戊子则次吉。</div><div class="content-item text"><div class="content-type">正文</div>再以己丑见乙卯大溪水为吉，戊子则忌见，运行再逢辰巳，最为优佳，称作聪明特异格。</div><div class="content-item text"><div class="content-type">正文</div>盖以霹雳火为水中之火，逢水则显其威。但以戊子霹雳火，见壬戌大海水，为乌龙搅海，其人性暴异常，恐有灾星艰难。</div><div class="content-item text"><div class="content-type">正文</div>此格是以霹雳火见天河水为吉，名为既济，遇之者，禀性含灵，主聪明特异之才。</div><div class="content-item text"><div class="content-type">正文</div>此火见长流水无用，逢涧下水虽就位相克，但此乃神火则不忌，再有风助亦显其贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">引凡入圣格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己丑霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸亥大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">己丑见乙卯大溪水，运行再逢辰巳最为优佳。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">癸亥者，百川归海之水，其性纯阳清水，最喜见山。己丑者，天将霹雳之火，含威福光厚之气，又以丑为艮山，与癸亥相见，故名为引凡入圣，再以乙卯有雷，辰巳有风，风雷相益，最为优佳。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">聪明特异格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹霹火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">涧下水再有风助，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见长流水无用，再以戊子见壬戌大海水为乌龙搅海，性暴异常，主灾。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火为神龙之水火，天河水是银河济物之水，这种特殊的水火相逢相济，必将形成聪明特异的条件；再以逢涧下水有风助，风雷相益得彰，也主贵命。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">风雷相益格</h4><div class="content-item text"><div class="content-type">正文</div>霹雳火以其云驱铁马，电击金蛇以水为施功，以风为动力，以雷为德行，故以见辛卯松柏木有雷，见大林木中辰巳有风，平木有戌亥为天门，这些纳音五行中包含风雷吹云助火之势，称为风雷相益之格，命中再逢水助，或者行运水乡，则是少年显达之才，铁马奔驰之势，必主贵命。</div><div class="content-item text"><div class="content-type">正文</div>但以其它纳音木论之，此火见之则无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">风雷相益格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛卯松柏木有雷，大林木辰巳有风，见戌亥天门为风雷。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格命中再有水或行运水乡，名为铁马奔驰，必主贵命。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见其它木无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火为风雷之火，见到有风有雷的纳音干支，称谓风雷相益格，命中再有水助，或行运水乡，称神龙戏水，必为显威，主贵命。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4></div><div class="subsection"><h4 class="subsection-title">暗风雷水格</h4><div class="content-item text"><div class="content-type">正文</div>霹雳火者，水中之火，此火施行，必以布雨，故以见路土，再有辰巳风雷相助则吉。</div><div class="content-item text"><div class="content-type">正文</div>或者以见丁巳砂土中辰巳有风，雷风相益主贵。</div><div class="content-item text"><div class="content-type">正文</div>或者以见己卯城头土，卯中有雷，此格命中再逢泉中水助之，主贵。</div><div class="content-item text"><div class="content-type">正文</div>这种格局因为纳音中都暗藏风雷，命中再逢行运水乡，也主贵体藏身，必是晚运兴隆，才华显达之人。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">暗风雷水格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">路旁土、砂中土、城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火者，神龙风雷之火，见到路旁土、砂中土、城头土，这些土中暗藏风雷，再有泉中水助益，必是晚运兴隆，才华显达，主贵，所以命书称之谓暗风雷水格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4><div class="content-item text"><div class="content-type">正文</div>霹雳火者，见风而行，闪电施雷，遇水出火，布雨行威，但以逢金论之，剑锋金、海中金等其性各有不同。</div><div class="content-item text"><div class="content-type">正文</div>比如，剑锋金者，淬水之金，须得水见雷，方可施其刃煞之威，称之谓金刚出火。海中金者，其金海水之金，须得风以助之，称谓海风呼啸，再见大林木为上。</div><div class="content-item text"><div class="content-type">正文</div>白蜡金者，辰巳有风，云起东南，再逢涧下水，龙蛇奔驰，必主少年显贵。</div><div class="content-item text"><div class="content-type">正文</div>其他金因为各有性质不同，见则无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金刚出头格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再得水助和藏雷的纳音干支</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">剑锋金者，阴极凝刚之金，此金逢霹霹火淬水，其锋芒有辟水之沥，再有水助和藏雷的纳音干支，雷行万里，金刚出鞘，故命书称之谓金刚出头格，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">海风呼啸格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再得纳音干支有风助之</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">海中金者，宝金藏于渊海，此金迎火而空冲则发。霹雳火者，水中之火，此火遇风而雷霆万钧。见大林木或白蜡金，辰巳有风，这种格局在风雷的作用下，将海中金冲出而成大业，故称之谓海风呼啸格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">龙蛇奔驰格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">白蜡金辰巳有风，云起东南。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">其它金无用</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火者，神龙之火；白蜡金者，辰巳为龙蛇长生之地，东南云起之乡；涧下水艮山出于云雾之水，云海雾都万里行龙，故命名为龙蛇奔驰格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论火</h4></div><div class="subsection"><h4 class="subsection-title">烈风雷雨格</h4><div class="content-item text"><div class="content-type">正文</div>此格盖以戊子己丑霹雳火，见丙午丁未天河水，乃因子丑合化、午未合化，水火即济交加，风雷电闪，必成权将之势，煞威万里，比是勇夫豪杰，再行水火之运，命书称为烈风雷雨格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">烈风雷雨格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊子己丑霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙午丁未天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">运行水火运</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火到午未，形成雷霆万钧之势，丙午为烈火助威，丁未木库施风，故称谓烈风雷雨格，再行水火之运，必是煞威万里的权将之寸，但也要注意平时的修养，恐有风云不测之灾。</span></div></div></div><div class="subsection"><h4 class="subsection-title">天地中分格</h4><div class="content-item text"><div class="content-type">正文</div>此格盖以戊子霹雳火，见戊午天上火，则是子午正柱，天地中分格。盖以才权济世，四海为人，少年必主豁达，但此格在日时柱中同遇，谨防刑克灾害，必须细细考究才能为妙。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">天地中分格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊子霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌刑冲克破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">戊子见戊午，命书称为天地中分，四海为人，盖以此格才权济世，少年豁达，但在日时柱中并见，谨防刑克。</span></div></div></div><div class="subsection"><h4 class="subsection-title">雷霆得门格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以戊子己丑，日时遇卯，再从权戊午，命书称为雷霆得门格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">雷霆得门格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊子己丑霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时遇卯</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再从权戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局必须以日时地支见到卯为雷霆得门，再从权戊午天上火，谓真正的雷霆得门，霹雳火才能更加施行威力，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">6、杂论</h4><div class="content-item text"><div class="content-type">正文</div>盖以霹雳火见丁卯炉中火有雷为吉，但以戊子逢丙寅火太燥，性凶主夭。</div><div class="content-item text"><div class="content-type">正文</div>己丑见丙申山下火，再得戊子则大忌。覆灯火中辰巳为东南巽地有风，逢霹雳火为雷风相益之命，才华横益，最为适宜。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">雷风相益格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲辰乙巳覆灯火为风</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丁卯炉中火为吉</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">戊子霹雳火逢丙寅炉中火太燥，逢则性凶，主夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火为风雷之火，见到甲辰乙巳有风雷助，丁卯有雷作功，，这样就形成了雷厉风行的格局，一生行动敏捷，遇事果断的将才之命，但也要注意，失误的挫折而遭难。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

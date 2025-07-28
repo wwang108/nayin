@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丙寅 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丙寅</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丙寅禄地元，是子母相承之火，先烟后焰，抽其明而三进，喜木为助，嫌水陵迟，五行相养，虽在死方，亦可光耿。</div><div class="content-item note"><div class="content-type">注释</div>可用甲寅水济之。不喜癸亥水，干神无地。</div><div class="content-item text"><div class="content-type">正文</div>但喜己亥木。生于秋冬时上归火地，可成贵格。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙寅火</div>为炉炭，喜冬及木</div><div class="content-item text"><div class="content-type">正文</div>丙寅赫牺之火，无水制之，则为燔灼炎烈之患，水不可遇，独爱甲寅之水，就位济之，又名朝元禄。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丙寅火，含灵明冲粹之气，四时生生之德。入贵格，则文彩发应，主魁甲之贵。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙寅丁卯炉中火</div><div class="content-item question"><div class="content-type">问答</div>“何以丙寅丁卯曰炉中火？”答曰：“气渐发辉，因薪而显，阴阳为治，天地为炉，乃曰炉中火也。”《论》曰：形行阳地，势力渐增，水济火宫，应无燥渴，木加生旺，烟灭灰飞，龟缩於死绝之地，患害不生燥恶，向生旺之方凶咎必致。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>丙寅、丁卯，干头、纳音皆火。</div><div class="content-item text"><div class="content-type">正文</div>炉中之火，能克钗钏之金。</div><div class="content-item text"><div class="content-type">正文</div>丙寅、丁卯，干头、纳音皆火。庚戌、辛亥为钗钏金。遇之有刑凶。</div><div class="content-item text"><div class="content-type">正文</div>井泉之水，还制炉中之火。</div><div class="content-item text"><div class="content-type">正文</div>井泉，甲申、乙酉也。甲禄在寅，乙禄在卯。为申酉冲破，夺其食神，安得不凶？</div><div class="content-item text"><div class="content-type">正文</div>洪炉最喜木风吹。</div><div class="content-item text"><div class="content-type">正文</div>炉中之火得木风而袖添文武。木风己巳、乙巳也。</div><div class="content-item text"><div class="content-type">正文</div>海沙之金，偏喜陶熔炉冶。</div><div class="content-item text"><div class="content-type">正文</div>甲子、乙丑为海中金，甲午、乙未为沙中金，喜见丙寅、丁卯。</div><div class="content-item text"><div class="content-type">正文</div>刀剑锋芒，实畏烘炉锻冶。</div><div class="content-item text"><div class="content-type">正文</div>见前。</div><div class="content-item text"><div class="content-type">正文</div>炉火剑金，银汉水会合而势愈锋芒。</div><div class="content-item text"><div class="content-type">正文</div>丙寅、壬申、丙午三者聚于八字之中，则火候匀停，淬砺功到，岂不成干将莫邪也哉？</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>炉中火者，天地为炉，阴阳为炭，腾光辉于宇宙，成陶冶于乾坤。此火炎上，喜得木生，惟平地之木为上，以丙寅见己亥，谓之天乙贵，见戊戌谓之归库，故吉。丁卯次之。然丙寅火自生，无木庶几，丁卯火自败，若无木则凶，且此火以金为用，更得金来，方应化机。但丁卯无木而更遇金，主劳苦之命。夫寅见木多火炎，而无水制，主夭。卯见三、四木不妨，如庚寅辛卯就位相生，壬午癸未化为真火，寅见之多主凶暴或疾夭。若天地原有水制，亦主中寿，丁卯无妨。此火虽喜得金，为财内剑金，寅见之稍可。丁卯火既自败，又到申酉而死绝，如何能克，非贫即夭。海中、砂、蜡诸金，须资木生，方喜见之，钗、箔无用。见土须先有金与木，却喜土以宿之，不至太燥。如城头、屋壁皆成器之土，方好。见水，命中生爱木，不然火多喜逢之。天上清水，寅命遇之为吉。卯中无木，则嫌大海。丙寅见壬戌为福库，见癸亥为官星带合，半凶半吉；井涧、溪流皆凶，有木不在此论。火见同类，若日月上衰败则吉；霹雳火本自无益，若得木生，更日时有海水则宜。无木遇水，凶。天上火须有屋土遮之，灯火巽风，又为鼓舞。亡神须兼造化断，如丙寅、丁酉、已酉、丙寅火为无气，不失大贵。如丙寅、甲午、己巳、丙寅则漂泛不安。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>炉中火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">炉中火是将胞胎气海，比作鼎炉，阳火作炉炭，阴金为炼物，鼎炉炼丹孕育胚胎，阴阳交媾之象，气功称谓周天功，遇水旺调节，主福厚。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">玉匣记图谱引伸为小小的炉火，术士将炉中火说成是小小的火炉，火若几何？其热量小的可怜，不旺之命，有何道理？又说是水克火，遇水年灭火有灾。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙寅火</div>为炉炭，喜冬及木。福星、禄刑、平头、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>丙火长生在寅，又得寅卯木生之，三阳开泰，寅有人之意，卯为门户开，丙丁为炉火，丁卯为炼物，阴阳为炭仿佛象天地开炉，鼎炉炼丹，万物萌发生长之象。</div><div class="content-item text"><div class="content-type">正文</div>孤阳不生，孤阴不长，既然天地开炉阴阳为炭，大地回春，万物复生，则以一个人的生命基因发生变化，那么以人的生年为炉中火，生月为松柏木，生日为长流水，则成为天门舒霞之贵格。</div><div class="content-item text"><div class="content-type">正文</div>以生年为炉中火，生月为海中金，生日为城头土，则称为虹光射斗格。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为炉中火，生月为松柏木，生日为天河水，则称为银河双渡格。</div><div class="content-item text"><div class="content-type">正文</div>由于炉中火喻意为天地开炉之象，遇大海水，则有淹身之灾，再以见天河水，是银河之气，白天休息，夜晚运行之水，见之反成大贵。喜柔火燎原，忌霹雳火遭磨难，忌土，土多伤财，一生不得意。</div><div class="content-item text"><div class="content-type">正文</div>纵观海中金与炉中火，都是天地造化万物的开始，他们之间都有着不可分割的特殊关系。海中金是天地开炉的矿物，炉中火是炼物的鼎炉，这样形成了阴阳作炭的关系，将天地间万象事物的萌动，比作鼎炉炼丹之象，其中纳音的成象，包含着时间、空间、能量等诸多因素的合成基因，模拟着大自然物态变化的规律，很形象的刻画了事物发展的原始，可见奇人鬼谷先生是多么伟大啊。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>盖因此时万物的基因之气逐渐发生，以天地设为炉堂，阴阳视为炉炭，寅卯旺木作为薪柴，阴阳交媾比为冶炼，腾光辉于宇宙，大成陶治于乾坤。</div><div class="content-item text"><div class="content-type">正文</div>此火炎上，喜得木生，以见平地木为上，再以丙寅见己亥为天乙贵人，见戊戌称木火归库为吉，见丁卯次吉。</div><div class="content-item text"><div class="content-type">正文</div>以丙寅自生之火，若无木也主吉，丁卯自败之火，若无木则主凶，再以遇金，则主奔波劳苦。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">鼎炉炼丹无形之火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">阴阳作薪胞炉之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙寅</div>晨曦盛大之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">为炉炭，喜冬及木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">无水制之则有燔灼炎烈之患，但水不可过量，丙寅火含灵明纯粹之气，四时生生之德，入格则文彩发应，主魁甲之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">独爱甲寅大溪水就位济之，名为朝元禄，必主魁甲之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">大海水淹煞，阴阳不能交泰。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁卯</div>伏明之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">为炉烟，喜巽地及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">丁卯炉烟气弱，宜木生之，丁卯为沐浴之火，含雷动风作之气，火无西旺，故火至秋冬势恐不久。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">以土载之则基厚，以木资之则文彩，丙寅丁卯最适宜秋冬以保持其势。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">以水济达则凶，尤以逢乙卯大溪水，乙酉泉中水最毒；再以见金托之更逢夏令则成凶暴。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">木火炎上格</h4><div class="content-item text"><div class="content-type">正文</div>炉中火者，阴阳为炭，腾光宇宙，陶冶乾坤，此火炎上，喜得木生，惟得平地木为上格，所以丙寅见己亥为天乙逢贵，命书称之谓木火炎上格，柱中再有清水克化，则主少年显达，光辉飞腾。此格丙寅自生之火，不宜木多，木多则火炎灼伤，再遇缺水则主夭折。</div><div class="content-item text"><div class="content-type">正文</div>此火见戊戌平地木，谓之木火归库，化为官局，财官相生，主吉，见丁卯则次之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">木火炎上格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己亥平地木或者戊戌平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">清水制化。比如：乙酉泉中水、丁丑涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌木多则灼伤，缺水主夭折。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙寅炉炭之火，遇木炎上燃烧。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">平地木五行到寅位为临官之地，故又名官禄归库。但丙寅见木多则灼伤，必须有清水制约，如果没有水，则主夭折，炉火则灭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">釜底存薪格</h4><div class="content-item text"><div class="content-type">正文</div>丁卯自败之火，无木主凶，见三四木无妨，故以庚寅辛卯松柏木就位相生，则成釜底存薪格。</div><div class="content-item text"><div class="content-type">正文</div>此格虽然初限平平，但前途蒸蒸日上，男命逢之，才华横溢，谨守才德为妙。女命逢之，名流于社会，变为豪侠女士，但也会导制才生官星，追求自己的生活方式。</div><div class="content-item text"><div class="content-type">正文</div>此格以丙寅见之，多主凶暴或夭折，天地之元辰有清水制化，也主中寿，丁卯见之则无妨。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">釜底存薪格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁卯炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚寅辛卯松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见丙寅炉火，多主凶暴或夭折，有清水制化也主中寿。此格以男命财星旺，要谨守财德；如果是女命，必须约束官星，官多则坏运。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丁卯炉烟败火，喜木助，故称釜底存薪。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">此格见丙寅火，主夭折，水旺则焰灭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论金</h4></div><div class="subsection"><h4 class="subsection-title">鼎炉取丹格</h4><div class="content-item text"><div class="content-type">正文</div>盖以丁卯炉火，自败之火，无木主凶，再得金乡，或到申酉死绝之地，命主劳苦奔波之疾，非贫即夭。</div><div class="content-item text"><div class="content-type">正文</div>此格以丙寅见金稍可，盖以金为财乡，或得海中金、砂中金、白蜡金为宝物施功，谓之鼎炉取丹。</div><div class="content-item text"><div class="content-type">正文</div>但此格以丙寅得金，柱中须有木的资生方为喜庆，木以松柏木、杨柳木为上。此格鼎炉取丹，必以阴阳为炭，宝金为炼物，钗钏金、金箔金为成功之金，此火见之无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">鼎炉取丹格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">海中金、砂中金、白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">松柏木、杨柳木为上，钗钏金、金箔金无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格无木主凶，如果再运行到金旺的地方，非贫则夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">海中金、砂中金、白蜡金都是未成器之金，这里指丹田母腹中的阴物，通过炉火的冶炼，从母腹中取出富贵，故称之为鼎炉炼丹。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4></div><div class="subsection"><h4 class="subsection-title">土火宿金格</h4><div class="content-item text"><div class="content-type">正文</div>盖以炉火为炼丹之火，见土流气，必须先有金为炼物，以木为薪柴，遇土以为宿金生宝，谓之土火宿金，制炉火不至于太燥。</div><div class="content-item text"><div class="content-type">正文</div>此火以土制化，但土家各有其性，当以城头土、屋上土皆成器之土，见之方吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">土火宿金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">城头土、屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">以未成器金为炼物，以见木为薪柴。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">无冲破为吉，见钗钏金、金箔金无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是又一种冶炼格局，此格以火炼金，以土养金，以木为薪柴，故称之为土火宿金。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论水</h4></div><div class="subsection"><h4 class="subsection-title">海水福库格</h4><div class="content-item text"><div class="content-type">正文</div>盖以炉中火见水，先须有木助方为吉，水火既济，视为延年。</div><div class="content-item text"><div class="content-type">正文</div>此格以见丙午丁未天河水为吉，但以丙寅自生之火，见之方吉；丁卯败火，若命中无木则不吉。</div><div class="content-item text"><div class="content-type">正文</div>大海水以丙寅见壬戌为寅火福库，但以见癸亥为官星带合，半凶半吉。</div><div class="content-item text"><div class="content-type">正文</div>此格若逢井泉水、涧下水、大溪水皆主凶煞，此火不宜见，但以命中有木生，则不在此论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">海水福库格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见壬戌大海水为福厚，逢天河水为上吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格须有木助，视为延年。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格见癸亥大海水半凶半吉，见井泉水、涧下水、大溪水，如果无木主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙寅见壬戌合化为火，故称福厚，见天河水也合化助火，故为上吉；再有木助火原，所以称喻为延年。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论火</h4></div><div class="subsection"><h4 class="subsection-title">星火燎原格</h4><div class="content-item text"><div class="content-type">正文</div>此格以同类相见，须以命中日月上五行属于衰败为吉。</div><div class="content-item text"><div class="content-type">正文</div>见霹雳火本自无益，但命中若得木生，日月上更有海水相助则宜，如果命中无木遇水，则主凶煞。</div><div class="content-item text"><div class="content-type">正文</div>如果见天上火，必须有屋上土遮之，其火则安。</div><div class="content-item text"><div class="content-type">正文</div>覆灯火有巽风，又为鼓声亡神，此火逢生亦为不吉，须兼看行运造化而断之。如丙寅见丁酉己酉，丙寅为无气，主大贵。丙寅见甲午、己巳，丙寅则漂泛不安。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">星火燎原格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙寅炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丁酉山下火、己酉大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格见霹雳火须有海水制，见天上火须逢屋上土遮，见覆灯火必须看行运，忌风雷。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山下火为夜间点缀之火，大驿土为燎原广阔之土，故以丙寅火逢之为星火燎原格，但以见霹雳火，无海水制炉火则灭。逢天上火无屋土遮炉火枯焦，以此类推，再论行运。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乙亥 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">乙亥</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>乙亥地禄承，为气散游魂之火，生于木火荣方，上下不逢相制，仅而成达，多助尤崇。</div><div class="content-item note"><div class="content-type">注释</div>喜生旺、喜亥卯未和木局，有生生之德。和癸巳有相近的地方，逢到合母局的可能性很大，因为地支自带一合支。不喜水音，见水重为未济，一生不发。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙亥火</div>火之热气，喜土及夏</div><div class="content-item text"><div class="content-type">正文</div>乙亥伏明之火，其气湮欎而不发，籍己亥辛卯己巳壬午癸未木生之，则精神旺相。癸巳癸亥丙午水，有之则不吉。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>乙亥火自绝，含明敏自静之气，葆光晦迹，寂然无形，禀之得数者，为妙道高人，基德君子。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲戌乙亥山头火</div><div class="content-item question"><div class="content-type">问答</div>“何以甲戌乙亥曰山头火？”答曰：“气然藏熄，飞光投乾，归于休息之中，乃曰山头火。”《论》曰：山乃藏形，头乃投光，内明外暗，隐而不显，当生旺童显其明，遇休囚惟见其晦木、可助形土必重暗。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>山头烈焰，也虞河汉甘霖。</div><div class="content-item text"><div class="content-type">正文</div>甲戌、乙亥为山头火，怕丙午、丁未之天河水。</div><div class="content-item text"><div class="content-type">正文</div>甲戌乙亥，气文明而卦交为贲，此子衣裳济楚。</div><div class="content-item text"><div class="content-type">正文</div>山头于卦为贲，贵为文饰。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>山头火者，野焚燎原，延烧极目，依稀天际斜晖，仿佛山头落日，此乃九月烧荒，衰草尽烬之火也。大概宜山木与风木，喜大林、松柏，以辰巳有风，寅卯归禄，更得癸丑为山上木，主贵。无山则木无所依，火无所见，纵有风亦不光显，余木无用，只以禄马看。水宜涧下，名为交泰，主吉。井泉清水，有木助之，亦吉。大溪甲戌见甲寅，乙亥见乙卯，却真禄俱吉。天上须有雨露，而火到午未得地，再得清水济之，不至于燥，主福，不然则夭。大海就位相克，最凶，有山逢之，稍得。日时见金为财，须有山木助之则吉，无则凶。见土惟砂中有巽，能扬此火，别土无益。大凡此火无木见土，多是下贱之命。见火炉中太炎，霹火凶害，太阳昏蒙，山下战刑，皆所不宜。命带二、三火，如限数逢木，主祸生不测，或夭，大都此火大怕刑冲。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>山头火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">山头火是说太阳从早上升起，旅游一周天落入天门，天地斜晖大地，太阳落山之火，古人认为是太阳归宿投光于大地之火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上引伸为山头上燃烧着熊熊烈火，术士又引伸为山头上的大火，其年出生的人，一生就象山头上的大火一样，财命很发达。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙亥火</div>火之热气，喜土及夏。天德、曲脚。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item book_reference"><div class="content-type">典籍</div>《星经》戌亥为天门星，以戌亥为天门，甲乙木冲火库，木火燃烧照亮天门，引喻光亮照的极高。将天门之火称之谓山头火，喻象太阳落山之火，斜晖舒霞天地，山头落日散绮，霞光烧的草木依稀。</div><div class="content-item text"><div class="content-type">正文</div>既然山头火可以通天，那么其年生人可想是旺气冲天，但要求有山有土，有木有火，才能助其火威。</div><div class="content-item text"><div class="content-type">正文</div>假若生年是山头火的人，生月是松柏木，或者是大林木，生日再有涧下水相助，其人必是木火通明之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是山头火，生月是松柏木，生日是涧下水，则成孔雀开屏之势。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是山头火，生月是天上火，生日是城头土，形成万物归仓之势，龙门凯旋之格，一生必为高贵，山头火若逢大海水，凶神恶煞临头，若逢白蜡金、金箔金，则有化为灰烬之灾，若逢有根之强金，可为发福生财。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>山头火者，又有天门投光之意。</div><div class="content-item text"><div class="content-type">正文</div>此火为山乃藏形，内明外暗，隐而不显，飞光投乾，归于休息之中。</div><div class="content-item text"><div class="content-type">正文</div>山头火者，野焚燎原，延烧及天，依稀天地斜晖，仿佛象山头落日，此火乃属九月烧荒衰草而焚燃之火。</div><div class="content-item text"><div class="content-type">正文</div>此火喜逢山木与风木，以大林木辰巳有风，桑柘木癸丑为山木，松柏木寅卯为归禄，逢则主贵。</div><div class="content-item text"><div class="content-type">正文</div>此火逢涧下水，名阴阳交泰，主吉，但最忌刑冲克破。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">落日投光之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">内明外暗，飞光投乾之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲戌</div>自库之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">火所宿处，喜春及夏初。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自库之火，不嫌众水，只忌逢壬戌大海水，所谓墓中受克，其患难逃；甲戌火为印为库，含禀阳火至极而藏伏之气，贵格逢之富贵之光，忌炎夏生，谨防言中有凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">适宜春生，与弱水相见并美，与弱木相见济身。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌炎夏藏凶，忌大海水则遭患难。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙亥</div>伏明之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">火之热气，喜土及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">伏明之火，其气埋没而不发迹，因此，遇木而生之则精神旺相，遇水则不吉，乙亥火自绝而含明敏贞静之气，葆光晦迹，寂然无形，若禀木气生之，为妙道高人，吉德君子。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">若逢己亥平地木、辛卯松柏木、己巳大林木生之则济身生旺，成为妙道高人。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌见癸亥大海水、丙午天河水则有淹身灭明之患害。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">山火燎原格</h4><div class="content-item text"><div class="content-type">正文</div>山头火者，依稀天际斜晖，燎原燃烧之火。</div><div class="content-item text"><div class="content-type">正文</div>此火宜有山木与风木相助，最喜大林木辰巳有风，松柏木寅为木旺火生之地，卯又有为震为雷，逢之者化为归禄，更得桑柘木癸丑为山木，主贵，此火逢之，必为山火燎原之势。</div><div class="content-item text"><div class="content-type">正文</div>此格中若无山，则木无所依，火无所见，纵有风，亦不能光显。</div><div class="content-item text"><div class="content-type">正文</div>见其它木则无用，逢之者，只以福禄看之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">山火燎原格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大林木、松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸丑桑柘木，见其它木，只以福禄论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格以癸丑为山，如果无癸丑则木无山可依，火也不能燎原。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山头火者，落日依山投光之火。此火依山为伴，见大林木、松柏木，乘风助火，其光辽阔，遍布原野，故称山火燎原，主禄贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">真禄交泰格</h4><div class="content-item text"><div class="content-type">正文</div>此火见水，宜逢涧下水，名为交泰，主吉，逢井泉清水有木助之，亦吉。</div><div class="content-item text"><div class="content-type">正文</div>真禄交泰，是以甲戌山头火见甲寅大溪水；乙亥山头火见乙卯大溪水，是以寅戌化火，亥卯化木为真禄交泰，主官禄俱吉。</div><div class="content-item text"><div class="content-type">正文</div>天河水是雨露之水，但以天河水火到午未得地，再有清水济之，不至于太燥，主福，若无清水济之，则主夭。</div><div class="content-item text"><div class="content-type">正文</div>此火逢大海水就位相克最凶，若有山逢之稍可，日时见金为财，须有山木助则吉，若无山木，则主凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">真禄交泰格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲戌山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲寅大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见天河水，须有清水助，主福。如果无清水，主夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌大海水就位，主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">水的五行到成为冠带，寅与戌合化火局，故称真禄交泰，此火如果见天河水，丙午丁未为真火之水，必须有清水助则主福禄，如果无清水，则主夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">真禄交泰格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙亥山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙卯大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见天河水须有清水助，主福；无清水助，则主夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌大海水就位，主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">水的五行到亥为临官旺禄，亥与卯又合化木局，故称真禄交泰。天河水是真火之水，须再有清水助主福禄，如果没有清水助，山头火逢之，则主夭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4><div class="content-item text"><div class="content-type">正文</div>山头火者，惟宜见砂中土，中有巽风以扬此火气势，见其他土则无益。</div><div class="content-item text"><div class="content-type">正文</div>大凡此火，命中若无木，见土多则是下贱之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">砂土存身格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">忌刑冲，主灾殃。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山头火者，落日投光之火，只有见砂中土助其势存其身，见其它土无益。此土炎上，如果没有木的资助而再逢土多，则主下贱。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论火</h4><div class="content-item text"><div class="content-type">正文</div>山头火者，飞光投乾，烧荒衰草之火。</div><div class="content-item text"><div class="content-type">正文</div>此火见炉中火太炎，见霹雳火凶害，见太阳火主昏蒙，见山下火战斗刑害，皆所不宜。若命带二三火，再如限运逢木助之，则主祸生不测，或夭折，大都此火大怕刑冲，则主灾殃。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">祸害丛生</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山头火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">炉中火、霹雳火、山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">最忌火多</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山头火者，投光燃烧之火，见炉中火太炎，逢霹雳火凶害，遇山下火战颠，如果命中火多再行木运，则祸害丛生。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丙子 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丙子</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丙子天禄承，乃深沉停会之水，若会源得生，用制于东南，为出常之器。</div><div class="content-item note"><div class="content-type">注释</div>承水旺位，但是干头自带一丙火，见辛合化水才算成大格。又云：“高陵乃水就之所，卑湿乃水就之乡。”这里扯一嘴象法，希望大家明白，水的归宿是东南，所以象法中丙子水有旺位但不算圣水。任何承生旺之位的纳音都不喜重见生旺，丙子水喜木火向荣，金水反生，用法很灵活。最忌庚子土，因为土在子与水同为旺。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙子水</div>江湖，喜木及土</div><div class="content-item text"><div class="content-type">正文</div>丙子流衍之水，不忌众土，惟嫌庚子，乃旺中逢鬼，不祥莫大焉。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丙子自旺之水，阳上阴下，精神俱全，禀之者天资旷达，识量渊深，春夏为济物之气，多建利泽之功。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙子丁丑涧下水</div><div class="content-item question"><div class="content-type">问答</div>“何以丙子丁丑曰涧下水？”答曰：“气未通济，高陵非水流之所，卑湿乃水就之乡，而曰涧下水（一本云，润下水愚，切恐前辈一时误写，至传为涧下矣）。”《论》曰：水势流溢，霪霔飘荡，恶乎生旺，贵以休囚，土止归源，木火施功，金水反生，奔泉溅浪为之不美也。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>涧下水澄清莹澈，天河水万派之宗。</div><div class="content-item text"><div class="content-type">正文</div>丙子、丁丑，丙午、丁未是。</div><div class="content-item text"><div class="content-type">正文</div>山下火、山下火水至烟消。</div><div class="content-item text"><div class="content-type">正文</div>山下火丙申、丁酉。山头尤可，山下怕涧下甚明。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>涧下水者，山环细浪，雪涌飞端，相连南北之流，对峙坎离之泯。此水清澄，喜见金养，砂中、剑锋二金最宜。钗钏庚戌丁丑不宜，以丑戌相刑。辛亥见丙子，则丙辛化水，尤贵；余金以禄贵参之，取其资生，恶其冲破。见木一位不妨，二三则主劳苦，亦以贵人禄马参之。命中见土，主人多浊。天元若水或化木，则主清吉。砂中、屋上二土，其气稍清，路旁、大驿则浊甚矣，主财散祸生，如辰、戌、丑、未土局，其凶尤甚，以水浊土浑故也。火见太阳，虽炎，中间有既济未济之论。霹雳就位相争，最所不宜。若二火并论，无金资助，主荒淫，有金别论。山下、山头亦吉，若并临时日，则嫌。命中遇水，反成漂荡。见天河为引凡入圣，见大海为福贵朝宗，皆吉。独丁丑见壬戌，则丑戌相刑，丁壬淫合，主风声不雅。大溪性急，长流不静，皆不为吉。大抵此水须以金为主，而无火土混杂，再得甲寅乙卯之水，则源远流清，真君子人也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>涧下水</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">涧下水是说子为湖水气海，水旺而衰于丑，不能成为江河，丑又为艮山，艮山之水，山环细浪，雪涌飞湍其声荡天，故称山涧之水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上引伸为山涧流水，笔者也认为是山涧行流，不大一点，或者认为是山涧死水，似乎流而不流。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙子水</div>江湖，喜木及土。福星、官贵、平头、聋哑、交神、飞刃。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>丙火阳气至极而胎于子，衰于丑，旺而反衰，因而形不成江河，况且子为万物胎卵之形，丑又为万物胎生之乡，丑又艮山生水，胎生之水刚从艮山出来时打转回旋，山环细浪，雪涌飞泉，所以喻象称之谓涧下水。</div><div class="content-item text"><div class="content-type">正文</div>涧下水从各自山涧流出，汇成水花飞溅的湍流，三峡之水又汇成奔马巨浪，向下游奔流而去。涧下之水是澄清彻流之水，其年生人必定清高秀丽，再有生月生日配之以长流水、泉中水相助，形成势如破竹之势，猛虎出林之威。</div><div class="content-item text"><div class="content-type">正文</div>如果涧下水生年的人，生月是松柏木，生日是剑锋金，则是有根之水，必为昆仑出秀之贵。</div><div class="content-item text"><div class="content-type">正文</div>涧下水遇城头土一生多有阻隔，遇大驿土必遭流失，遇大海水漫身淹迹，遇金箔金、白蜡金身遭贫困，遇山头火销声匿迹。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>涧下水者，子水处于艮山，此时气未通济，艮山之巅，高陵地段，非水流之场所，卑湿低潮地带，乃水就之乡野，由地中行流之水，因而称之谓涧下水。</div><div class="content-item text"><div class="content-type">正文</div>此水山环细浪，雪涌飞湍，子午对峙，坎离之脉，南北之势，清澄澈流之水。</div><div class="content-item text"><div class="content-type">正文</div>此水清澄，喜见金养，砂金、剑锋二金最宜，命中见土，主人多浊，或以土重，主财散祸生，此水最忌冲破。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">清澄澈流之水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">其气未通高段，卑湿地中之水。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙子</div>流衍之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">江湖之水，喜木及土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">由于丙子为地中流衍之水，不忌众土克塞，惟有遇庚子壁上土乃成旺中逢鬼不祥之兆，丙子自旺之水，阳上阴下，精神俱全，禀天资矿泉，水渊深泊，春夏为济物之气，多建利泽之功。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜生于春夏济物，遇木则并美发旺，喜土存身。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌庚子壁上土，称之谓旺中逢鬼，不祥之兆。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁丑</div>福聚之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">水之不流清澈处，喜金及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">福聚之水，最爱金生，由于丁丑在数为涣弱之水，阴盛阳弱。若命禀丁丑水，器械清明，多慧少福，橐以水木旺气则阴阳均协，必为贵达崇显之士。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">适宜夏水清晰，最爱逢金济身则源宗不竭，逢水木旺气必为显达之士。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌辛末路旁土、丙辰沙中土、丙戌屋上土相刑克破。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">清金养生格</h4><div class="content-item text"><div class="content-type">正文</div>涧下水者，相连南北之流，对峙坎离之脉。</div><div class="content-item text"><div class="content-type">正文</div>此水清澄，喜见金养，以砂中金、剑锋金二金最宜，称之清金养生格。</div><div class="content-item text"><div class="content-type">正文</div>钗钏金以庚戌见丁丑不宜，因为丑戌相刑。</div><div class="content-item text"><div class="content-type">正文</div>辛亥钗钏金见丙子涧下水，则以丙辛化水尤贵，谓之宝金入匣之格。</div><div class="content-item text"><div class="content-type">正文</div>此水见其他金，则以禄贵参详，以取其金可以资养为贵，最忌冲破为凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">清金养生格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中金、剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">辛亥钗钏金见丙子涧下水，称之宝金入匣格，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破为凶，庚戌见丁丑相刑。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这里包含两种变格。</span></div></div><div class="content-item text"><div class="content-type">正文</div>涧下水最喜金养，以见砂中金、剑锋金称之清金养生格，主禄贵。再以辛亥钗钏金逢丙子涧下水，天干丙辛化水称之宝金入匣尤为贵命，但以庚戌钗钏金见丁丑涧下水，丑戌相刑则为不吉。</div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">木克水流格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此水气未通济，则地中行流之水，称之谓涧下水。</div><div class="content-item text"><div class="content-type">正文</div>因而，此水见木一位不妨，如果命中见二三木，此命则一生劳苦，称谓木克水流格。</div><div class="content-item text"><div class="content-type">正文</div>如果此格命中逢禄马贵人到位，则当以另外论断而仔细参详。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">木克水流格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见—木无妨，见二三木则凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格如果逢禄马贵人到位，也能以吉论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌木多</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">涧下水者，地中行流之水，此水最忌木多根深截流，则主一生艰辛称之谓木克水流。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4></div><div class="subsection"><h4 class="subsection-title">山环细浪格</h4><div class="content-item text"><div class="content-type">正文</div>涧下水者，山环细浪，雪涌飞湍，属清澄澈流之水。</div><div class="content-item text"><div class="content-type">正文</div>此水命中见土，主人多浊，或者以天干是木，或者以天干能够合化，则主清洁。比如，丙子涧下水，见辛丑壁上土，丙辛化水，子丑相合，丑又为艮山畔水，是称谓山环细浪之流，主贵。</div><div class="content-item text"><div class="content-type">正文</div>此水见砂中土、屋上土，其气稍清。</div><div class="content-item text"><div class="content-type">正文</div>见路旁土、大驿土则混浊，主财散祸生。</div><div class="content-item text"><div class="content-type">正文</div>见辰戌丑未土局，其凶尤甚，以水浊土混成灾。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">山环细浪格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙子涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛丑壁上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见砂中土、屋上土其气稍吉，见路努土、大驿上混浊散财。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见辰戌丑末土局，此水则混浊成灾。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">壁上土辛丑为艮山，此水逢之则山环细浪，婉转流畅，但以此水细浪行流，如果土重，则其水混浊，气散成灾。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论火</h4></div><div class="subsection"><h4 class="subsection-title">水火既济格</h4><div class="content-item text"><div class="content-type">正文</div>此水见火，以太阳火虽炎，其中有既济、未济的道理。</div><div class="content-item text"><div class="content-type">正文</div>但以霹雳火就位相争，最所不宜。</div><div class="content-item text"><div class="content-type">正文</div>若以二火同见并临，若命中无金资助，主荒淫，若命中有金，另当别论。</div><div class="content-item text"><div class="content-type">正文</div>但若二火并临时日，再兼命中遇水，反成漂荡。</div><div class="content-item text"><div class="content-type">正文</div>这些水火不容的格局，依据条件的相辅相成，有时合，有时散，称为水火既济之杂论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水火既济格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见太阳火既济，逢霹雳火争凶，如果二火并临无金助，主荒淫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见山下火、山头火主吉，但如果二火并临，反成飘荡。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此水见火，忌冲破成灾殃。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此水见火，虽为水火既济之功，但有时合，有时散，沉浮不定，是一种杂论格局。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论水</h4></div><div class="subsection"><h4 class="subsection-title">福贵朝宗格</h4><div class="content-item text"><div class="content-type">正文</div>大抵此水须以见金为主，命中无火土夹杂，再得甲寅乙卯大溪水，此命源远流清，是谓世间真君子人也。</div><div class="content-item text"><div class="content-type">正文</div>此水逢天河水银汉甘露的养育，命书称之谓引凡入圣格。</div><div class="content-item text"><div class="content-type">正文</div>见大海水为福贵朝宗格，皆主吉。</div><div class="content-item text"><div class="content-type">正文</div>惟独丁丑涧下水，见壬戌大海水则丑戌相刑，丁壬淫合，则主风声不雅。</div><div class="content-item text"><div class="content-type">正文</div>见大溪水性急长流，不能安静，皆不为吉，但以命中有金生养为佳。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">福禄朝宗格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见天河水名为引凡入圣，见大海水名为福禄朝宗。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水见金，无火土夹杂，谓之真君子。但以丁丑见壬戌，丁壬合化，则以淫合而论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此水见大溪水不能安静，命中有金养为佳。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是两种格局，一种以涧下水见天河水能够养阴生水，悟性超群，主贵。另一种以见大海水能够引水归海，是以福禄而论。但以丁丑见壬戌，丁壬合化水旺，主淫荡漂流。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

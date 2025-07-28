@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丙申 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丙申</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丙申地官承，乃无资之火，金木壮旺而有制</div><div class="content-item text"><div class="content-type">正文</div>（见木受生，可取财星），得干生即为厚实，若禄盛而无依，即灰飞而不焰矣（西行之火不堪独焰）。</div><div class="content-item note"><div class="content-type">注释</div>自病之火，且向西行。见木位可成格，盖子弱母生之理。</div><div class="content-item text"><div class="content-type">正文</div>喜东南离明位，但不喜戊午火，戊真火夺光，丙禄官受制。</div><div class="content-item text"><div class="content-type">正文</div>喜己亥庚寅辛卯之生，甲辰乙巳助火势，</div><div class="content-item text"><div class="content-type">正文</div>忌甲寅乙卯,甲申乙酉，</div><div class="content-item text"><div class="content-type">正文</div>前者水音不和，干弱不堪生。后者死弱伤生。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙申火</div>白茅野烧，喜秋冬及木</div><div class="content-item text"><div class="content-type">正文</div>丙申丁酉前者是自病之火后者是自死之火，其气极微，假木相助，其气方生，忌甲申、乙酉、甲寅、乙卯之水。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>丙申病火，以木为文明之德，以水为旷达之性，以土为福慧之基，惟金为暴虐，纵有吉神，革为不和之气。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丁酉火自死，含韬晦寂静之气，外和内刚，贵格秉之，类为有道君子，非自然之德行。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙申丁酉山下火</div><div class="content-item question"><div class="content-type">问答</div>“何以丙申丁酉曰山下火？”答曰：“气熄形藏，执力韬光，龟缩兑位，力微体弱，乃曰山下火。”《论》曰：西沉兑位，復喜东南，出震明离，其光愈晔，居暗恶水以伤，逢明喜水而济。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>山头火、山下火水至烟消。</div><div class="content-item text"><div class="content-type">正文</div>山头尤可，山下怕涧下甚明。</div><div class="content-item text"><div class="content-type">正文</div>丙申丁酉，内性昭融而配象为旅，斯人道路经营。</div><div class="content-item text"><div class="content-type">正文</div>申为道路，主传送。且为山下火，于卦为旅。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>山下火者，草间熠耀，花理荧煌，寒林缀叶之光，隔幔点衣之彩，方朔以荧火名之，故《妙选》有荧火照水格。遇秋生则贵为卿监，是以此火喜水，地支逢亥子，或纳音水更逢申酉月是也。或以山下之火最喜木与山，更得风来增辉为贵，又不以荧火论矣。大林木有辰巳为风，桑柘木有癸丑为山，松柏、平地最吉，更得风助，主贵；若风多吹散，主夭。水爱井泉、涧下，有木相资，主爵位崇显，大海水不宜，然有山亦应贵格。寅卯为东方木旺火生之地，只甲寅水吉，乙卯为震，有风，见之不佳。若无火无山，更加霹火，主夭。天上水为骤雨，此火不宜相见，若先得山水滋助，亦无大害。命里有金，以清秀为吉，无木多逢，以窃气论之。乙丑为山，主贵；余金若无克破，遇贵人禄马，只以财论。土见砂中，辰巳有风，若有木有山加助，主大贵，无则虚名。火忌太阳、霹雳、灯头，是巽主光显。大都五行有火，须资木则吉，限数喜忌，俱依此断。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>山下火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">山下火是说丙为阳明之火，酉为日入之门，太阳入山而藏光之象，比喻为山下火，山下火为夜光之火，逢松柏木称之爵位荣显之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上引伸为山脚下燃烧之火，有人说象山脚下烧木炭的火，旧时过年有烧木炭的习俗，又说是山下有熊熊大火，或者说是山下火很微薄，众说纷纭，模糊不清。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙申火</div>白茅野烧，喜秋冬及木。平头、聋哑、大败、破字、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>申为大地的门户，酉为太阳的归宿之地，丙丁火在此时是归夜藏光之火，夜幕即将降临，古代人认为太阳钻山落入地下，所以称之为丙申丁酉山下火。</div><div class="content-item text"><div class="content-type">正文</div>太阳落山之火，其光辉暗藏于夜幕，喜见东南方向之黎明。既然太阳落山入地休息，就如人一样夜间休息，自然要考虑到不要遇上太阳火、霹雳火、山头火之大火，形成了三更劫寨的不祥之兆，有损于山下火的光明磊落。</div><div class="content-item text"><div class="content-type">正文</div>由于山下火属阴火之光，喜土存身，忌旺水淹身，但有天河水的掩映，更显其宝镜增光。</div><div class="content-item text"><div class="content-type">正文</div>比如山下火出生的人，生月为大驿土，生日为天河水，为困龙入水之格，早年修身养性，必有龙阁学士之才。</div><div class="content-item text"><div class="content-type">正文</div>山下火喜遇杨柳木的资助而抒情增光，使夜幕之光更加温暖人心，但多情的杨柳木会使山下火变成多情之火。比如，山下火年出生，生月为覆灯火，生日为杨柳木，此为杨柳抒情的福禄格，双手掌文印，常享安乐福，柔情抒怀一世。</div><div class="content-item text"><div class="content-type">正文</div>如果生在山下火年，生月是覆灯火，生日是钗钏金，则是冠珠添绣之贵命。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>山下火者，申为地户，酉为日月出入之门，此时气息形藏，势力韬光于山下，其锋芒以龟缩兑位，力微体弱，光明不能远照。</div><div class="content-item text"><div class="content-type">正文</div>山下火者，草间闪耀，花里萤煌之火，寒林缀叶之光，隔幔点衣之影，以萤萤之火取名为妙，以秋生，则贵为卿监。</div><div class="content-item text"><div class="content-type">正文</div>此火喜水，又最喜木与山，更得风来增辉为贵，以辰巳为风，癸丑为山，见松柏木、平地木得风主贵。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">落日藏于山下之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">势力韬光，力微体弱，龟缩退位之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙申</div>自病之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">白茅野烧之火，喜秋冬及木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自病之火，其气极微，借木相助，其气方生，丙申病火，以见木为文明之德，以见水为旷达之性，以土为福慧之基，惟有人为暴虐，纵有吉辰亦为不和之气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜秋冬，倚木相助则其气方生。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">甲申乙酉泉中水、甲寅乙卯大溪水，灭其火光。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁酉</div>自死之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">鬼魂灵乡火之无形之火，实为坟茔磷火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">丁酉自死之火，含韬晦寂静极微之气，借木助方生其气，外和内刚，贵格得其火为有道君子，自然之德行。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜宜辰、戌、丑、未四墓藏身。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">泉中水、大溪水冲墓不能藏身。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">萤火照水格</h4><div class="content-item text"><div class="content-type">正文</div>山下火者，草间星点之迹，花里萤煌之火，寒林缀叶之光，隔幔照衣之彩，东方朔命名以萤火之称。</div><div class="content-item text"><div class="content-type">正文</div>此木遇秋生则贵为卿监，是以此火喜水，逢地支或以亥子水，或以纳音为水，更逢申酉月生为是。</div><div class="content-item text"><div class="content-type">正文</div>比如，山下火生者，日时再逢泉中水，或涧下水，生在申酉月，此为萤火照水格，虽然中年默然于异常之才，必能载培为众目之注，成为卿监之才。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">萤火照水格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见泉中水或涧下水，生在申酉月，主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此火喜水，以秋生贵为卿监，见水或以纳音水，或以亥子水。主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山下火者，日落申酉地户之火，其火萤萤；秋生为旺，喜清水辽绕，依山则吉，故以见泉中水，涧下水称谓萤火照水格，主大贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">萤煌缀叶格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以山下火最喜见木与山，更得有风来增辉为贵。</div><div class="content-item text"><div class="content-type">正文</div>因为有风来助火，必为星火燎原成其大势，所以，不以萤火而论。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如，大林木有辰巳为风；桑柘木癸丑为山</div>松柏木，平地木逢此火最吉，更得风助主贵，称之谓萤火缀叶格。</div><div class="content-item text"><div class="content-type">正文</div>但此格不宜独遇风木，如果有山木再权衡宜忌，若遇风多吹散冲破，则主夭折。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">萤煌缀叶格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大林木辰巳有风，桑柘木癸丑为山。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">松柏木，平地木最吉，更得风助主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌风多吹散冲破，则主夭折。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此火寒林缀叶之光，喜木与山更得风助主贵，故以见大林木，桑柘木称之为萤煌缀叶格，如果见风多，一生灾难重重则为不吉。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论水</h4></div><div class="subsection"><h4 class="subsection-title">爵位荣显格</h4><div class="content-item text"><div class="content-type">正文</div>山下火者，最喜井泉水、涧下水，再有木助主贵，惟忌大海水冲煞。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>丙申山下火见辛卯松柏木：丁酉山下火，见庚寅松柏木，日时再有井泉水、涧下水相资，称为爵位荣显格，或者有山也应为贵格。</div><div class="content-item text"><div class="content-type">正文</div>再以大溪水论之，寅巧吗东方木旺火生之地，但乙卯为震为风，见之不佳，此火只有见甲寅大溪水主吉。</div><div class="content-item text"><div class="content-type">正文</div>此格若无它火无山，独加霹雳火，主夭折。</div><div class="content-item text"><div class="content-type">正文</div>天上水为聚雨，此火不宜相见，或若得山水滋助，见霹雳火亦无大害。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">爵位荣显格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙申见辛卯松柏木；丁酉见庚寅松柏木，日时有井泉水涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">甲寅大溪水主吉，见天河水必须得山水也吉</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">无火无山更得霹雳火，主夭折</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此火喜山喜清水，更得天干乙丙丁化为三奇，故以见井泉水，涧下水称之谓爵位荣显格，但以天河水为聚雨之水，命中若有山水助益为吉，无山水而火灭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4></div><div class="subsection"><h4 class="subsection-title">金屏清秀格</h4><div class="content-item text"><div class="content-type">正文</div>山下火者，命里有金，以清秀为吉，但柱中无木见金，多逢则|以窃气盗财论之。</div><div class="content-item text"><div class="content-type">正文</div>比如，乙丑海中金有山，再有木助，且如丁酉山下火，见庚寅松柏木，再逢乙丑海中金，称为金屏清秀格，或者再逢丙子涧下水，此命乙庚合化，子丑合化，天干乙丙丁又合化三奇，此为卿相极贵之命。</div><div class="content-item text"><div class="content-type">正文</div>此火以见其它金，若无克破，再过禄马贵人，则只以财论，不论其贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金屏清秀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁酉山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚寅松柏木，乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">或者再逢丙子涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格无木见金盗气，如果见其它金无克破，只以财论，不论贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此火为落日含光之火，见庚寅松柏木作山木屏风，乙丑海金为宝气清秀，再有丙子涧下水助益，其一称为金屏清秀格，其二子与丑合，乙丙丁又化为一奇，此为卿相极贵之命。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论土</h4></div><div class="subsection"><h4 class="subsection-title">金局卿监格</h4><div class="content-item text"><div class="content-type">正文</div>盖以山下火者，逢土流气，但以见砂中土，辰巳有风助火，若命中有木有山加助，则主大贵。</div><div class="content-item text"><div class="content-type">正文</div>比如，丁酉山下火，日时有丁巳砂中土，再有癸丑桑柘木与戊戌平地木，此命天干戊癸合化，见丑为天乙官禄，巳酉丑合化为金局，此命有木生火，有风助火，有丑山依托，必是金局卿监之格，主大贵。</div><div class="content-item text"><div class="content-type">正文</div>此格如命中无木无山，则是虚名一场。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金局卿监格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁酉山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见丁巳砂中上</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸丑桑柘木，戊戌平地木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">命中无木无山者，虚名一场。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丁酉山下火为无形鬼魂之灵火，此火喜静土，再以见丁巳之地为火入禄贵，再见癸丑桑柘木有山，这种格局以丁酉、丁巳、癸丑构成了巳酉丑合化金局，必主大贵，故称之谓金局卿监格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">6、论土</h4></div><div class="subsection"><h4 class="subsection-title">覆灯光显格</h4><div class="content-item text"><div class="content-type">正文</div>山下火者，气息形藏，力微体弱，龟缩兑位，光明不能远照之火。</div><div class="content-item text"><div class="content-type">正文</div>此火蹈光藏于山下，乃属阴火，此火忌天上火照曜不得宁静，霹雷火兴云带雨，此火则灭。</div><div class="content-item text"><div class="content-type">正文</div>但以灯火有辰巳为巽风相助，此火生机荣曜，萤火燎原，再有木助火势，则成覆灯光显之贵格。</div><div class="content-item text"><div class="content-type">正文</div>此格见木，以平地木、桑柘木为上，其它木以无冲破为宜，大凡五行皆有火，须以木资则吉，限运喜忌，俱依此类推断之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">覆灯光显格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">山下火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再有木助</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格见木，以桑柘木为上，其它木以无冲破为宜。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">山下火者，落日含光之火，覆灯火者，晨曦拂晓之火，此二火相见最为显耀，再有木助火旺，其光萤萤荣耀，才华显达，故名覆灯光显，也名萤火燎原。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

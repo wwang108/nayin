@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>己未 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">己未</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>己未神头禄，乃成功之火，得季夏之炎阳，守小吉之贵地，生自东北之南，有所资附，则能享福厚矣。</div><div class="content-item note"><div class="content-type">注释</div>干支皆土之火，最喜向阳之地。喜火金而恶重土，如成四镇格则非。喜戊子、丙寅之火。如见辛卯辛酉之木是守卯酉而小吉得用，可为太常贵人。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己未火</div>月光，忌夜亦畏四者</div><div class="content-item text"><div class="content-type">正文</div>戊午己未前者是自旺之火后者是偏库之火，居离明之方，旺相之地，其气极盛，他水无伤，忌丙午丁未天上之水。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>戊午自旺火，含离明炎上之气，无情治物，动违于众，秋冬得之，济以水土旺气，则豁达高明，福力坚壮，春夏乘之以金木，虽腾光迅速，命非久长。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>己未衰火，含余光藏实之气，春冬之月，运入沉潜之乡，则明达峻敏，福庆深远，夏得之非和气也，秋则先吉后凶。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊午己未天上火</div><div class="content-item question"><div class="content-type">问答</div>“何以戊午己未曰天上火？”答曰：“气过阳宫，重离相会，炳灵交光，发辉炎上，乃曰天上火（一本云：炎上火。恐前辈误字，至今传为天上火）。”《论》曰：势居高陵之上，气为盛也。退行卑湿之方，象则藏乎，徒成既济之功，可聚精神之会，顺之则吉，逆之则殃。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>天上火、霹雳火不怕涧泉。</div><div class="content-item text"><div class="content-type">正文</div>戊午、己未，戊子、己丑是。二火不怕甲申、乙酉。</div><div class="content-item text"><div class="content-type">正文</div>若夫戊午己未，大有之象。</div><div class="content-item text"><div class="content-type">正文</div>须知天上有火，大有之象。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>天上火者，温暖山海，辉光宇宙。阳德丽天之照，阴精离海之明。戊午为太阳则刚，己未为太阴则柔，或以为夏日则刚，冬日则温，诬也。俱要戌亥为天门，卯酉为出入之门，东南为行陆之地，则吉。此火见木谓之震折，要日时有风与水方得。大林木有辰巳，松柏、石榴有卯酉，故惟此三木主贵。午见木多犹可，未三、四木，劳苦之命也。见金且能照耀，不能克济。钗金有戌亥，泊金有寅卯，主吉；剑金为耀日月之光，必主少年登第；余金则殃。水宜涧下，须戊午见丁丑，已未见丙子，阴阳交互，方为福贵，柱中更有木滋生，富贵双金。大溪有乙卯，井泉有己酉，出入得门，皆吉。天河雨露相济，不以就位克论。戊午见丁未，亦吉，丙午则不明。火爱灯头，再有别火则燥。霹雳带云雨，则日月无光，故主昏蒙。炉中午忌丙寅，以午为刚火，才见丙寅，便为火生之地，若无清水解救，主犯刑凶死，丁卯稍可。土见砂中，有巽风相假；路旁、城、屋，皆吉，柱中更有金木相助，尤吉。考《妙选》，戊午遇卯，己未遇酉，为日月分秀格。而卯以乙卯、辛卯为正，己卯、丁卯次之。酉以乙酉、癸酉为正，己酉、丁酉次之。有日出扶桑格，即日分秀，再见巳午日时。有日轮当表格，以戊午生于午，月逢巳午日，又以戊午见戊子为坎离正位。有月生沧海格，即月分秀，而酉得乙癸是也。有月照寒潭格，是取壬癸亥子，纳音属水为潭，然必秋生为贵；有月桂芬芳格，是己未生人，柱有三、四木拱集，与桂林一枝同。桂林以少为贵，芬芳以多为贵，义各有所取也。再考凶格中，太阳损明，戊午不禁于水溢，是嫌水盛；太阴薄食，己未岂堪于土多？是嫌土重也。须如是并参，方尽其理。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>天上火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">天上火是说午为太阳过宫，未库木又生出了火，木火通明炎上，戊又为霞光之火，火在天上，霞光万里，所以称之天火，天上火为万物发生的阳明之气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画着熊熊燃烧的天上大火，实际上与其说是天上大火，还不如说成是太阳火比较确切，使人模糊不解。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己未火</div>日光，忌夜，亦畏四者。福星、华盖、羊刃、阙字、曲脚、破字。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>午为火旺之地，未库中生出的木又复生助火，火的性质炎上，冲宵直上九天，这样燃天的大火引伸喻象为天上火。</div><div class="content-item text"><div class="content-type">正文</div>天上火气过阳宫，实质上是太阳火所属。太阳火与五行协调相配，会产生很多的变化现象，万物离不开太阳的照射，但要强调协调。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>水能滋润生木，木助火旺，离开太阳火枝叶则不能茂盛，所以，生在太阳火年，生月是大林木，生日是长流水，命局称之艳阳吐翠，少年才华横溢，必是翰林之才。</div><div class="content-item text"><div class="content-type">正文</div>太阳火喜见覆灯火，再有剑锋金相助，称之为拂剑生辉，其性刚直不阿，比如遇炉中火，命书称其命为犯罪身死。不过也有特殊情况，笔者生于霹雳火，运行到太阳火流年，有一个算命师说我当年应该生个姑娘，结果事实也是如此。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">太阳火喜逢金木，会形成许多贵命，比如</div>太阳火生年的人，生月是松柏木，生日为剑锋金，其人木火通明，劲松苍天挺拔，再遇金伐，此命格为石峰挺秀，必作栋梁之才。天上火不能单独与水相击，容易形成水火既济之克害。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>天上火者，午为太阳火，未为太阴火，午又为太阳过宫之火，日中为过午，夜半为午夜，故以此火气过阳宫，重离相遇之火，炳灵交光，发挥炎上。</div><div class="content-item text"><div class="content-type">正文</div>天上火以温暖山河，辉光宇宙，阳德丽天之照，阴精离海之明，戊午为太阳火则刚，己未为太阴火则柔，或以为夏日则刚，冬日则温，是以讹傅诬的说法。此火以见戌亥为日落之门，卯酉为日入之门，故以天上火东南为行陆之地，逢之则吉。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">气过阳宫喻象之火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">炳灵交光，发辉炎上，太阳之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊午</div>日轮之火，夏则人畏，冬则人爱。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">戊午自旺之火，居离明之方，旺相之地，其气极盛，他水无伤，忌丙午丁未天上之水。戊午自旺之火，含离明炎上之气，无情冶物，动违于众，秋冬得之济以水土旺气，则豁达高明，福力坚壮，春夏发旺于金木，虽腾光迅速，命非久常。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜冬生和人气达，春夏不宜。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌霹雳火、炉中火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己未</div>偏库之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">日光忌夜之火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">戊午己未乃属太阳之火，居离明之方，其气极盛，它水无伤，忌天河水萧煞锐气。己未衰火，含余藏宝之气，春夏之月运入沉潜之乡，则明达峻敏，福庆深远，夏季得之非和之气，秋季得之则先吉后凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜行陆东南之地，石榴木助之大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">见霹雳火日月无光，逢炉中火若无水解救则凶。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4><div class="content-item text"><div class="content-type">正文</div>天上火者，午为太阳刚火，未为太阴柔火（即月亮），阳德丽天之照，阴德离海之潮。</div><div class="content-item text"><div class="content-type">正文</div>此火见木，谓之震动燥折，须要日时有风与水方为得令，故以大林木有辰巳巽风，松柏木寅午化火，卯未合木生风雷，石榴木申酉为日月出入之门，惟见此木主贵，称为木火炎上格。</div><div class="content-item text"><div class="content-type">正文</div>但以戊午天上火见木多还可以，己未天上火见三四木由成劳苦之命，必须逢水方能施其功力。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">木火炎上格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大林木、松柏木、石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">戊午为太阳火，逢之称丽天之照，己未为月亮之火，逢之称离海之潮。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">以己未而言，见木少主吉，若见三四木，则成劳苦之命，必须有水济方吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是两种格局的组合，一种以戊午见木多称为丽天之照：一种以己未见木少，再以水济称之离海之潮，统称木火炎上格，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论金</h4></div><div class="subsection"><h4 class="subsection-title">日曜剑金格</h4><div class="content-item text"><div class="content-type">正文</div>天上火者，辉光宇宙，温暖山河之光火，见金只能以其光芒曜金生辉，但此火不能直接克济于金。</div><div class="content-item text"><div class="content-type">正文</div>此火只能以自己的职责，轮回天地发生万物，故以逢钗钏金有戌亥为天门，金泊金中寅卯为日月东升之地，日落日出乃为日月之道义，逢之主吉，乃属道义之士，称之谓侠义逢金。</div><div class="content-item text"><div class="content-type">正文</div>但以剑锋金为成功之利器，此火逢之，为晖耀日月之光，再有水淬，必主少年登第，科甲显威，称为日耀剑金格，余金逢此火，则主灾殃。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日耀剑金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再得水淬金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">剑锋金者，阴极凝成之金，此金若逢水淬金，再得太阳火的照耀，则有白刃凝霜，虹光射斗之势，称之谓日耀剑金格，必主科甲登第。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">侠义逢金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">其它金逢此火则主灾殃。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以钗钏金戌亥为天门，金箔金寅卯为日月东升之地，日落月出称为侠义逢金，必是才华显达的有志之士。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论水</h4></div><div class="subsection"><h4 class="subsection-title">富贵双全格</h4><div class="content-item text"><div class="content-type">正文</div>太阳火的功能，在于丽天普照大地，太阴火的功能，在于明离海潮之涌退，此火见水，天地交媾，万物发生。</div><div class="content-item text"><div class="content-type">正文</div>此火见水，宜用涧下水，次以戊午见丁丑，己未见丙子，为阴阳交互方为福贵，柱中再有木的滋生，命书称为富贵双全之命。</div><div class="content-item text"><div class="content-type">正文</div>此火见大溪水宜逢乙卯，泉中水须见乙酉，此为出入得门，皆主吉。</div><div class="content-item text"><div class="content-type">正文</div>天河水为雨露相济，不以克论，但以戊午见丁未亦吉，丙午为真火之水，则另当别论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">富贵双全格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊午见丁丑涧下水，己未见丙子涧下水，再有木生。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格再以见乙卯大溪水，乙酉泉中水，名之出入得门格，主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">再以戊午见丁未天河水主吉；见丙午天河水则不吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这里包含两种格局，一种以戊午见丁丑，己未见丙子名之富贵双全格，另一种以天上火见乙卯大溪水，乙酉泉中水称出入得门格，皆主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论火</h4></div><div class="subsection"><h4 class="subsection-title">灯火通明格</h4><div class="content-item text"><div class="content-type">正文</div>此火东升，其光至炜，再以见灯头火为黎明之火，晨仪之光，二火相见，其晖壮观，但再有别火，则显其燥。</div><div class="content-item text"><div class="content-type">正文</div>但以霹雳火就位，雷风云雨，铁马奔驰，日月无光，此命则主昏蒙。</div><div class="content-item text"><div class="content-type">正文</div>若以炉中火就位，戊午忌丙寅，终见丙寅为火生之地，刚火相克，若无清水解救，主犯刑凶死。</div><div class="content-item text"><div class="content-type">正文</div>丁卯为炉烟之火，此火见之，还稍吉可以。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灯火通明格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以见丁卯炉烟之火稍吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格不宜再见其它火则显其燥，忌见霹雳火就位日月无光，炉中火以戊午忌见丙寅炉中火，若无清水解救，主犯刑凶死。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以天上火见覆灯火为晨曦舒霞，其晖壮观，故称之谓灯火通明，其它火不宜相见。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论土</h4></div><div class="subsection"><h4 class="subsection-title">火土发生格</h4><div class="content-item text"><div class="content-type">正文</div>盖以天上火为温暖山河，发生万物之火，此火见砂中土有辰巳巽风，为东南光华万里之地，或再有路旁生机之土，或者屋上土碧瓦晖煌，柱中更有金木相助，称为火土发生格，必为才华显达之贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">碧瓦辉煌格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中土，路旁土，或者屋上土。</span></div></div></div><div class="subsection"><h4 class="subsection-title">助音：此格再有金木相助，称之谓火土发生格</h4><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种组合变格，盖以天上火见土统称谓火土发生格，但以天上火见砂中土，路旁土或者屋上土称之谓碧瓦辉煌格，再以柱中有金木相助，也称谓火土发生格，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">6、杂论</h4></div><div class="subsection"><h4 class="subsection-title">日月分秀格</h4><div class="content-item text"><div class="content-type">正文</div>此格以戊午遇卯，巳未遇酉，为日月分秀格。</div><div class="content-item text"><div class="content-type">正文</div>而卯以见乙卯大溪水，辛卯松柏木为正格。</div><div class="content-item text"><div class="content-type">正文</div>己卯城头土，丁卯炉中火次之。</div><div class="content-item text"><div class="content-type">正文</div>酉以乙酉泉中水，癸酉剑锋金为正格。</div><div class="content-item text"><div class="content-type">正文</div>己酉大驿土，丁酉山下火次之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日月分秀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊午见乙卯大溪水，己未见癸卯松柏木称日月分秀。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格再见己卯城头土，丁卯炉中火，己酉大驿土，丁酉山下火皆以次吉而论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种组合格局，以天上火逢卯为日月出入之门，称之日月分秀，再以戊午见卯为月升之秀，己未见卯为月升之秀，统称为日月分秀格，主才华显达之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日耀剑金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸酉剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以天上火逢乙酉泉中水，再得癸酉剑锋金，是以剑金淬水而有太阳火的照耀，称为日耀剑金格；再以见戊午为日耀剑金，见己未为月耀剑金，皆主性格刚强一生荣耀，但忌再见炎火焚烧而剑金退锋，就不吉了。</span></div></div></div><div class="subsection"><h4 class="subsection-title">日出扶桑格</h4><div class="content-item text"><div class="content-type">正文</div>此格以日月分秀再见巳、午日时，为日出扶桑格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日出扶桑格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊午见乙卯大溪水，己未见辛卯松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">日时再得巳午。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格是以日月分秀格的基础上日时再得巳午，是以日出而临扶桑之地，故称之为日出扶桑格，即以心存济世之功德而喻之。</span></div></div></div><div class="subsection"><h4 class="subsection-title">日轮当表格</h4><div class="content-item text"><div class="content-type">正文</div>此格以戊午生于午月，再逢巳、午日，为日轮当表格。</div><div class="content-item text"><div class="content-type">正文</div>又以戊午见戊子为坎离正位格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日轮当表格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">生于午月，再逢日生巳午日</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">又以戊午天上火再见戊子霹雳火，名之坎离正位格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是两种格局的组合，一种以戊午生于午月见到巳午日，称之日轮当表格，以成为辉煌的一生；另一种是见到戊子霹雳火为坎离正位，益寿延年之福禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">月生沧海格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以月分秀，而地支酉再得天干乙癸，称谓日生沧海格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">月生沧海格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸卯松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">乙酉泉中水，癸亥大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格是以己未天上火见辛卯松柏木称月升分秀格，在这个基础上，以再见酉金生水，而再得天干乙癸，乙为柔木，癸为静海之水，称之谓月生沧海格，是一种组合格局，女命得之，尤为秀丽，男命得之，性柔，主才华。</span></div></div></div><div class="subsection"><h4 class="subsection-title">日照寒潭格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以取天干壬癸，亥子纳音属水称为潭，然必以秋生为贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日照寒潭格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见天干壬癸，地支逢亥子为潭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">以秋生为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以戊午为太阳火，见到天干壬癸，地支亥子为潭，称之为日照寒潭格，再以生于秋天主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">月桂芬芳格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以己未天上火生人，柱中再有三四木的拱照。但此格又以两种格局而论：</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">格局一</div>桂林一枝同，是说桂林以木少为贵。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">格局二</div>桂林芬芳格，是说桂林以木多为贵，其各有所取，以后再详论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">月桂芬芳格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">以柱中再见三四木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种变格的组合：—、己未为月亮火，以见木少为贵，称之为桂林一枝同；</span></div></div><div class="content-item text"><div class="content-type">正文</div>二、以见木多为贵，称之谓桂林芬芳格，皆主贵。</div></div><div class="subsection"><h4 class="subsection-title">凶格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以天上火太阳忌讳损明，以戊午不禁于水溢，是嫌此火逢水盛则称太阴薄食；</div><div class="content-item text"><div class="content-type">正文</div>己未岂容土多，是嫌土重则泄气无光，但凡纳音批命，以理相推之，才能解决其中明暗吉凶之道理。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">太阴薄食格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊午天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">纳音为水多</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格是以戊午太阳火以四柱逢水太盛则损其光明，故称之谓太阴薄食格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">太阴流气格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己未天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">纳音土多</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格是说己未为太阴火，太阴为月亮之火，如果四柱中见土太重，其火流气，称之谓太阴流气。</span></div></div><div class="content-item text"><div class="content-type">正文</div>六木</div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

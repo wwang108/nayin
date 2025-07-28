@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辛卯 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">辛卯</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>辛卯贵冲命，自旺经制之木，不畏霜雪，气节凌云，可制之以金，损之以火，而逢旺相，即成巨室之材。</div><div class="content-item text"><div class="content-type">正文</div>若平易而无金，火生于曲直之会，亦为贵重矣。</div><div class="content-item text"><div class="content-type">正文</div>（再见寅卯，则宜金火损之）</div><div class="content-item note"><div class="content-type">注释</div>身为自旺之木，已经完成木的最终成就了，性质和庚寅极其接近。生于四季都各有所宜，生于春和柔，生于冬归旺，皆可成格。破格忌火多水多，逢土莫冲，戊申己酉是也。见戊寅己卯之土，则克财太过。和壬申癸酉虽然互冲，但不生于秋则等力，有机会金木相成。此木稍忌巽地，忌火成势焚灭。此命成格荣华长寿，破格伤及六亲，五行自有其理。命书记载四辛卯为一太后之命。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛卯木</div>松柏之根，喜水土及宜春</div><div class="content-item text"><div class="content-type">正文</div>庚寅辛卯岁寒之木，雪霜无以改其操，况金能克之乎？上有庚辛，不假制治，自然成材。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>辛卯木自旺，春夏则气节挺拔，建功立事；生于秋，则狂狷折挫，劲气不伸。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>庚寅辛卯松柏木</div><div class="content-item question"><div class="content-type">问答</div>“何以庚寅辛卯曰松柏木？”答曰：“气已乘阳得栽培之势，力其为状也。柰居金下，凡金与霜素坚，不居下得其旺，乃曰松柏木也。”《论》曰：执性已盛，金制不强，水滋则木火俱沾利泽，谓木旺，而火未炽。火旺而木则槁，乃喜水以润之，土助财兴，物能成事，谓势旺而喜土厚也。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>庚寅、辛卯，逢天泽而寿比南山。</div><div class="content-item text"><div class="content-type">正文</div>庚寅、辛卯松柏木更逢丙午、丁未天河水而如甘霖降祥。或冬或夏，必享松龄。</div><div class="content-item text"><div class="content-type">正文</div>金谷繁华，盖为庚寅逢癸卯。</div><div class="content-item text"><div class="content-type">正文</div>松柏木逢金箔金。</div><div class="content-item text"><div class="content-type">正文</div>画栋雕甍，只为壬寅逢辛卯。</div><div class="content-item text"><div class="content-type">正文</div>松柏木金箔金。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>松柏木者，泼雪凑霜，参天覆地，风撼笙篁之奏，雨余旌旆之张。此木藏居金下，位列正东，乃为极旺。最喜山为根基，水为滋润。天河雨露之水可以滋润，涧下丁丑属山，可为根基。丙子不如大溪水，有乙卯为雷，可以发荣，却嫌风霹，有损折之凶。大海水有山则吉，癸亥清静无山，亦吉。若柱有平地，得屋土则为巳成栋梁，无用山水。无此二件，乃山间之茂木也，须要山水。命中有火，最忌炉中，就位相生，再加风木，灰飞烟灭。五行无水，主夭折。山头、山下、太阳、覆灯皆不可犯。寅人尤忌戊午、丙寅，以木不南奔，寅午三合火局故也。辛卯无害；霹火虽可滋生，运加凡火，主凶。土见路旁，似无足贵，若无死木，其福还真。驿土无山贫夭，更加海水，尤凶。金逢乙丑，为印为山；泊金就位自旺，主吉。剑锋能削能斫，更得壁土相成，松柏相资，主贵。大林有风，杨柳会火，二木最忌。桑柘癸丑为山，可以相助。石榴是辛酉金反化死木，有造化却吉。《妙选》有苍松冬秀格，是以此木生人月日时属三冬为贵；有日合辛卯、日值庚寅二格，虽取戊午己未，生居夏秋，然专论此木为贵。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>松柏木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">松柏木是说五行木旺于春，但受庚辛之气的肃杀，松柏木反而刚劲挺拔，是因为松柏木生于山野，吸收寒霜之气而生涯，遇金伐而成材之象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上引意松柏木，是借意松柏木常青之象，其年生人就象松柏木一样，一生幸福，常绿如春，术士说，五行怕遇金，但此木逢金伐而成栋梁。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛卯木</div>松柏之根，喜水土及宜春。破禄、交神、九丑、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>以木旺临官在寅，帝旺在卯，木既生长在生旺时期，又纳入强硬的庚辛金之元素气质，绝非柔弱之木，故喻象为松柏木。</div><div class="content-item text"><div class="content-type">正文</div>旺盛的松柏木，又纳入庚辛金之气，使其木质内外坚实，表里耐寒，扬雪凌霜，参天蔽日，风吹树响如弹动了柔情悦耳的笙簧管弦，枝叶摇动如挥动着得胜旌旗，四季如春象美丽的画展。</div><div class="content-item text"><div class="content-type">正文</div>松柏木喜遇强金之伐，伐则成雕梁画栋之贵。如果生在松柏木之年的人，生月为涧下水，生日是剑锋金，深居山野的松柏木由雪涌飞泉的涧下水养育，再由强硬的剑锋金砍伐雕作，变成飞龙走凤的栋梁，称为寒松驾殿之贵格。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为松柏木，生月为涧下水，生日为天河水，这样，山环细浪的涧下水衬托着刚劲挺拔的松柏木，银河的白光凝射着苍翠的松柏，有力的枝叶频频向客人招手，形成了苍松冬秀之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是松柏木，生月是剑锋金，生日是长流水，其人性格刚强少年好学，艺海生涯，抱负于栋梁，随水东流遇贵成为碧玉之材，不免有怀才不遇之境，但只要一如既往，光明时刻在召唤，此为灵芝出土格。</div><div class="content-item text"><div class="content-type">正文</div>松柏木喜水耐寒，唯独不能见大海水淹身，性刚事燥，遇炉中火会焚烧伤害自身，如果见大林木、杨柳木，必遭嫉妒，一生不如意。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>松柏木者，寅为三阳之首，此木既以乘阳，得栽培势力之状，奈以居庚辛金之下，凡以五行金气与霜寒素质而入其木植，坚木居下，得其旺气，岁寒后凋，其性之坚，成为立势万年之松柏木。</div><div class="content-item text"><div class="content-type">正文</div>松柏木者，傲雪凌霜，参天覆地，风撼笙簧，象无数奏乐的旌旗，刚劲挺拔于山野。此木藏居金下，位列正东，乃为极旺，最喜见山为根基，水为滋润，天河水、涧下水可以为其木滋松润柏。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">凌雪霜寒之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">岁寒乘阳，经霜素坚之木。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚寅</div>广谷之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">松柏干节，喜秋冬。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">广谷之木，禀寒金而素坚，气聚三阳，挺拔山野，光辉而有超凡入圣之美，傲雪凌霜，喜山为根基，水为滋润，尤喜天河雨露之水，四柱如果火多，不可入南方火地。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜秋冬，喜水山。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌火及强金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛卯</div>茂林之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">松柏之根，喜水土及宜春。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">岁寒之木，凝雪霜之气质，得阴气而生，雪霜无以能火改其操行，金不能克之，辛卯木自旺春夏，则气节挺拔，建功立业，生于秋则狂狷折挫，劲气不能伸张。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜水土，宜春夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌秋生，火多不宜南奔。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">栋梁驾殿格</h4><div class="content-item text"><div class="content-type">正文</div>松柏木者，藏居金下，位居正东，傲雪凌霜，参天盖地，是谓松柏常青之特性。</div><div class="content-item text"><div class="content-type">正文</div>松柏居于山野，以见山水为贵，逢天河水可以得银汉甘露，以涧下水丁丑属山，可以为根基，再以丙子涧下水不如大溪水乙卯为雷，此木逢之可以发荣，但此木却嫌其风霹有损折之凶。</div><div class="content-item text"><div class="content-type">正文</div>逢大海水有山则吉，但以见癸亥清净水无山亦吉，若柱中有平地木，再得屋上土，此木则成栋梁，称之谓栋梁驾殿格，但逢其他无用山水，没有此二种条件，此木则以山间茂木论之，也须要山水助之方吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">栋梁驾殿格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大海水、平地木、屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见天河水可得银汉甘露，见涧下水丁丑为山水松柏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">逢乙卯大溪水有雷，此木虽可发荣，但有风辟损折之凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">大海水戌亥有天门山之意，平地木有支撑屋上土之功德，屋上土又为宫顶屋瓦之意，松柏木是驾殿栋梁之材，故称之为栋梁殿驾格，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4><div class="content-item text"><div class="content-type">正文</div>盖以此木为水柏油松，命中最忌有火。</div><div class="content-item text"><div class="content-type">正文</div>此木以炉中火就位，再加有风之木，则成飞灰烟灭之兆，若五行无水救，则主夭折。</div><div class="content-item text"><div class="content-type">正文</div>山头火、山下火、太阳火、覆灯火，皆不可犯，庚寅人尤为忌之，再以戊午天上火与丙寅炉中火，以寅午三合化成火局，则成自焚其身，故有木不南奔之说，但以辛卯松柏见之无害。</div><div class="content-item text"><div class="content-type">正文</div>霹雳火虽可滋润此木，但以运加凡火主凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">飞灰烟灭格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">炉中火再加有风之木而无救，主灾星。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">山头火、山下火、太阳火、覆灯火俱不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">戊午与丙寅相见自焚其身，见霹雳火再运行风火主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">松柏木者，风霜含金之林，此木只宜水济，不宜火克，遇火而焚烧其身，故称为飞灰烟灭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4><div class="content-item text"><div class="content-type">正文</div>松柏木者，以山水为根基，屋上土为砖瓦，霜寒素坚入其木质，傲雪凌霜雄风壮观。</div><div class="content-item text"><div class="content-type">正文</div>由于松柏木以山水为根基，见土由以辨其土质。</div><div class="content-item text"><div class="content-type">正文</div>此木见路旁土不足以贵，但命中若无死木，其福还有真禄。</div><div class="content-item text"><div class="content-type">正文</div>此木见大驿土寅申相冲，卯酉相冲，若命中有山则可依托，如果无山，则主冲破贫夭，更逢大海水，以成为凶煞。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">福还真禄格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此木见大驿上，再有山的依托主吉，若无山依主贫夭，更风大海水的冲击，为主凶煞。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">松柏木者，风霜山石之木，此木见之，最喜山依，最忌有死绝之木，再逢大海水的冲击，一生则主凶煞贫夭。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4></div><div class="subsection"><h4 class="subsection-title">金木相益格</h4><div class="content-item text"><div class="content-type">正文</div>松柏木者，依山畔水，逢金成材。</div><div class="content-item text"><div class="content-type">正文</div>盖以金木相克之理，但五行纳音命金各分其类。</div><div class="content-item text"><div class="content-type">正文</div>金逢乙丑，是依山海金，其气润物，其山可依，是为松柏之印星主贵。</div><div class="content-item text"><div class="content-type">正文</div>若以金箔金为例，寅为艮山可依，寅卯又为木旺之地，松柏见之主吉。</div><div class="content-item text"><div class="content-type">正文</div>松柏木逢剑锋金能削能断，更得壁上土相成，松柏木逢之主贵，但此格若再逢剑锋金之运行，则有砍削之危。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金木相益</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙丑海中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">金箔金、剑锋金更得屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此木逢剑锋金，再行剑锋金运则有砍伐之危。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此木含金而喜山，乙丑海金有山可依，是为松柏木的印星，逢之主贵，称为金木相益；再以壬寅金箔金为山金可依，寅又为木旺之地，见之主吉，称之松柏雕金；逢剑锋金，更得屋上土，为材驾栋梁，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4></div><div class="subsection"><h4 class="subsection-title">苍松冬秀格</h4><div class="content-item text"><div class="content-type">正文</div>松柏木者，依山畔水，素坚成材，逢屋土恃栋依梁，见壁土中流砥柱，依金为财，遇火则焚。</div><div class="content-item text"><div class="content-type">正文</div>此木再遇大林木有风霹之危，杨柳木寅午化火烧木，此二木最忌。</div><div class="content-item text"><div class="content-type">正文</div>桑柘木癸丑为山，可以相助，石榴木辛酉金相克反化死木，但有造化则吉。</div><div class="content-item text"><div class="content-type">正文</div>但此木生人，以月日时属三冬为贵，命书称之谓苍松冬秀格，又有日合辛卯格，与月值庚寅格，或取有山可依，或取有可济，成为财源富贵之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">苍松冬秀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">月日时生于三冬</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">癸丑桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见石榴木相克反化死木，如果运逢生扶造化也主吉；见大林木有风辟之危；见杨柳木寅午化火，有烧木之危，最忌。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">松柏木生于三冬，名为苍松冬秀，见癸丑为山可依，其它木则不宜相见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">月值庚寅格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛卯松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">生于庚寅月</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">或取有山可依，或取有水可济成为财禄富贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">松柏木生于庚寅月为贵禄得时，再取有山的依托为得地，或者有水济为得助，构成了财禄富贵的格局。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">日合辛卯格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚寅松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">生于辛卯月</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">或取有山可依，或取有水可济，成为财禄富贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局是以松柏木再生于卯日，其一是木性得时，其二是松柏成林，再取松柏木有山的依托，或者有水的济养，构成第二种财禄富贵之命。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甲申 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">甲申</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>甲申地禄生，乃源泉之水，务有资助流长而无鬼</div><div class="content-item text"><div class="content-type">正文</div>(会于音地，壬寅壬申金生之),则为运广之渊,可享高厚之福。</div><div class="content-item note"><div class="content-type">注释</div>自坐水之生位，喜欢纳音金生我。有超然四时之贵。</div><div class="content-item text"><div class="content-type">正文</div>尤嫌土克，是源头受竭。但实际上也只怕戊申庚子土。</div><div class="content-item text"><div class="content-type">正文</div>可用较多，取木为材，生火文采。</div><div class="content-item text"><div class="content-type">正文</div>如要做超常之用，还是需要有金生源。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲申水</div>甘泉，喜春及夏</div><div class="content-item text"><div class="content-type">正文</div>甲申者自生之水，其气流衍，宜有所贵，亦藉金生，不忌众土，特嫌戊申庚子之土。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>甲申水自生，含天真学堂，得之入局，主智识聪慧，妙用无穷。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲申乙酉井泉水</div><div class="content-item question"><div class="content-type">问答</div>“何以甲申乙酉曰井泉水？”答曰：“气息而静，子母同生而不竭，出而不穷，乃曰井泉水。”《论》曰：性，主乎静，形受母生安之则静，而清撓之则动，而濁火土甃其形而静。金水混其性则流，静则安之本，濁乃动之基（死绝曰静，生旺曰动）。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>井泉之水，还制炉中之火。</div><div class="content-item text"><div class="content-type">正文</div>井泉，甲申、乙酉也。甲禄在寅，乙禄在卯。为申酉冲破，夺其食神，安得不凶？</div><div class="content-item text"><div class="content-type">正文</div>城头之土，填平井底之津。</div><div class="content-item text"><div class="content-type">正文</div>戊寅与甲申，己卯与乙酉皆不和。</div><div class="content-item text"><div class="content-type">正文</div>天上火、霹雳火不怕涧泉。</div><div class="content-item text"><div class="content-type">正文</div>戊午、己未，戊子、己丑是。二火不怕甲申、乙酉。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>井泉水者，寒泉清冽，取养不穷，八家凿之以同饮，万民资之以生活。此水生于金而出于木，故喜见金为福。砂中有土，性与之最宜，钗钏清秀次之，蜡金与钗金相冲，故不宜再见。剑锋申酉太旺，恐有泛滥之灾；海金无取，乙丑为艮，山下出泉，亦吉。此非木不能出，譬之桶论，故见木皆吉，如见平地、大林，须假剑金削之，方可取用。桑拓、杨柳无用；松柏则互换归禄，此其最吉。诸火阴阳互见则吉，霹雳名为入圣，太阳号为显照，二火相见最吉，但不宜并有，则凶。诸土路傍、砂中最吉，屋上有天门生水之源，亦吉；城头，壁上与此水则无干涉。大驿就位相克，水为土掩则“井渫不食”，须有木去之方可。水喜大海，为引凡入圣；天上、涧下、长流亦不为灾；大溪甲寅乙卯为吉。如甲申见乙酉，乙酉见甲申，官星互换，最吉。如二水在年时，二木在月日，谓之水绕花堤，乃贵格也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>井泉水</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">井泉水是说申酉金得位，金旺生出了水，又逢天干甲乙木流气，是得时不得令之象，但以申酉金既旺生水，源泉不断，出而不穷，浮舟济世，饮育万人之甘甜。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">画谱引伸画意为一口井，表示井中泉水，是乎有点太狭隘，人们说井泉水生人，财源细水长流，一旦泉水干，也就没有水了。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲申水</div>甘井，喜春及夏。破禄马、截路、平头、破字、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>金以官禄在申，帝旺在酉，金既旺盛于极点，又以死绝在胎位的甲乙木在一起，依靠自身的热化而生出了自身的火，就象沼泽地发生的乙炔火一样，强金依靠自身的热化产生了水，由固体的热化而逐渐变化为液态。然而，刚产生的水，数量不多，也不兴盛，但毕竟是旺金生水，就象开采的金矿一样，凡金矿旺盛的地，其水就象井泉水一样，必然过到不竭，出而不穷，潺潺的流水被喻为井泉水，但泉中水毕竟是气息安静之水。泉中水从它的来源看，有金则水源不断。如果一个人出生在泉中水之年，生在沙中金之月，日柱中有钗钏金，这种并联的华美金局，水流出而不穷，称之谓双龙吐水，其人必定金白水秀、玉面金口，再遇金水流年的运行，则有出入将相之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是泉中水，生月是涧下水，生日为杨柳木，则是水柳花堤之格，一生柔情善美，福禄双收之命。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是泉中水，生月为天河水，生日为松柏木，称之谓苍松独秀之贵，必作国家之栋梁。泉中水喜水、喜木，但遇大海水淹没其身，一生不能出头。忌土，土薄则陷身，土多埋身。忌火，火弱则灯灭，火旺则流气费身。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>泉中水者，此时气息安静，金水相生，水木相济，是以天干地支子母同位，出而不穷，伋而不竭。</div><div class="content-item text"><div class="content-type">正文</div>泉中水者，寒泉清洌，取养不穷，八方凿之，以同饮万民，资之以生活之水。</div><div class="content-item text"><div class="content-type">正文</div>此水生于金，而出于木，故喜见金为福，砂中金有土，性与之最宜，白蜡金、钗钏金相冲，剑锋金太旺恐有泛滥之灾。</div><div class="content-item text"><div class="content-type">正文</div>此水如年时都有此水，月日有二木，命书称之为水绕花堤，必是贵格。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">同饮万民，喻象之水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">源宗不竭气息安静，子母同位清水。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲申</div>自生之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">甘泉之水，喜春及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自生之水，其气流衍，子母同位，出而不穷，宜有所归，逢金生泉，自生含天真学堂，得之入格，主智识聪慧，妙用无穷。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜春夏清泉，主智识聪慧，逢金水济身，妙用无穷。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌戊申大驿土，庚子壁上土堵塞水源则成灾。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙酉</div>自败之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">阴坚之水，喜春及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自败之水，阴生艰难，借众金生之，盖因我气既弱，得金母以育之，若遇土克，则夭折穷贱。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜春夏生旺，遇水持源，得金济生。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌戊申己酉大驿土，己卯城头土，庚子辛丑壁上土克之，则遭夭折贫穷。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">禄存砂金格</h4><div class="content-item text"><div class="content-type">正文</div>井泉水者，凿之以泉水，出饮万民，出水生于金，而出于木，反喜见金为福。</div><div class="content-item text"><div class="content-type">正文</div>此水见砂中金有土，最可泉水存流，称之为禄存砂金格。</div><div class="content-item text"><div class="content-type">正文</div>再以钗钏金为成功之金，虽以清秀之金，逢之则以次吉而论。</div><div class="content-item text"><div class="content-type">正文</div>再以白蜡金与剑锋金相冲，故不宜再见。</div><div class="content-item text"><div class="content-type">正文</div>剑锋金申酉太旺，见则恐有泛滥之灾。</div><div class="content-item text"><div class="content-type">正文</div>海中金则取乙丑为艮山下出泉，逢之则吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">禄存砂金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲申乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中金有土助</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">海中金乙丑为吉，钗钏金次吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">白蜡金、钗钏金相冲，不宜同见。剑锋金申酉太旺，见则泛滥成灾。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">泉中水者，砂石矿泉之水，再以金的属性到申酉，为官禄旺地，故称之谓禄存砂金。但以剑锋金天干壬癸水再合申酉又生水太旺，所以，再与泉中水相汇则泛滥成灾。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">松柏归禄格</h4><div class="content-item text"><div class="content-type">正文</div>泉中水者，寒泉清洌，取之不穷，此水非见木则不能济于通道，故以见木皆吉。</div><div class="content-item text"><div class="content-type">正文</div>此水见平地木，须借剑锋金削之方可取用。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>甲申泉水，遇癸酉剑金，再有戊戌平地木，申酉合化，戊癸合化，主吉。</div><div class="content-item text"><div class="content-type">正文</div>更逢松柏木则以互换，为松柏归禄格，主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">松柏归禄</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲申乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲申见辛卯松柏木、乙酉见庚寅松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见平地木，必须有剑锋金削之。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见桑柘木、杨柳木无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">松柏木者，五行财禄之象征，木到申酉水旺之地，为财禄归源，故以见松柏木为归禄之称。但以平地木为筑屋茂木，必须有剑锋金削之成材。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">入圣显照格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此水逢火，则以阴阳互换主吉。</div><div class="content-item text"><div class="content-type">正文</div>比如，见霹雳火为入圣，逢太阳火为显照，二火相见最吉，称之谓入圣显照格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>但此二火不能在柱中并见，见之则主凶。</div><div class="content-item text"><div class="content-type">正文</div>比如，乙酉泉水，生于戊子月，称之为泉水入圣格。</div><div class="content-item text"><div class="content-type">正文</div>甲申泉水，见太阳火，称之为泉水显照格，依此类推，则主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">泉水入圣格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊子霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌霹雳火、天上火并见主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">泉中水者，阴极阳生热化之水，霹雳火者，阳极阴生，水中之火。这种水火互见的格局，将泉中水交替入于龙神之水，故称之为泉水入圣。但如果并列再见天上火，泉中水将热极生化，招致灭身之灾。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">泉水显照格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲申泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌天上火与霹雳火并见主凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">甲申水者，自生之泉水，甲木乃十干之首，在地为梁栋，是为死木，初得见火，配成文明之象，故以见天上火为泉水显照，主贵。如果再见霹雳火，二火同见，泉中水乃势化而不能存身，主凶。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">金马饮泉格</h4><div class="content-item text"><div class="content-type">正文</div>泉中水者，同饮万民之用，育养万物之泉水。</div><div class="content-item text"><div class="content-type">正文</div>此水见土，尤以逢路旁土、砂中土最喜泉水灌溉，主吉。</div><div class="content-item text"><div class="content-type">正文</div>比如，甲申泉水，见庚午路旁土，称之为金马饮泉格；见辛末路旁土，为银羊甘露格，逢砂中土为清砂养泉格。</div><div class="content-item text"><div class="content-type">正文</div>见屋上土，中有丙戌丁亥为天门水之源，亦主吉。</div><div class="content-item text"><div class="content-type">正文</div>城头土、壁上土与此水无干涉。</div><div class="content-item text"><div class="content-type">正文</div>大驿土就位相克，水为土掩，则成并渫不食之苦，须柱中木，方可为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金马饮泉格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲申泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见辛未路旁土为银羊甘露，逢砂中土为清砂养泉，见屋上土也吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">逢大驿土就位相克须有木助，城头土、壁上土无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是三种格局，一种以见庚午为金马饮泉，一种以见辛未为银羊甘露，一种以见砂中土能存其身，称为清砂养泉，主贵禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论水</h4></div><div class="subsection"><h4 class="subsection-title">水远花堤格</h4><div class="content-item text"><div class="content-type">正文</div>此水喜见大海水，命书称之谓引凡入圣格。</div><div class="content-item text"><div class="content-type">正文</div>逢天上水、涧下水、长流水，亦不为灾。</div><div class="content-item text"><div class="content-type">正文</div>见大溪水甲寅乙卯主吉。</div><div class="content-item text"><div class="content-type">正文</div>再如甲申泉水见乙酉泉水，或乙酉泉水见甲申泉水，为官星互换，最吉。如果此二水在年与时上，再有二木在月与日上，命书称之谓水远花堤格，主大贵格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水远花堤格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲申乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲申见乙酉、乙酉见甲申，再有二木相助，主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水见大溪水甲寅乙卯，主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">甲申为自生之水，乙酉为阴坚之水，二水同见，泉水长流，再有二木相助，绿柳堤岸，则称为水远花堤格，主贵禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">引凡入圣格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">泉中水者，潺潺不竭之流，大海水者，江河溪流之宗，再以亥为天门之水，故以泉中水逢大海水称之谓引凡入圣格，主贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

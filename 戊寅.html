@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戊寅 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">戊寅</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>戊寅地官承，乃生体安和之土，若资之以火土俱盛，金旺之荣，虽多反制，尚可高崇，为不常之用。</div><div class="content-item note"><div class="content-type">注释</div>土在病地，但寅中有生火可资我之土，故不言病。喜火局，喜火音，忌水重。如见甲寅水，甲居临官克其戊，戊寅纳音克甲寅。是支干纳音，上下不和。在日上见，多为家里和妻子不和，有分家之象。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊寅土</div>堤阜城郭，喜水及火</div><div class="content-item text"><div class="content-type">正文</div>戊寅受伤之土，最为无力，要生旺火，以资其气，忌己亥庚寅辛卯诸色木克之，主短夭之凶。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>戊寅丙戌，此二位乘土德厚气，一含生火，一含宿火，是谓阳灵袭中，福庆之辰，贵格得之，道德盖世，贵极人臣。惟亲王贵公子多于此日生，常格得之，亦主福寿遐远，始终安逸。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊寅己卯城头土</div><div class="content-item question"><div class="content-type">问答</div>“何以戊寅己卯曰城头土？”答曰：“气能成物，功以育物，发乎根荄，壮乎萼蘂，乃曰城头土。”《论》曰：施功成物，水济物华，百甲拆之，象火燥反成其殃，土养木踈，必成其器。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>城头之土，填平井底之津。</div><div class="content-item text"><div class="content-type">正文</div>戊寅与甲申，己卯与乙酉皆不和。</div><div class="content-item text"><div class="content-type">正文</div>杨柳之木，疏导城隍之脉。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未与戊寅、己卯相宜。</div><div class="content-item text"><div class="content-type">正文</div>甲子见戊寅，绿窗难嫁。</div><div class="content-item text"><div class="content-type">正文</div>子见寅乃孤辰</div><div class="content-item text"><div class="content-type">正文</div>长流之水，城头阻截。</div><div class="content-item text"><div class="content-type">正文</div>壬辰、癸巳又怕戊寅、己卯。</div><div class="content-item text"><div class="content-type">正文</div>南面百城，只为戊寅逢己酉。</div><div class="content-item text"><div class="content-type">正文</div>城头土见大驿土或路旁土皆是。但戊寅见己酉、庚午，己卯见戊申、辛未为正。</div><div class="content-item text"><div class="content-type">正文</div>戊寅之土，亦忌戊申。</div><div class="content-item text"><div class="content-type">正文</div>此稍轻。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>城头土者，天京玉垒，帝里金城，龙盘千里之形，虎踞四维之势。此土有成有未成，作两般论。凡遇见路旁，为已成之土，不必用火，若无路旁，为未成之土，必须用火。大都城土皆须资木，杨柳癸未最佳，壬午则忌；桑拓癸丑为上，壬子次之。庚寅辛卯就位相克，则城崩不宁，何以安人也耶？如见木无夹辅，只以贵人禄马论之。见水有山为显贵，甲申、丁丑俱吉，天河滋助亦吉，唯忌霹雳、大海，壬戌不忌，合化俱以吉推。土爱路旁，防见诸火，大驿逢山，须作贵观。若独见无根本，贫夭孤寒。五行见金，只有白蜡怕巽，二者相妨，余金无用，亦须以贵人禄马看之。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>城头土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">城头土是指天干戊己，土积高山，山上再积土高垒，古人称城，是说土上加土，筑为城防之墙，城头土是说很厚实坚固，最忌木多克土漏泄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱引伸画意为城墙上面的土，引意为城头上薄土，不很厚实，或者引意为城头土生年的命也不很厚实。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊寅土</div>堤阜城郭，喜木及火。伏神、俸杖、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>寅为艮山，戊己之土又生艮山，山上又积土成山，仿佛象累土成墙，所以称为城头土，皇帝居住的京都，用火炼土成的砖砌成，象蟠龙盘绕千里之形，猛虎端坐四围之势，连绵起伏的城头土喻象厚而不穷之土，天作屏障之秀，遇山遇水皆为显贵，城中见山见水借意为假山假水，非显贵人家不能营造。故城头土出生年的人，生月若是山头火，生日是涧下水，必是金水架桥之贵，门庭显赫之家。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是城头土，生月是山下火，生日是大林木，必是星火燎原之势，火树银花之格，其人一生富贵。</div><div class="content-item text"><div class="content-type">正文</div>但城头土最忌大海水淹没浸身，必遭洪水泛滥之灾，遇霹雳火焚烧毁景，土受此火伤，则不能育物。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>盖以戊土深厚，其象如城，寅为戊土长生之地，在天为霞，于地为山，气聚以能成物，功用在于育物，发生万物根茎之德，壮乎万物萼芯之功，天京由玉瓦垒筑，城墙由土烧的砖砌成，龙盘千里之形，虎踞四维之势，城头土乃有防卫之功能。</div><div class="content-item text"><div class="content-type">正文</div>此土有成器与未成器两种，凡遇路旁土为已成之土，而不必用火，若无路旁土，必须用火才能成大器，大都城头土必须有木资助方吉。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">戊土深厚，其象如城。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气发以育物根，壮乎花蕾萼芯，半成器之土。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊寅</div>受伤之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">堤阜城郭之土，喜火忌木，最为无力，要生旺，必以火资其气，若有戊寅兼丙戌二位是乘此土德厚之气，其一含生火，其二含宿火，是谓阳气藏中福庆之辰，贵格得之，道德盖世，贵极人臣，惟有亲王贵公子多于此日生，常人得之，也主福寿始终安逸。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜火济身，喜丙戌屋上土协调，生日逢之更吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">己亥平地木，庚寅辛卯松柏木，诸水克之，主短折之凶。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己卯</div>自死之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">破堤败城之土，喜申酉及火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自死之土又甚为贵，若得丁卯、甲戌、乙亥、己未之火由合而来以致其福，己卯建于震位，能够风行雷动散为和气。此土为有道之土，随变化适应，有养生自在之福寿，承土德旺气而生火，得之主福寿绵远。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜承土德旺气而生火主福寿绵远，喜申酉与甲戌、乙亥、丁卯、己未火合而致福。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">惟忌见死绝则成为久假不归之徒或成凶灾。其土无力，不可为木所损；不宜见水，见水不为财；见木愈成坚韧。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论土</h4></div><div class="subsection"><h4 class="subsection-title">大驿从山格</h4><div class="content-item text"><div class="content-type">正文</div>城头土者，龙盘千里之形，虎踞四维之势，喻以城防之土，此土有两种，包括成功与未成功之土。</div><div class="content-item text"><div class="content-type">正文</div>大凡此土逢路旁土，视为已成功之土，则不必再用火生之，反而忌见诸火。或命中无路旁土，视为未成之土，必须用火才能达到真正的城防之土。</div><div class="content-item text"><div class="content-type">正文</div>此土见大驿土，命中必须有山的依托，则成山边驿站，称之谓大驿从山格，主贵。此土若独见大驿土而无山的依托，则主贫夭孤寡。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">大驿从山格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">城头上</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见大驿土必须有山依托，称之谓山边驿站，如果无山，主孤贫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见路旁土忌见诸火，如果无路旁土，必须有火生之。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">大驿从山是说逢大驿土必须柱中有山为依伴，比如：丑为艮山之类，若无山依，驿站人流往来则主漂泊孤贫。如果见路旁土，不能再见其它火，假如没有路旁土，必须有火生之，才能吉利。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论木</h4></div><div class="subsection"><h4 class="subsection-title">戊癸合化格</h4><div class="content-item text"><div class="content-type">正文</div>盖以城头土，都须要木来资助方吉。</div><div class="content-item text"><div class="content-type">正文</div>比如，逢杨柳木以癸未最佳，因为戊寅城头土见癸未杨柳木有戊癸合化，皆成土局，则能增加城头土的厚实，壬午杨柳木则忌之。</div><div class="content-item text"><div class="content-type">正文</div>见桑柘木以癸丑为上，壬子次之。</div><div class="content-item text"><div class="content-type">正文</div>松柏木以庚寅辛卯就位地支相克，天干流气，则城土崩裂，不得安宁，何况人以命而代之，其理至通。</div><div class="content-item text"><div class="content-type">正文</div>此土为独以见木，无其它纳音相辅而只以禄马贵人论之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">戊癸合化格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊寅城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸未杨柳木、癸丑桑柘木，戊癸合化主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此土如独以见木，只以禄马贵人论之，</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见松柏木克土流气，城头土则崩裂。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以见戊癸合化生火，增加土的厚实为贵，如果独见木，没有火的生扶，只以禄贵论之。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论水</h4></div><div class="subsection"><h4 class="subsection-title">依山秀水格</h4><div class="content-item text"><div class="content-type">正文</div>城头土者，龙形虎势，厚实之土，逢水有山，为显达之命。</div><div class="content-item text"><div class="content-type">正文</div>此土尤以见甲申泉中水、丁丑涧下水俱吉，称之谓依山水秀格。</div><div class="content-item text"><div class="content-type">正文</div>逢天河水滋润也吉，惟忌霹雳火就位，雷雨带水，主城土崩裂。</div><div class="content-item text"><div class="content-type">正文</div>再以大海水而论，此土不忌壬戌，因为壬戌有山合化，俱吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">依山水秀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲申泉中水、丁丑涧下水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见壬戌大海水有山合主吉，逢天河水也主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见霹霹火，城头土则崩塌。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以见丁丑涧下水有山，甲申泉中水为水秀，与戊寅相合主吉。天河水以丙午相合，卯末相合，也主吉。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4><div class="content-item text"><div class="content-type">正文</div>盖以城头土见金流气。只有白蜡金可依，其它金无用，但也须以贵人禄马论之。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">昆山凝金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见其它金，只以禄马贵人论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">城头土者，龙蟠千里之土，但以土的属性到辰巳为土的绝墓之地，而白蜡金则以生于辰巳，故以见白蜡金称之为昆山凝金主贵，见其它金只以逢禄马贵人吉论。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

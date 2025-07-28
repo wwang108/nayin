@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壬寅 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">壬寅</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>壬寅地会义，乃藏用体柔之金，</div><div class="content-item text"><div class="content-type">正文</div>喜土资之以旺（戊申，己酉是也），</div><div class="content-item text"><div class="content-type">正文</div>财官不可太刚（火不旺，木不强）,若能应此，富贵始得久远。</div><div class="content-item note"><div class="content-type">注释</div>壬寅为六十甲子之中一奇，藏阴阳化变之理。</div><div class="content-item text"><div class="content-type">正文</div>不忌弱火，仍喜弱木以依附之。如命书素云有见癸未杨柳木成杨柳拖金之格，见戊戌己亥平地木亦为嘉会。</div><div class="content-item text"><div class="content-type">正文</div>喜戊寅、戊申、己酉之土生之。</div><div class="content-item text"><div class="content-type">正文</div>亦喜重重金神助之，见金可为宝金连珠，癸卯癸酉最喜，</div><div class="content-item text"><div class="content-type">正文</div>壬申稍忌。喜微火，如甲辰、戊子，见丁卯可合化真木。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬寅金</div>金之华饰者，喜木及微火</div><div class="content-item text"><div class="content-type">正文</div>壬寅癸卯前者是自绝之金后者是气散之金，若见众火则丧气，惟水土朝之则吉。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>壬寅癸卯为虚薄之金，具仁柔义刚之德。秋冬则健无凶，凶为吉兆；春夏则内凶外吉，吉乃先凶。入贵格则志节英明，带杀则凶暴不令终也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">三命纂局云：</span>癸卯自胎之金，若逢丙寅丁卯炉中之火不为鬼，以胎金炉中成器，必有高达。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>壬寅癸卯金薄金</div><div class="content-item question"><div class="content-type">问答</div>“何以壬寅癸卯谓之金薄金？”答曰：“气尚柔弱，金形绝地，薄若缯缟，乃曰金薄金也。”《论》云：其金势微，使之木多，损志劳神。旺金相助，刚毅果敢。用义不剉，土重气沉，不能设施。土轻相养，性体光辉。火刹其性，煆炼销铄，不能自存。水轻色莹，水重气滞。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>金箔之金，火不克而土不生，遇木则光华灿烂。</div><div class="content-item text"><div class="content-type">正文</div>壬寅、癸卯金箔金也。金既微矣，火亦不克土亦不生。一遇石榴木则光华灿烂，绚彩成文，庄严妙相，金碧辉煌。自然之理也。</div><div class="content-item text"><div class="content-type">正文</div>石榴逢金箔，绚彩成文。</div><div class="content-item text"><div class="content-type">正文</div>宾句见前。</div><div class="content-item text"><div class="content-type">正文</div>丈夫刚毅而闺秀幽闲，天乙若逢柏舟矢志。</div><div class="content-item text"><div class="content-type">正文</div>庚子遇壬寅，金屋藏娇。</div><div class="content-item text"><div class="content-type">正文</div>屋上土遇金箔金。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉逢壬寅而贯朽粟陈。</div><div class="content-item text"><div class="content-type">正文</div>玉堂声价，止因丁亥遇壬寅。</div><div class="content-item text"><div class="content-type">正文</div>屋上土遇金箔金。</div><div class="content-item text"><div class="content-type">正文</div>画栋雕甍，只为壬寅逢辛卯。</div><div class="content-item text"><div class="content-type">正文</div>松柏木金箔金。</div><div class="content-item text"><div class="content-type">正文</div>丁亥丙戌，若遇壬寅真可羡。</div><div class="content-item text"><div class="content-type">正文</div>屋上土遇金箔金必华屋重重、雕梁峻宇。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>金泊金者，润色杯盘，增光宫室，打薄须借乎别金，描彩必假乎人力。此金甚微，非木则无所依。木以平地为上，有此不宜见火，有火主夭。遇太阳为日间之显，二火相反，不宜同见。山下、山头，有清水助之，亦吉。惟忌炉火，就位相克，此金体薄，不能反源，定夭，限运同论。井泉、涧下、天河水清，日时喜见，须月令有木方吉。溪流、大海水浊，见溪流主漂荡，见大海无木为基，主凶残。金遇剑锋、钗钏，可以装饰，有辅成造化之理，故喜见。砂、海、白蜡无益，有火济之亦吉，无则终凶。城头、壁上二土有靠安身，城头多主寄人，壁上加木则贵，再遇灯火辉光照耀，主权贵。丙戊土中藏火，干支却不宜太炎，亦为贵格考《妙选》，金命而遇戊寅，昆山片玉格也；癸卯而遇己卯，玉兔东升格也，与前海金同。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>金箔金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">金箔金是说寅卯为木旺之地，五行木旺则金败收缩，金败收缩则自身薄弱，就象被打薄的金子，喻象引伸为金箔金，金箔金是描彩妆点之金，逢钗钏金则成碧金描彩之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的金箔金，人们理解为上供用的箔金纸，其金之薄，其命生人，命也很薄，将人生奋斗的意志削弱了，再成嗟呼之象，迷信的说法安能存在？</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬寅金</div>金之华饰者，喜木及微火。截路、平头、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>金的五行长生在巳，旺于申，绝灭于寅而胎于卯，壬癸又有气海阴极凝金之意，但寅卯是木旺之地，木旺则金羸，金就成了羸金，很瘦弱的形象，就象被削成薄片的金，薄弱无力，被喻为金箔金。</div><div class="content-item text"><div class="content-type">正文</div>从金箔金的应用上讲，最适宜做装饰之金，尤以覆盖庙宇以及器具的外表装饰。</div><div class="content-item text"><div class="content-type">正文</div>根据三十种纳音的内含意义，屋上土是炼土成金的砖瓦，壁上土是土水为泥的壁土，最适宜金箔金的外表装饰，使之成为富丽堂皇的外表结构，所以，生在金箔金之年的人，生月是钗钏金，生日是壁上土，则为画龙点睛之贵，生日是屋上土，则为碧瓦金檐之格，其人一生才识显达，最适应装点江山职业。如果生年是金箔金，生月是戊寅城头土，生日为壁上土，或者有屋上土，命书上称之为昆山片玉格。</div><div class="content-item text"><div class="content-type">正文</div>如果生年为癸卯，生月为己卯，生日为辛亥，命书上称之为玉兔东升，成为才子佳人之贵。</div><div class="content-item text"><div class="content-type">正文</div>总之，古人用金箔金装点庙宇，贴饰器具，更显得金箔金尊贵显达。</div><div class="content-item text"><div class="content-type">正文</div>从它的来源上看，金箔金是类金加工而成，因此，见金为宝金连珠。</div><div class="content-item text"><div class="content-type">正文</div>由于金箔金质地薄弱，遇火则焚身，但天上火是太阳火，或显得金箔金更加金碧辉煌。</div><div class="content-item text"><div class="content-type">正文</div>金箔金不能遇大水，遇大水则飘浮，失去其光辉的意义。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>由于金箔金是绝地存身之金，气尚柔弱，薄得就象丝织品一样，可以装饰杯盘磁器，增光壁瓦宫室，描绘景壁辉煌之秀丽，使其增加更美丽的色彩。</div><div class="content-item text"><div class="content-type">正文</div>因为此金质薄甚微，非见木则无所依托，若要打薄施工，须以见别金描绘，必以借清水来发挥功效。</div><div class="content-item text"><div class="content-type">正文</div>此金见火则主夭折，当见太阳火能显其荣曜，但二火不能同见。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">金气柔弱之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">绝地存金，薄弱缯缟，妆饰之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬寅</div>自绝之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">金中之装饰物之金，喜木及微火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自绝之金，若见众火则丧气，惟有逢水土朝之则吉，壬寅癸卯为虚薄之金，具仁柔义刚之德，秋冬刚健无凶，凶转吉兆，春夏则内凶外吉，吉乃先凶，入贵格则志节英明，带煞则凶暴不能善终。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜秋冬，喜水土朝贡则吉，又喜木及微火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">逢火丧气，夏生身弱。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸卯</div>自胎之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">环钮铃铎之金，喜盛火及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自胎气散之金，喜水土朝贡则吉，具仁柔义刚之德，逢秋生则成器，入贵格则志节英明。癸卯为环钮之金，若逢丙寅丁卯炉中之火不为鬼论，反作胎金入炉中火以为成器材之缘故。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜水土朝贡，见盛火成器物，秋生得时以成英贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌水土独逢（水多金沉，土多金埋）。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论金</h4></div><div class="subsection"><h4 class="subsection-title">昆山片玉格</h4><div class="content-item text"><div class="content-type">正文</div>此格以壬寅金泊金再见癸卯金泊金，命书也称为宝金连珠，再有戊寅城头土，或壁上土，其金安身有靠形成了第二种昆山片玉格。</div><div class="content-item text"><div class="content-type">正文</div>这种格局是指柱中寅为艮山出土玉金，戊癸又能合化生火，此命生人处世为人志节英明，多主济世度人，虽然少年才华荣耀多有辛苦，但晚年必是显达之士，荣耀门庭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">昆山片玉格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬寅癸卯金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">戊寅城头土或壁上土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是两种格局的组合，单以壬寅金箔金癸卯金箔金称之谓宝金连珠格，再以见戊寅城头土，或者壁上土，称之为昆山片玉格，是因为寅有艮山之意，丑也为艮山，山出金玉，故称之昆山片玉。</span></div></div></div><div class="subsection"><h4 class="subsection-title">碧金描彩格</h4><div class="content-item text"><div class="content-type">正文</div>盖以金泊金，有润色杯盘之德，增光宫室之义，打薄施其功力，必以借别金描彩，须得钗钏金资秀，再有泉中水助力，则能绘画鎏金，命书称为碧金描彩格。</div><div class="content-item text"><div class="content-type">正文</div>但此金甚微，非见木则无依托，以平地木为最上，则成碧金描彩，亦为装点江山之贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">碧金描彩格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">钗钏金资秀，泉中水助力。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">平地木为最上。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以金箔金为描彩之金，钗钏金为妆饰之金，再以此格见木才能有描彩依托，以见平地木为最上，则称之谓碧金描彩格，主贵禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论土</h4></div><div class="subsection"><h4 class="subsection-title">晖光照耀格</h4><div class="content-item text"><div class="content-type">正文</div>盖以金泊金见壁上土，再有松柏木拱照，则有装点江山之贵，柱中再逢覆灯火，则是碧瓦宫墙，灯火相映，气概磅礴于世，才华横溢出众，此格命书称为晖光照曜格，此命生人一生必主权贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">晖光照耀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见壁上土，再有松柏木拱照。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以金箔金为妆点之金，壁上土为装饰之壁，松柏木常青拱照，再有覆灯火照耀辉煌，命书称之谓晖光照耀格，主权贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">玉兔东升格</h4><div class="content-item text"><div class="content-type">正文</div>此格是以癸卯金泊金，见己卯城头土，再有丙午月轮银河天河之水拱照，命书称为玉兔东升格，柱中再有覆灯火晖映，则为皓月当空，皎洁天才之贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">玉兔东升格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">癸卯金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己卯城头土，丙午天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是两种格局的组合，以城头土有艮山之意，天河水为银河水，己卯又有兔的含属。再逢金箔金的妆点，就象月宫玉兔出于艮山之东升，故称玉兔东升，此格再以见覆灯火的晖映，称之谓皓月当空，皆主贵局。</span></div></div></div><div class="subsection"><h4 class="subsection-title">宜忌格</h4><div class="content-item text"><div class="content-type">正文</div>由于金泊金体薄甚微，虽见炎火有夭折之危，若遇山头火，山下火，有清水助之亦吉，惟炉中火就位相克。</div><div class="content-item text"><div class="content-type">正文</div>此火由于体薄不能反源，行运逢炉中火乡也为不吉。若遇井泉水，涧下水，天河水之清水，须月令有木方吉。</div><div class="content-item text"><div class="content-type">正文</div>大溪水，大海水为浊流之水，见大溪水主漂荡，见大海水无木制化，则主基础凶残。</div><div class="content-item text"><div class="content-type">正文</div>见剑锋金，钗钏金可以装饰，有辅成造化之功。</div><div class="content-item text"><div class="content-type">正文</div>逢海中金，白蜡金无益，若有火炼也吉，若无火炼终凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">炉火焚金格（凶）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">炉中火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金甚微，炎火伤形，见山头火，山下火有清水助也吉，唯忌炉中火，此金焚烧不能存身。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水旺金漂格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">大溪水，水海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金甚薄，逢大溪水，大海水，为漂泊不安，尤其见大海水如果无木，此金主凶残，见井泉水，涧下水，天河水再以出生月令有木，或者纳音中有木方吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金箔妆点格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">钗钏金、剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金为妆饰之用金，钗钏金也为妆饰之金，再逢剑锋金，称之七星钳宝之用，此金逢海中金，白蜡金有火制则吉，无火制则主凶。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

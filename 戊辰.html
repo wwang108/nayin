@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戊辰 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">戊辰</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>戊辰神头禄，乃华实兼荣之木，爱乎水土，忌见火金</div><div class="content-item text"><div class="content-type">正文</div>（丁酉最忌，不须生旺，似木而非木）</div><div class="content-item text"><div class="content-type">正文</div>有所养于金，乃英实之命也。</div><div class="content-item note"><div class="content-type">注释</div>秉承木之归宿，承载一方之气。</div><div class="content-item text"><div class="content-type">正文</div>忌甲辰火，尚喜乙巳见禄见官，戊午夹禄。</div><div class="content-item text"><div class="content-type">正文</div>只忌兑位伤辰中之木，不可拘泥于书上所言。</div><div class="content-item text"><div class="content-type">正文</div>和己巳度乾宫见亥水都为大利，见庚寅辛卯物极必反，为忌。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊辰木</div>山林山野处不材之木，喜水</div><div class="content-item text"><div class="content-type">正文</div>戊辰两土下木，众金不能克，盖土生金，有母子之道，得水生之为佳。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>戊辰庚寅癸丑三辰，挺木德清健之数。生于春夏，能特立独奋，随变成功；更乘旺气，则有凌霄耸壑之志。惟忌秋生，虽怀志节，屈而不伸。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊辰己巳大林木</div><div class="content-item question"><div class="content-type">问答</div>“何以戊辰己巳为大林木？”答曰：“气不成量，物已及时，华叶茂盛，乃曰大林木也。”《论》曰：山岳堆耸，龙蛇藏形，爱木助而势增，恶金火而势减，水润则物，物可安谓，木到此乘阳，恶金火而爱木水，水滋木秀，龙蛇可安而受其庇阴也。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>大林、松柏，数伐方催。</div><div class="content-item text"><div class="content-type">正文</div>戊辰、己巳为大林木。</div><div class="content-item text"><div class="content-type">正文</div>路旁尘垢，须防林木风吹。</div><div class="content-item text"><div class="content-type">正文</div>庚午、辛未怕戊辰、己巳。盖巳乃风门故云。</div><div class="content-item text"><div class="content-type">正文</div>己巳、戊辰，遇己亥而男儿超卓。</div><div class="content-item text"><div class="content-type">正文</div>大林木遇平地木，其参天之势。枝叶扶疏，垂荫万亩。岂不出人头地也？</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>大林木者，枝干撼风，柯条撑月，耸壑昂霄之德，凌云蔽日之功。此木生居东南，春夏之交，长养成林，金假艮土为源，癸丑为山，三命无破陷，最为福厚权贵。戊辰为上，己巳次之。土遇路旁，为负载，戊辰见辛未为贵，己巳见庚午为禄，主福；壁、屋二土，再得剑金，则大林之木取为栋梁，成格最吉，无此乃山间茂林之木也。此木无论死活，皆欲见土，如己人见甲，虽云化土，然不如辰戌丑未，土局纯全为妙。若此木已死在山之下，见甲戌乙亥烧之，主凶夭。灯火就位相生，乙巳不如甲辰更吉。霹雳、太阳二火皆能长育，运中遇之亦吉，然二火嫌并见，持胜须有土为根基方可。水见天河，戊辰见丁未带贵，虽无土与山，亦主有衣食，即灵槎入天河格也，生秋冬死绝方是。溪、海二水重见，主贫夭，有山稍得。《妙选》有苍龙驾海格，是戊辰见癸亥为贵，涧下丁丑最吉，丙子不如。诸金俱不宜见，海中有乙丑为山，剑锋得屋壁为本，余金无用，逢之主夭贱。木喜桑柘，唯癸丑最妙；平地还须得路旁土，谓之平林在野；松柏东方生旺之地，柱有癸丑而得松柏为密荫，最佳。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>大林木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">大林木是说春末夏初，雷行震撼，阴生百倾之宽广，树木多而成林，茂盛之象，遇金伐而殿筑屋之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画几棵大树，引伸为树木很旺，术士说其年生人财源多的象大树林，又说金克木，遇金年砍伐，多有不利，实际上大林木不是指真正的大树林。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊辰木</div>山林山野处不材之木，喜水。禄库、华盖、水禄马库、棒杖、伏神、平头。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>辰为原野，又为水库，水是养木之源，辰又为雷电振动之意，又有天干戊土滋养，仿佛象茂盛的大林木立于原野之间，风吹树动，茂盛的枝叶象笙簧发出悦耳的音乐声，传播九天。原野的树木，荫生万倾，故喻象称之谓大林木。</div><div class="content-item text"><div class="content-type">正文</div>大林木生于原野，荫生万倾之象，现实了一生富贵生华。辰又为龙的化身，如果一个人生在大林木之年，又生在天河水之月，日柱又有剑锋金相助，是龙行雨雾，称之谓骊龙出珠，必身居显赫。</div><div class="content-item text"><div class="content-type">正文</div>如果出生年是大林木，出生月是大驿土，日柱是天上火，则为神龙出世之格。</div><div class="content-item text"><div class="content-type">正文</div>大林木遇强金削木成材，遇大海水淹身，必以城头土镇之，遇星火可以燎原，逢砂中金克根，少运艰辛，忌松柏木，逢则遭嫉妒。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>大林木者，是以其五行木气在此时质量已经回衰，但其木已及时长成气势，枝叶茂盛，郁郁然成为大林，是取其木之林海盛况。</div><div class="content-item text"><div class="content-type">正文</div>大林木者，其枝干摇撼风啸，柯条枝茎茂盛可以撑月，声音回荡山谷，其势有冲宵九天之德，壮志有凌云蔽日之功。</div><div class="content-item text"><div class="content-type">正文</div>此木生居东南春夏之交，长养成林，全借艮土为源，癸丑为山，若日月时柱中无冲破，最为福禄权贵之命。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">荫生百倾之喻象。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊辰</div>沃土之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">山林山野处不材之木，喜水。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">两土下木，众金不能克，凡土生金，有子母之道，得水生之为佳。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜水生之为福禄，尤以戊辰、庚寅、癸丑三辰并列，挺刚德清之最，生于春夏能特立独奋，随变化而成功，更逢旺气，则有凌宵声坚之志。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">惟忌秋生，虽怀志节，屈而不能伸。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己巳</div>近火之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">山头花草，喜春及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">近火之木，金至此生，于我无伤，但山头花草，忌见生旺之金，己巳在巽方，为风动之木，根危易拔，遇柔和的金土运归东南方成为材用，此木虽外阳内阴，如果别无辅助，其气虚散，更为金鬼所克，则成为不材之木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">盖以己巳戊辰举木之类，遇西方金鬼旺乡纳音之木受克，故以木绝于西方，如果过渡到乾亥之宫，木得水以长生而称之为脱厄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌遇剑锋金则遭厄运。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">福厚权贵格</h4><div class="content-item text"><div class="content-type">正文</div>大林木者，声坚昴宵之德，凌云蔽日之功，生居东南之旺乡，交接春夏之光华，郁然得地于原野，长养成为大林，全借艮山之土为源。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>桑柘木纳音虽木，但癸丑为艮山之源，柱中再有大驿土，申子辰化为水局，巳酉丑化为金局，命书称之谓福厚权贵格。</div><div class="content-item text"><div class="content-type">正文</div>此格以戊辰逢之最贵，己巳火带临官，化金克木则次之。但以此格无破陷为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">福厚权贵格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬子桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格再见戊申大驿土，申子辰化为水局则命主礼仪。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破则不为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">辰为蚕食之地，桑柘木为蚕食之源，蚕茧成丝，贵人之衣禄，故称之为福厚权贵之命格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">福厚权贵格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己巳大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格再见己酉大驿土，巳酉丑化为金局，主仁义。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">第一种以戊辰见壬子，再见戊申。第二种以己巳见癸丑，再见己酉。这两种都是以桑柘木到辰巳为蚕食之地，则以衣食福禄富贵之命名。</span></div></div></div><div class="subsection"><h4 class="subsection-title">平林密荫格</h4><div class="content-item text"><div class="content-type">正文</div>盖以大林木逢木生旺，类以相资，但各以分别类辨。</div><div class="content-item text"><div class="content-type">正文</div>比如，见桑柘木，以逢癸丑为最妙，以天干戊合化主贵。</div><div class="content-item text"><div class="content-type">正文</div>见平地木，必须得路旁土，命书称为平林在野。</div><div class="content-item text"><div class="content-type">正文</div>见松柏木为东方生旺之地，柱中再有癸丑桑柘木，这样，形成了癸丑得松柏，与大林并美，命书称为平林密荫格，此命最佳。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">平林密荫格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸丑桑柘木再有松柏木，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格见平地木，须得路旁土，名为平林在野，主富。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以木盛为主，又有戊癸合化，故称平林密荫，再得路旁土为禾稼生长之土，又为平地木栽培之地，所以又称之为平林在野，主一生福禄富贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论土</h4><div class="content-item text"><div class="content-type">正文</div>大林木者，枝叶茂盛，声坚昴宵，生居东南，得势成为栋梁，但以此木不论旺相、休囚、死活，都适宜见土。</div><div class="content-item text"><div class="content-type">正文</div>比如，己巳大林木逢天干甲，甲己虽为化土之合，但不如柱中有辰戌丑未，以土局从权为妙。</div><div class="content-item text"><div class="content-type">正文</div>如果此木五行囚死在山下，再见甲戌乙亥山头火之燃烧，则有废身之灾祸。</div></div><div class="subsection"><h4 class="subsection-title">栋梁福禄格</h4><div class="content-item text"><div class="content-type">正文</div>此木逢路旁土加清水灌溉，为福禄负载。</div><div class="content-item text"><div class="content-type">正文</div>其中以戊辰大林木，见辛末路旁土为贵。己巳大林木见庚午路旁土为禄，主福，此二命称为福禄格。</div><div class="content-item text"><div class="content-type">正文</div>此木若逢庚子辛丑壁上土、丙戌丁亥屋上土，再得壬申癸酉剑锋金的修整，则取为栋梁材格最吉，主贵。</div><div class="content-item text"><div class="content-type">正文</div>此格若没有这些条件相辅，大林木乃属山间茂林之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">栋梁福禄格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛未路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再加清水灌溉，如井泉水、涧下水之类。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">路旁土得到清水为灌溉，将大林木滋润成栋梁之材，故称之为栋梁福禄格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">栋梁福禄格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">己巳大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">清水灌溉，如井泉水、涧下水名为福禄负载。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">宜合化，忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是第二种栋梁祸禄格，是以庚午路旁土再有清水灌溉，滋润大林木成为栋梁之材，主财禄富贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">栋梁福禄格（三）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚子辛丑壁上土、丙戌丁亥屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再得壬申癸酉剑锋金最吉，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格若没有这些条件，乃成为山间茂林。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局是直接以剑锋金将大林木修剪成栋梁之材，用于支撑建房筑屋之用。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">灯明绿荫格</h4><div class="content-item text"><div class="content-type">正文</div>盖以大林木见火，必须有土为根基方吉。</div><div class="content-item text"><div class="content-type">正文</div>此木以见覆灯火就位相生最吉，但以甲辰为上，乙巳次之，再以砂中土为基，则是灯明绿荫之贵。</div><div class="content-item text"><div class="content-type">正文</div>比如，戊辰生人，逢丙辰沙土，再得甲辰覆灯火照耀，灯明绿荫，才华显达。</div><div class="content-item text"><div class="content-type">正文</div>此木若逢霹雳、太阳二火，皆能长育，运中遇之，亦主吉。然以二火并见火盛，必须有土为根基方吉，否则反为凶煞。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灯明绿荫格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲辰覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙辰砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格逢霹雳火、太阳火必须有土方吉，若无土，反凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">辰为东南水旺之地，茂盛的大林木居于东南水旺之地，又有甲辰覆灯火的照耀，故称之谓灯明绿荫，必是学识渊博才华显达之上。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论水</h4></div><div class="subsection"><h4 class="subsection-title">灵槎渡河格（注：槎者，木筏也）</h4><div class="content-item text"><div class="content-type">正文</div>大林木者，旺于东南，盛于春夏，天河水济身于枝条根茎，神灵木筏超度入于天河之格。</div><div class="content-item text"><div class="content-type">正文</div>此格是以戊辰大林木，见丁未天河水为贵，虽无土与山，也主有衣食福禄，命中称之谓灵槎渡河格，但以生于秋冬死绝方吉。比如，戊辰年、庚申月、丁末日，天干戊庚以见牛羊为贵，地支申辰化水以养辰库之木为禄，禄贵相并，自然衣食丰足。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灵槎渡河格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此格生于秋冬死绝方吉，命书有神灵超渡天河之说。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">灵槎，是有神灵超度的木筏，丁未是太阴之水。这里指戊辰大林木，通过银河之水的养育，修真养性，称喻为神灵超度，必是灵性敏感的高人。</span></div></div></div><div class="subsection"><h4 class="subsection-title">苍龙驾海格</h4><div class="content-item text"><div class="content-type">正文</div>盖以大林木逢大溪水寅巳相刑，雷风相冲，再得大海水辰戌巳亥对冲，此木若逢二水，一世主贫夭之艰，若命中有山，稍可方吉。</div><div class="content-item text"><div class="content-type">正文</div>但以其水性，癸亥为清静之水，则以戊辰见癸亥为贵，逢涧下水丁丑最吉。</div><div class="content-item text"><div class="content-type">正文</div>比如，戊辰生人，见癸亥月日，时生丁丑水，命书称之谓苍龙驾海格。此格必是大林木依山畔水之势，龙游大海之威显达于世，贵禄双收。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">苍龙驾海格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸亥大海水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丁丑涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌辰戌对冲，主贫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">辰为龙，癸亥是静海之水，丁丑指艮山出云，苍龙出海入云，故命书称之为苍龙驾海。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">定义：</span><span class="field-content">茫茫之云海行龙，是以贵禄交驰行于天下。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论金</h4></div><div class="subsection"><h4 class="subsection-title">驾殿筑屋格</h4><div class="content-item text"><div class="content-type">正文</div>盖以大林木依山畔水为生机，得土驾殿为栋梁。</div><div class="content-item text"><div class="content-type">正文</div>此木以诸金俱不宜见，但以此木见纳音金，由于纳音金类分各别，性质差异，当以海中金乙丑为山，此木可为依托。</div><div class="content-item text"><div class="content-type">正文</div>逢剑锋金或得屋上土，或得壁上土，此木得以修整成为栋梁，驾殿筑屋为根本。</div><div class="content-item text"><div class="content-type">正文</div>其它金逢之无用，或者贫夭下贱。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">驾殿筑屋格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊辰大林木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸酉剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">屋上土、壁上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">其它金俱不宜见，主贫夭下贱</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">大林木受到剑锋金的削裁，制成驾房筑屋之栋梁，主贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

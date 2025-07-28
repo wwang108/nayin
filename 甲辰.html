@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甲辰 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">甲辰</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>甲辰禄马承，乃始壮之火，欲多生我（戊辰木之类），或会本源，却无炎光之极，自然超卓，水轻而无土，亦可腾达矣。</div><div class="content-item note"><div class="content-type">注释</div>辰戌魁罡之地，气脉长存。命书云甲辰喜夜生，</div><div class="content-item text"><div class="content-type">正文</div>盖甲辰之火，传明继晦，上下木生却不旺，故云覆灯火。</div><div class="content-item text"><div class="content-type">正文</div>喜火助，除戊午稍忌外皆可。喜戊辰戊戌之木化贵。最忌壬辰壬戌之水，伏逆之气散火本源。亦忌天河水，水淋则灯灭。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲辰火</div>灯也，喜夜及水，恶昼</div><div class="content-item text"><div class="content-type">正文</div>甲辰偏库之火，多火助之吉，所谓同气相救，以资其不足，若见戊辰戊戌木生之为贵格，忌壬辰壬戌丙午丁未水最毒。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>甲辰为天将之火，含敏速峻烈之气，入贵格则为特达，为文魁，利秋冬不利于夏。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲辰乙巳覆灯火</div><div class="content-item question"><div class="content-type">问答</div>“何以己丑乙巳曰覆灯火？”答曰：“气行盛地，势立高冈，传明继晦，子母相承，乃曰覆灯火也。”《论》曰：覆之在上，登之高明，趋南方以归西位，沉北地而向东生水木、增光发辉，土塞终为辉咎。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>覆灯之火，最怕巽风。</div><div class="content-item text"><div class="content-type">正文</div>甲辰、乙巳又怕见辛巳、癸巳也。</div><div class="content-item text"><div class="content-type">正文</div>是以甲辰逢己巳为风灭红灯。</div><div class="content-item text"><div class="content-type">正文</div>见前</div><div class="content-item text"><div class="content-type">正文</div>萤灯苦读，晚年成器佐丹宸。</div><div class="content-item text"><div class="content-type">正文</div>甲辰、乙巳遇未、辰木库而旺者，必晚年得茅。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>覆灯火者，金盏衔光，玉台吐艳，照日月不照之处，明天地未明之时。此火乃人间夜明之火，以木为心，以水为油，遇阴则吉，遇阳则不利。凡日时最忌再见辰巳，地支有冲，恐风吹灯灭，主夭。或以戌亥子丑为阴，或以自未至亥为阴，五行见木为根本，凡木皆好，更得官星、禄贵相扶，干头化水，尤吉。限运遇相助，主大贵。水以井泉、涧下为真油，长流假油，《妙选》有暗灯添油格，即此理也。大海、河水则不可以为油，遇者主寻常。大凡此火见水须资木，不喜长生旺气，水太泛反凶。命值泊金照耀，最为清贵，亦须水木相资，方能显达。砂中、钗钏二金皆吉；剑锋一金，谓之灯花拂剑，尤吉。蜡金不宜。五行见土，须防克破。若壁土可以安身，屋土可以覆庇。日时并见，主福贵。砂土有木，亦主衣食，余土无用。火爱同类，却怕风吹。霹雳为龙神变化之火，必带风来，此火难存。天上、炉中二火相见，最凶。再考《妙选》，有魁星格、指南格，以甲辰生人，日时遇午未为是；有火土入堂格，以此火怕风，日时遇丙戌丁亥屋上土，则灯在屋中，更得添油，尤贵。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>覆灯火</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">覆灯火是说五行火旺于辰巳，甲乙木生火为灯芯，喻象比作覆灯火，复明之灯火，专照日月不照处，天地未明前的灯火，辉煌明夷之火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的灯火，有的说成是佛灯火，理解成佛庙里的瞪火，或者说成是微弱的灯火，不能受风吹雨打，真正的取象意义，是覆灯火，天亮前的照明灯火。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲辰火</div>灯也，喜夜及水，恶昼。华盖、大败、平头、破字、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>甲为天的阳气始发，乙为天的阴气萌动，是谓天将黎明。</div><div class="content-item text"><div class="content-type">正文</div>辰为天光舒霞之时，巳为日之将午，艳阳之势，光明照亮天下，灯盏光芒摇动，灯台散发光亮，就象玉犀吐艳，专照日月光芒照不到的地方，照天地未明的光阴，就象将要黎明的灯火，所以喻象引伸为覆灯火。</div><div class="content-item text"><div class="content-type">正文</div>覆灯火的引伸意义为夜间照明之火，它离不开木为灯芯生之光明，离不开油而以水为源，所以，命中有井泉水、涧下水、长流水则为暗灯添油。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">比如</div>覆灯火生年的人，生月松柏木，生日为涧下水，则为松明拱照格，少年便可星火燎原，初显头角。</div><div class="content-item text"><div class="content-type">正文</div>还有一种格局叫灯花拂剑格局，则是以生年为覆灯火，生月是剑锋金，生日是涧下水，锋芒于黎明之剑，性格刚韧，是一种胸怀韬略的大器之才。</div><div class="content-item text"><div class="content-type">正文</div>覆灯火是夜光黎明之火，若与它火同居，方显其光明磊落，但不能遇霹雳火，因为霹雳火龙神生风，为灯火则灭。</div><div class="content-item text"><div class="content-type">正文</div>覆灯火忌土消耗神力，惟有屋上土能增其宝色。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>甲乙为火母，辰为土岗，巳为火的临官旺地，此火气居胜地，势定高岗，故名之以覆灯火。</div><div class="content-item text"><div class="content-type">正文</div>此火传明继晦，子母相承，以金盏摇光之气，玉台吐艳之美，专照日月不照之处，明天地未明之时，称喻为人间夜明之光。</div><div class="content-item text"><div class="content-type">正文</div>此火以见木为灯芯，见水为灯油，遇阴则吉，遇阳则不利。以何为阴？或以见未申酉戌亥为阴，其余为阳。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">气形盛地，势定高岗之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">传明继晦，子母相承，覆明之火。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲辰</div>偏库之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">灯火之火，喜夜及水，恶昼。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">偏库之火，多火助之则吉，所谓同气相求，以资其不足，若见戊辰、戊戌木生之为贵格，忌壬辰、壬戌、丙午、丁未最毒，甲辰为天将之火，含敏速峻烈之气，入贵格则为特达文魁，利秋冬不利于夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜火助之，见戊辰大林木、戊戌平地木，生之主大贵。甲辰为天将之火，利秋冬。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌壬辰长流水、壬戌大海水、丙午丁未天河水，不利于夏。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙巳</div>临官之火。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">灯光之火，喜夜及水，尤喜申酉及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">临官之火，水不能克，盖水绝于巳，得水济之则为纯粹，若得二、三火助之也吉，乙巳火含纯阳巽发之气，光辉充实，春冬向吉，夏秋向凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜夜生水济，逢壬申癸酉则成为灯火拂剑格，掌生杀之机枢，也喜二、三火相助则成同气相求。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌霹雳火生风灯灭，癸亥水淹煞。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">木火通明格</h4><div class="content-item text"><div class="content-type">正文</div>覆灯火者，人间夜明之火，此火以木为灯芯，以水为灯油，五行以见火为根本，凡见木都好，更得官星禄贵相扶，干头化水尤吉，限运相助主大贵，此乃属木火通明格。</div><div class="content-item text"><div class="content-type">正文</div>但以此火见阴则吉，见阳则不利，凡日时最忌再见辰巳，因为辰巳为巽风于东南有冲，恐怕风吹灯灭主夭折，所以大林木辰巳为巽风，则忌之。</div><div class="content-item text"><div class="content-type">正文</div>其它木以松柏木、杨柳木、平地木、桑柘木则以见官星带禄主大贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">木火通明格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">松柏木，杨柳木，平地木，桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格以天干化木，官星带禄，行运相助，主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见阴吉，见阳不利；最忌再见辰巳有风，灯火则灭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">覆灯火者，以木为灯蕊，以水为灯油，名为木火通明，水以天干丙辛为灯油，主吉。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">暗灯添油格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此火见木为灯芯，见水为灯油，又有真油假油之说，以何为真油？泉中水，涧下水为真油，长流水辰巳有风灯灭，则成假油。</div><div class="content-item text"><div class="content-type">正文</div>此火以甲辰覆灯火，见涧下水，再有己亥平地木助，或者乙巳覆灯火，见癸未杨柳木，再见泉中水，此为暗灯添油格，再以夜生为上，限运再行清水运，少年荣禄，才华显达。</div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">此火不可以大海水为油；见水须以木助</div>不喜长生旺气，太泛反凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">暗灯添油格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲辰乙巳覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲辰见润下水再有己亥平地木；乙巳见癸未杨柳木，再见泉中水为真油，见长流水为真油，见长流水则是假油。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格以夜生为上，限运再行清水运，为暗灯添油，主一生福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见水须有木助，不喜长生旺气，忌见大海水太泛，不可以为油，反凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种格局，两种分法：以甲辰见平地木再逢涧下水为真油，乙巳见杨柳木再逢泉中水为真油，所谓暗灯添油，是以为得外财而致富的格局。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论金</h4></div><div class="subsection"><h4 class="subsection-title">灯花拂剑格</h4><div class="content-item text"><div class="content-type">正文</div>覆灯火者，见水须资以木助，不喜长生旺气，逢水太泛反凶，命值金泊金照耀最为清贵，也须水木相助方能显达，见砂中金，钗钏金都吉，白蜡金辰巳有风不宜见。</div><div class="content-item text"><div class="content-type">正文</div>此火逢剑锋金谓之灯花拂剑格，比如甲辰灯火逢剑锋金，再有水木相资，或者乙巳灯火见杨柳木、平地木，再逢剑锋金，以夜生尤佳，再行清水运，则为卿将之才。</div><div class="content-item text"><div class="content-type">正文</div>但此格忌炎火焚烧则退锋主夭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灯花拂剑格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲辰乙巳覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲辰逢剑锋金再有水土相资，乙巳见杨柳木、平地木再逢剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格以夜生尤佳，再行清水运为卿将之才。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">金以砂中金，钗钏金都吉，白蜡金不宜；忌再见炎火焚烧，则退锋主夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以覆灯灯火逢剑锋金，称之谓灯花拂剑，盖以剑锋金淬水则成利刃之锋芒，以见木为修整成材，主贵。但忌炎火焚烧，其锋退火，就不为贵了。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">灯火入土格</h4><div class="content-item text"><div class="content-type">正文</div>覆灯火者，势定高岗，人间夜明之火，木芯吐绝，水油以生，五行见土流气，须防克破，再以权衡别论。</div><div class="content-item text"><div class="content-type">正文</div>此火逢壁上土可存其势，逢屋上土可保护庇身，日时并见屋上土主福贵，见砂中土有木助，也主衣食有余，见其它土无用。</div><div class="content-item text"><div class="content-type">正文</div>砂中土虽有辰巳，尤以天干丙丁为真火，覆灯火甲木相助，其火必旺，乙木相助，乙丙丁化为三奇，官禄带贵，必主才华显达，称之灯火入土格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灯火入堂格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壁上土存势，屋上土护身，日时并见主福贵，再有木助之主禄</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格见砂中土天干丙丁为真火，再有乙木相助，化为三奇主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见其它土无用，以土重则此火流气而不为贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格是以见壁上土显耀，见屋上土为灯火入堂，再有木助为灯蕊见禄，如果化为三奇，则主大贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论火</h4></div><div class="subsection"><h4 class="subsection-title">魁星指南格</h4><div class="content-item text"><div class="content-type">正文</div>此火爱与同类相存，但却怕风吹灯灭，霹雳火为神龙变化之火，必带风来，此火难存：天上火、炉中火二火相见，最为凶煞。</div><div class="content-item text"><div class="content-type">正文</div>但甲辰灯火生人，日时逢午未，命书称谓魁星指南格，必是翰林夺魁之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">魁星指南格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲辰覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见午未</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">以同类相资，但却怕风吹灯灭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见霹雳火，以天上火，炉中火二火并见，最为凶煞。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">覆灯火为天将黎明之火，天光舒霞玉犀吐艳，再以日时见到午未，命书称谓魁星指南必为卿监之贵，但此火却怕风吹，见到炎火而成祸害。</span></div></div></div><div class="subsection"><h4 class="subsection-title">火土入堂格</h4><div class="content-item text"><div class="content-type">正文</div>再以此火怕风，日时逢丙戌、丁亥屋上土，则灯在屋中，再得清水添油，命书称为火土入堂格，则是少年鱼台，荣禄富贵之命。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">火土入堂格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时逢丙戌丁亥屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">更得清水相助添油。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌风吹灯灭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局是以自身为火，日时再逢屋上土，灯在屋中，更得清水添油，称谓火土入堂，主荣禄富贵，再以乙巳见丙戌丁亥，是为顺布三奇，主大贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

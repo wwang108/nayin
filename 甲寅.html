@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甲寅 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">甲寅</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>甲寅神头禄，乃渊深处静之水，若资之木旺土衰（辛丑、辛卯、己酉土之类），则为奇特贵异。</div><div class="content-item note"><div class="content-type">注释</div>衰败之静水，干支之真木。不忌诸土，惟嫌死败重逢，火重身绝。宜秋冬用以东南，春夏归于西北。所喜者丁丑水、己酉土。所忌者乙巳、丙申火。所喜者己酉土、壬戌水。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲寅水</div>雨也，喜夏及火</div><div class="content-item text"><div class="content-type">正文</div>甲寅乙卯前者是自病之水后者是自死之水，虽然死病，土不能克，盖干支二木，可以制土，若见壬寅癸卯之金则为优裕。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>甲寅壬戌二水，为伏逆之气，阴胜于阳，主奸邪害物，惟济之以火土，损益之，方盛大器。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>甲寅乙卯大溪水</div><div class="content-item question"><div class="content-type">问答</div>“何以甲寅乙卯曰大溪水？”答曰：“气出阳明，水势恃源东流滔注，乃曰大溪水。”《论》曰：势向东行若百川，朝诸海艮止不流。恶土相遏，金水相加，助其流势，木火辅佐，财盛身隆。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>甲寅、壬戌，斯人德重鬼神钦。</div><div class="content-item text"><div class="content-type">正文</div>甲寅为日德又为占禄又为大溪水，壬戌为大海水，必心慈恻隐、度量汪洋。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>大溪水者，惊涛薄岸，骇浪浮天，光涵万里之宽，碧倒千山之影。最喜有归有养，遇坎则为有归，得金则为有养。所嫌者，日月时中，有申酉冲动，或辰已风吹，主飘流；井泉水净而止，涧下有丑为艮，天河沾润，大海朝宗，此四水皆吉。长流有风，独不宜见。此水以清金为助养，唯钗、砂最宜，蜡金亦清，若有钗金对冲则不宜。海中虽无造化，甲子属坎，乙丑为艮，乃归源之地，亦吉。箔金最微，不能相生，岂有超显之理？剑金虽化于大溪，却忌卯雷巽风，主性不定。五行有土，皆为无益，屋上、城头壅阻此水，路旁稍可，亦不为奇。壁上独辛丑为山，大驿唯己酉有合，戊申则冲，庚子则刑，皆不为吉。火见太阳，虽假照耀，霹雳尤忌相逢，若二火互见，主贫，单见别论。木见此水，徒被漂荡，唯桑拓木壬子有坎，癸丑为山，为水绕山环之贵，内甲寅人见壬子吉，乙卯人见癸丑吉；余木以禄贵参之，尤忌冲破。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>大溪水</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">大溪水是指川涧聚合之流，水势滔滔于山野，东流归成大溪，具体泛指未于入海之水，与大海之水汇合，称之沾润朝宗之贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的大溪水，有的理解为不大一点的溪流水，有理解说源流不断，是很旺的大水，其象意很难定。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲寅水</div>雨也，喜夏及火。正禄马、福神、八专、平头、破字、悬针、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>寅为东旺，卯为正东，甲寅乙卯这两个干支，方向都在东方，甲寅乙卯又都是势居东方的木性之物，以茂盛的树木居于东方，必是水旺的缘故，况且，中国的地势西高东低，水势发源于西方，东方是水的归宿之地，由于途经的川涧池沼之水都汇聚在这里，酣畅的水流引喻为大溪水。</div><div class="content-item text"><div class="content-type">正文</div>大溪水要东归于大海，必有源源不断的水源，因此，大溪水若遇到能生水的金，比如一个人生在大溪水年，生月是剑锋金，生日是长流水，命局称之为骏马驰原，其人一生驿海生涯，福禄无比，再逢剑锋金的流年相助，即是赤兔横空之贵。</div><div class="content-item text"><div class="content-type">正文</div>大溪水忌土，比如遇大驿土遭灾，遇城头土遭难，遇到耗水的木也不妙。</div><div class="content-item text"><div class="content-type">正文</div>比如大林木，木多吸水，一生艰辛，但见桑柘木则不怕，因为子属水，癸丑则是水源于艮山之木，生在癸丑之月的人，艮山遇水，则成为水绕山环之贵格，其人一生能奏出诗情画意般的音乐人生，再遇有涧下水之助，必是太白醉酒之贵。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>大溪水者，此时气出阳明，水势恃源，东流滔泻，其势浸大，惊涛薄岸，骇浪浮天，光涵万里之宽，碧倒千山之影，势归东海之流，最喜逢坎位之大水，是此溪流有归。</div><div class="content-item text"><div class="content-type">正文</div>此水得金生水为有养，所嫌者，是以日月时中有申酉冲动，或辰巳风吹主此水漂流。</div><div class="content-item text"><div class="content-type">正文</div>此水逢霹雳火主贫，木见此水主徒被漂荡，但以见桑柘木有山，则成水远山环之贵，此水尤忌冲破。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">百川归流之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">东流滔注，其势浸大之水。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">甲寅</div>自病之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">雨水之水，喜夏及火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">甲寅自病之水，乙卯自死之水，虽以死病之水土不能克，盖因甲寅支干二木可以制土，若见壬寅癸卯之金则为优裕，甲寅、壬戌二水为伏逆，阴胜于阳，主奸邪害物，惟济之以火土损益，方成大器。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">甲寅以夏生为旺气，以火土损益为宜，逢金箔金为富裕。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌水多则奸邪。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">乙卯</div>自死之水。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">露水之水，喜水及火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">甲寅自病之水，乙卯自死之水，虽以死病之水土不能克，盖因乙卯支干二木可以制土，若见癸丑桑柘木依山畔水可以富裕。此水惟以水火济身而旺象，方成大器。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">此水以三冬生为旺象，见山为依托，水多则细流归海。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌卯酉冲破则泛滥。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">沾润朝宗格</h4><div class="content-item text"><div class="content-type">正文</div>大溪水者，碧倒千山之影，光涵万里之宽。</div><div class="content-item text"><div class="content-type">正文</div>此水所嫌者，日月时中有申酉冲动，或有辰巳风吹，主漂流无定，所以，此水见泉中水申酉冲动而止。</div><div class="content-item text"><div class="content-type">正文</div>逢涧下水有丑为艮山，亦为止。</div><div class="content-item text"><div class="content-type">正文</div>遇天河水为银汉甘露，为沾润。命中有大溪水为万水朝宗。故以大溪水逢天河水、大海水，命书称之谓沾润朝宗格，主贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">沾润朝宗格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此格逢天河水为甘露沾润格。逢大海水为万水朝宗格，故名之，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">逢涧下水，泉中水也吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此水日月时忌逢申酉冲破主漂泊，长流水独不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一个两种格局的组合局。大溪水是汇集百川之流大海之水，故以见天河水为甘露沾润，见大海水为万水朝宗，皆主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论金</h4></div><div class="subsection"><h4 class="subsection-title">金水归源格</h4><div class="content-item text"><div class="content-type">正文</div>大溪水者，最喜有归，有养。</div><div class="content-item text"><div class="content-type">正文</div>此水遇坎，为有归，得金，为有养，以见清金为助养，惟喜钗钏金，金砂金为最宜。</div><div class="content-item text"><div class="content-type">正文</div>白蜡金亦为清金，但若再有钗钏金对冲，则不宜见。</div><div class="content-item text"><div class="content-type">正文</div>海中金虽无造化，但甲子属坎，乙丑为艮，此水逢之，乃为归源之地。</div><div class="content-item text"><div class="content-type">正文</div>这种格局，命书称之谓金水归源，主贵。</div><div class="content-item text"><div class="content-type">正文</div>但以金泊金最微，不能相生，最不会有超显之理。</div><div class="content-item text"><div class="content-type">正文</div>剑锋金虽化于大溪，却忌卯雷巽风，主性不定。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金水归源格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">钗钏金，砂中余，白蜡金为有养。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">海中金甲子属坎，乙丑为艮山，称之谓溪水归源。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">逢白蜡金忌见钗钏金对冲，金箔金性微不能相生逢之无进展，剑锋金却忌卯雷巽风主性不定。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种组合格局，以见清金助养溪水，再以见海中金为引水归源，故称之谓金水归源。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论土</h4><div class="content-item text"><div class="content-type">正文</div>大溪水者，五行有土，皆为无益。</div><div class="content-item text"><div class="content-type">正文</div>此水逢屋上土，城头土，塞阻此水。</div><div class="content-item text"><div class="content-type">正文</div>见路旁土稍可，亦不为寿。逢壁上土惟独辛丑为山，可依。</div><div class="content-item text"><div class="content-type">正文</div>大驿土惟见己酉有合，戊申则冲。</div><div class="content-item text"><div class="content-type">正文</div>见庚子壁上土则刑，皆不为吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">驿土从山格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己酉大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见戊申大驿土冲煞：见屋上土，城头土阻塞此水：见路旁土稍可，但也为不奇。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此水见己酉大驿土有合，惟独见辛丑壁上土有山可依，故称之谓驿土从山格，见其它土最忌刑冲克破则不以吉论。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论火</h4><div class="content-item text"><div class="content-type">正文</div>此水见火，以太阳火能为照耀。霹雷火尤忌相逢。此二火若互见，主贫疾。单见则以别论。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">天火照耀格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">太阳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此水以太阳火，霹雳火二火同见主疾贫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌逢霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">大溪水者，东流入海之水，光涵万里之波，逢太阳火的照耀，其势碧倒千山之秀丽，但忌见霹雳火则骇浪浮天，一生主贫。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4></div><div class="subsection"><h4 class="subsection-title">水远山环格</h4><div class="content-item text"><div class="content-type">正文</div>簇以木见此水，徒被漂荡。</div><div class="content-item text"><div class="content-type">正文</div>惟独桑柘木壬子有坎，癸丑为山，此水逢之，命书称为水远山环格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>这种格局中，以甲寅大溪水，见壬子桑柘木为吉。</div><div class="content-item text"><div class="content-type">正文</div>乙卯大溪水见癸丑桑柘木为吉。</div><div class="content-item text"><div class="content-type">正文</div>见其它木，则以禄贵参详，但尤忌冲破。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水远山环格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">甲寅乙卯大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲寅见壬子桑柘木有坎水相济，乙卯见癸丑桑柘木有山可依。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见其它木则以有贵禄参详。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">盖以此水见木，徒被漂荡，尤忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">由于此水为惊涛薄岸入海之水，见木徒被漂荡，只有桑柘木为依山畔水之木，称之谓水远山]环格，主贵禄。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

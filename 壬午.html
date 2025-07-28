@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壬午 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">壬午</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>壬午天官合，乃化薪之木（壬午自合，真木化薪），畏在火强，得水资之，或处生旺而逢土，亦可富贵。若独见金制，在死败之乡，非长久之命。</div><div class="content-item note"><div class="content-type">注释</div>此木自带合化真木，所以非常喜欢生旺位。</div><div class="content-item text"><div class="content-type">正文</div>壬午木本质上不是特别畏惧壬申癸酉，因为自坐金败地，</div><div class="content-item text"><div class="content-type">正文</div>如果有机会见水反而可以化成纳音官，禄之源。</div><div class="content-item text"><div class="content-type">正文</div>见壬寅癸卯金亦克不动我，在后世的纳音象法中此种还被称为“杨柳拖金格”。最忌讳的其实是夏月见戊午火，甲午金。被火焚尽，或是死地同窠见鬼都为大忌。</div><div class="content-item text"><div class="content-type">正文</div>壬午木容易见寅午戌火局，此时如果能在日时上见一旺水，反而可化成禄财。自合局通常都比较灵活，后面会继续引申</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬午木</div>杨柳干节，喜春夏</div><div class="content-item text"><div class="content-type">正文</div>壬午柔和之木，枝干微弱，木能生火，却忌见火多，多则烬矣。虽生旺之金，亦不能伤，盖金就我败，得金反贵，水土盛者亦贵，惟忌甲午金伤之。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>壬午自死之木，木死绝则魂游，而神气灵秀。禀之者挺静明之德，抱仁者之勇，以立为功行也。可谓静而有勇，延年益寿。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>壬午癸未杨柳木</div><div class="content-item question"><div class="content-type">问答</div>“何以壬午癸未曰杨柳木？”答曰：“气势因阳，物增夸逞，而杨柳之花亦飞扬，乃曰杨柳木。”《论》曰：物阳势盛，水济成功，火多阳盛，反为不美之兆。金若多得，尤其所喜也，土盛更为宜利。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>杨柳之木，疏导城隍之脉。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未与戊寅、己卯相宜。</div><div class="content-item text"><div class="content-type">正文</div>嫩柳柔柔，撄锋便折。</div><div class="content-item text"><div class="content-type">正文</div>杨柳见前，桑柘木乃壬子癸丑。</div><div class="content-item text"><div class="content-type">正文</div>屋上土、壁上土愁逢杨柳。</div><div class="content-item text"><div class="content-type">正文</div>丙戌、丁亥，庚子、辛丑是。二土怕壬午、癸未。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未，值辛亥而女子娉婷。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未杨柳木也。女子生于春月，更逢辛亥为钗钏金，岂不腰脚婀娜、玉貌娉婷。诗曰：桑出罗兮柘出绫，绫罗妆束出聘婷。娉婷红粉歌金缕，歌与桃花柳絮听。壬子、癸丑亦然用此。但四柱喜见贵神，若见咸池主淫荡。若见己巳巽风者乃无主杨花，随风漂泊，亦非吉也。</div><div class="content-item text"><div class="content-type">正文</div>松柏石榴兼杨柳，六木会合最为奇。</div><div class="content-item text"><div class="content-type">正文</div>驿路花香，早岁登科荣上苑。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉春生逢驿马及乙木、石榴、杨柳木者，皆合格。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>杨柳木者，隋堤袅娜，汉苑轻盈。万缕不蚕之丝，千条不针之带，午未木之死墓，壬癸木之滋润。此木根基唯喜砂土，见艮山则依倚摇金，遇寅卯东方得地。辛丑有山，庚子不如；戊寅虽吉，己卯尤胜。丙辰、丁己，却嫌戌亥对冲。若见大驿，有丑为山边之驿，稍可。无丑独见此土，主夭贱。路旁就位，复值死墓，日时遇之，主人卑弱。屋土壬午见丁亥，丁壬合化则吉，丙戌不如。水见井泉、长流、大溪、涧下皆吉，中间又分合化之位，尤吉。丙午丁未，丙丁真火，午未亦火，此木至午未死墓，壬午见之大凶。癸庶几有别，水济之无害。此木午未已自有火，更见别火，恐引起伤寿，灯头乙已有风，木折主夭；炉中寅卯本位，木旺反吉。霹火如壬午见己丑，癸未见戊子，阴阳交遇，更有砂土为基，主贵。若子午丑未对冲则不为吉。金见木无造化，钗钏、金箔却喜成功，海、蜡、剑、砂虽忌见之，其间轻重当以禄、贵、德、煞参祥。见松柏木，为脱体化神之格也，主贵。桑柘癸丑为山，作倚傍成林，主吉。庚申、辛酉木既死绝，又逢金克，以弱遇小，其人必贱。《妙选》有花红柳禄格，是以此木遇石榴，生于春夏，不以贱论。有杨柳拖金格，是以此木生于三春，而时得一金，辛亥、甲子、癸卯、辛巳最妙，乃壬癸禄贵之地故也。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>杨柳木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">木入未土墓库，又得壬癸旺水生之，喻象比作盛夏的杨柳木，千条万缕不断丝之意，舒柳柔情，依山水秀，坡堤岸畔，绿柳成荫。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">画谱上的杨柳木，人们理解为木质柔软虚弱，术士引伸为其命生人，柔软不能成熟，或者说成金克木，遇金年财源不利。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬午木</div>杨柳干节，喜春夏。官贵，九丑、飞刃、平头、聋哑、悬针。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>以木死于午，墓葬于未，借天干壬癸水来救活，但复生之木，毕竟是柔弱之木，因而被引伸喻意为杨柳木，它好像春蚕吐出的万缕之丝，千条连绵的线一样。</div><div class="content-item text"><div class="content-type">正文</div>杨柳木植根于土中，除不可以生长在屋上土外，其于喜见土，除大海水不能适应杨柳木的生长外，其又喜水而能育木。</div><div class="content-item text"><div class="content-type">正文</div>就其杨柳木的性质来说，是柔木多情之树，喜于春，生夏天，秋天则柳絮飞扬于四野，惹得行人缠绵思绪，特别是在那杨柳花红的季节，招来四方游客的心神陶醉，故古代诗人喻之为花街柳巷说。</div><div class="content-item text"><div class="content-type">正文</div>所以，如果是杨柳木生年的人，生月是长流水，生日是海中金，旺盛的杨柳木受到海中金的剪裁，则成杨柳拖金之贵，其命少年受到剪裁，一生福禄无疆。</div><div class="content-item text"><div class="content-type">正文</div>如果出生于杨柳木之年的人，生月是大溪水，生日是大驿土，杨柳木植根于沃土，福禄生于根荄，其人敦厚笃实，少年才华显达，此命则成乌龙出穴之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果是杨柳木生年的人，生在天上火之月，大驿土之日，虽然不当令，但肥沃的土壤造就了植身之地，也可是独出新秀之贵，造就锦囊文章。</div><div class="content-item text"><div class="content-type">正文</div>由于杨柳木的耐水性很强，适应范围很广，所以在沙滩河畔，也依稀可见。因为杨柳木的耐土性不强，遇沙中土则不能成大材，遇沙中金根基受克，以灌木丛居于滩野。杨柳木，质软性柔，除天上火外，遇大火而为夭折，遇霹雳火则遭凶灾，同时它怕遇到旺盛的石榴木强木压境，杨柳木则一生卑贱。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>杨柳木者，五行之气，以木气至午而死，至未而入墓，其木反而萌芽，士民称之为寿木，是以其木逢墓绝而返旺。</div><div class="content-item text"><div class="content-type">正文</div>但以杨柳之木，盛夏叶凋，枝干微弱，其性之柔，随岸堤栽培而阿娜轻盈，万缕如蚕之丝，千条似针之带，是取其柔情多意，旱伞林荫。</div><div class="content-item text"><div class="content-type">正文</div>以地支午未为木气的死墓，以天千壬癸水为木气的滋润。此木根基惟喜见砂中土，见艮山则依倚摇金，遇寅卯则东方得地之繁荣。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">午死未墓喻象之木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">盛夏叶凋枝干微弱之木。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬午</div>柔和之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">杨柳干节，喜春夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">枝干微弱而能生火，虽生旺之金亦不能伤，盖金就则败，得金反贵，水土藏者也贵。壬午自死之木，木死绝则魂游而神气灵秀则具备挺直静明之德，抱负仁者之勇，建立功行，可谓静而有勇，延年益寿。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜春夏，得金反贵，藏水土者也贵，水能济身，土能植根，遇死绝反旺。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌火多则耗身，惟独忌甲午砂中金伤其根茎。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸未</div>自库之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">杨柳根，喜冬及水，亦宜春。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">自库之木，生旺则佳，虽乙丑金不能冲破，是以各归其类而互不相犯。癸未木为正印之木，挺直文明，有吉会之德，能抱负世间之才，可享清华之福。盖以壬午癸未杨柳之木，盛夏叶稠，得其时则富寿，非其时则贫夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">癸未杨柳根喜水济身，冬以藏根春则萌发。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌见庚戌钗钏金，乙未海中金凝气伤根。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论土</h4></div><div class="subsection"><h4 class="subsection-title">依山摇金格</h4><div class="content-item text"><div class="content-type">正文</div>杨柳木者，坡堤枭娜，轻盈万缕，给人以柔情多意之美。</div><div class="content-item text"><div class="content-type">正文</div>此木惟喜砂中土为根基，不过，砂土虽吉，柱中若有戌亥对冲则为不吉。</div><div class="content-item text"><div class="content-type">正文</div>此木逢艮山之土，则可依倚摇金舒条。比如见壁上土，辛丑壁土有山相依，称之谓依山摇金格，庚子壁土无山则次之。</div><div class="content-item text"><div class="content-type">正文</div>遇寅卯是东方木性得存之地，但又以戊寅城头土之见，寅午化火烧木，故以己卯城头土见癸未杨柳木合化木局而取胜。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">依山摇金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">癸未杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛丑壁上土、己卯城头土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">惟喜砂中土为根基</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌柱中有戌亥对冲，忌壬午逢戊寅合化火局烧木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">杨柳木者，堤岸伴美之树，依山摇金之木，故以见辛丑有艮山、城头土也为山土，再以砂中土为疏松之土，最适宜此木生长，称之谓依山摇金之格，主贵禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">绿树碧檐格</h4><div class="content-item text"><div class="content-type">正文</div>杨柳木者，柔情多意，旱伞林荫，随坡堤而枭娜，逢筑屋而泛绿。</div><div class="content-item text"><div class="content-type">正文</div>此木逢屋上土为绿树碧檐之美，但以壬午杨柳木，见丁亥屋上土，为天干丁壬合化为吉，丙戌屋土纯火入墓，再逢辰戌冲开火库则为不吉。</div><div class="content-item text"><div class="content-type">正文</div>此木逢大驿土，柱中有丑为山可依，大驿土见丑为山边驿站则吉，如果命中无丑山可依，此命独见大驿土，主夭贱。</div><div class="content-item text"><div class="content-type">正文</div>若见路旁土就位，是午未重复置于死墓，日时逢之，主人卑弱下贱。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">绿树碧檐格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬午杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丁亥屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此木见大驿土，地支必须有丑，此木依山则吉，无丑主贱夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">日时忌见路旁土，主卑弱下贱。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">杨柳木者，遇死绝则生旺，此木逢丁亥屋上土，丁壬合化而以合化而以水生木，再以房前屋后绿树碧檐而名之，主贵禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">水柳泛绿格</h4><div class="content-item text"><div class="content-type">正文</div>杨柳木者，至午而死，至未而入墓，此木反而萌芽，是以此木入墓而旺，逢旺而衰之特性。</div><div class="content-item text"><div class="content-type">正文</div>此木见水，以泉中水、长流水、大海水、涧下水逢之皆吉，但中间又分合化宜忌才能尤吉，称为水柳泛绿格。</div><div class="content-item text"><div class="content-type">正文</div>比如，见天河水中丙丁是真火，杨柳木午未也是火，此木至午未死墓，壬午杨柳木逢丙丁真火大凶。</div><div class="content-item text"><div class="content-type">正文</div>以癸未看，命中有其它水济，此木见天河水则无害。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水柳泛绿格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">癸未杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">泉中水、长流水、大溪水、涧下水，以合化为吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此木见水，最忌逢有冲杀。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌壬午见丙午丁未天河水，丙丁为真火，见则主大凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">杨柳木者，清水灌溉而生旺，再以合化主贵，此木千丝摇金，万缕谢意，故称之谓水柳泛绿。但以壬午杨柳木之见，忌逢天干丙丁为真火，烧木，主凶。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">阴阳交错格</h4><div class="content-item text"><div class="content-type">正文</div>杨柳木者，虽有壬癸水济，但以午未自身存火，更见别火，恐引起伤寿之厄。</div><div class="content-item text"><div class="content-type">正文</div>比如，见灯头火，辰巳有风，此木遇风霹折主凶，再以炉中火就位，寅卯本位木旺，此木逢之反吉。</div><div class="content-item text"><div class="content-type">正文</div>霹雳火者，雨中之火，如以壬午杨柳木，见己丑霹雳火，再以癸未杨柳木，见戊子霹雳火，此为阴阳交遇，更有砂土为基，主贵，形成了阴阳交错之贵格，此木反而生机舒条，水柳泛绿，但若有子午丑未形成对冲，则为不吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴阳交错格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬午癸未杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬午见己丑霹雳火，癸未见戊子霹雳火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见炉中火中有寅卯为本位木，反为吉；其它火不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌子午丑未对冲。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火者，龙神之水火，雷雨交加生旺，再以壬午见己丑、癸末见戊子，故称之为阴阳交错，也名水柳泛绿。炉中火以寅卯为木性生旺之地，见之为吉，见其它火此木有焚烧之危，故不宜见。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4></div><div class="subsection"><h4 class="subsection-title">杨柳拖金格</h4><div class="content-item text"><div class="content-type">正文</div>杨柳木者，婷婷汉苑之轻盈，万缕春蚕之丝条。</div><div class="content-item text"><div class="content-type">正文</div>此木见金，，也没有什么造化。</div><div class="content-item text"><div class="content-type">正文</div>但以见钗钏金、金箔金为装饰之金，却喜为杨柳木施功剪裁而成为美丽的林荫。</div><div class="content-item text"><div class="content-type">正文</div>白蜡金、剑锋金、砂中金虽然忌讳，但以其间轻重配合得当，以见禄贵德煞为妙用，也能形成贵格，当以参详。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">杨柳拖金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">钗钏金、金箔金，也名绿柳施功。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">白蜡金、剑锋金、砂中金，以逢禄贵为妙。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此木逢金多则无造化。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此木逢钗钏金修剪成材，金箔金妆点为功用，故称之杨柳拖金。再以见白蜡金、剑锋金、砂中金以逢禄贵为妙。比如，壬午见辛巳白蜡金，则以壬水见蛇为天乙贵人，依此类推。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4><div class="content-item text"><div class="content-type">正文</div>盖以杨柳木柔情性弱，如果命逢松柏木，刚柔相济，则以强壮论之，命中再逢金箔金装点，命书称为脱体化神格。</div><div class="content-item text"><div class="content-type">正文</div>比如，是壬午、壬寅、庚寅，此命化为才禄官贵，即为脱体化神。</div><div class="content-item text"><div class="content-type">正文</div>再以桑柘木为例，癸丑为山，此木逢之，可依傍成林之吉，命书称为桑柳成林格。</div><div class="content-item text"><div class="content-type">正文</div>再如见庚申辛酉石榴木，杨柳木既已死绝，又逢金克，以弱遇小，其人必为下贱。</div><div class="content-item text"><div class="content-type">正文</div>但是，生命又以配合为妙。</div><div class="content-item text"><div class="content-type">正文</div>比如，杨柳木生于春夏，又逢石榴喷火，命书称为花红柳绿格。</div><div class="content-item text"><div class="content-type">正文</div>此格生人，必十才貌流行时代，学识胜于常人，也不能以贱命而论。</div><div class="content-item text"><div class="content-type">正文</div>还有一种杨柳拖金格，是以杨柳生于三春，时柱又得辛亥钗钏金的剪裁，则以杨柳拖金的贵格论之。</div><div class="content-item text"><div class="content-type">正文</div>或者是时生甲子海中金，或癸卯金箔金，或者辛巳白蜡金最为妙哉。是因为天干壬癸聚合到禄贵之地，则成为杨柳拖金之贵，所以但凡命局配合，当应以参详分析。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">脱体化神格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬午杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬寅金箔金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">庚寅松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这种格局以寅午合化，似又以纳音壬寅为妆饰之金，庚寅为风霜含金之木，强壮的松柏木将金箔金、杨柳木合化成材，故称之谓脱体化神，主禄贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">桑柳成林格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">癸丑桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丑为艮山，杨柳木逢之，为依山摇金，再以桑柘木也为偏滩落畔之木，与杨柳木伴侣相处，故称之为桑柳成林，也名依山成林，主福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">花红柳绿格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">春夏杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚申辛酉石榴木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌生于秋冬的杨柳木，石榴木必被克薄下贱。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">生于春夏的杨柳木，是绿柳成荫的旺盛之木，与刚强性偏的石榴木并美为贵。如果生于秋冬的杨柳木，其木衰败，贵重的石榴木则被衰败的杨柳木克薄为下贱之命。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">杨柳拖金格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">三春杨柳</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">时柱见辛亥钗钏金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">或者时生甲子海中金，或癸卯金箔金，或辛巳白蜡金最妙。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以生于三春的嫩枝杨柳，再见到时生辛亥的钹钏金剪栽，或者时生甲子海中金、癸卯金箔金、辛巳白蜡金，杨柳木得到这些含苞未放的未成器之金的剪栽助益，此命则以贵不可言。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

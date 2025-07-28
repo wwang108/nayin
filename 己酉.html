@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>己酉 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">己酉</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>己酉天贵承，乃子旺母衰之土，喜火土之荣庆（子午、辰戌，如甲辰、戊子之火，丙戌之土），从革之地，或水轻木柔（丙午水、癸未木），亦是滋生之德，倘能应此，轩冕非难。</div><div class="content-item note"><div class="content-type">注释</div>自败之土，喜轻柔之物。亦可用丁卯丁酉之火就位而生。大凡子午之地，体轻水火皆喜卯酉贯之，卯酉则喜子午贯之，土从此性。最嫌辛卯、辛酉之木，五行皆依此之理，不再多言。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己酉土</div>秋间禾稼，喜申酉及冬</div><div class="content-item text"><div class="content-type">正文</div>己酉自败之土，其气不足，藉火以相助之。见丁卯丁酉火则吉，切忌死绝，畏辛卯辛酉木，灾蹇夭折。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>戊申己酉大驿土</div><div class="content-item question"><div class="content-type">问答</div>“戊申己酉何以谓之大驿土？”答曰：“气以归息，物当收敛，龟缩退闲，美而无事，乃曰大驿土也。”《论》曰：成功必退于邮亭，形归安静之乡，势入休息之地。土静金安，木劳水泛，火助其形，终为蹇滞。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>大驿之土，木难制而火无功，得水则旷远绵延。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉为大驿土。既厚，则不必火生，木克无妨。唯得水则人烟凑集，舟车通远方，成大都会也。亦须长流、大海为胜。</div><div class="content-item text"><div class="content-type">正文</div>南面百城，只为戊寅逢己酉。</div><div class="content-item text"><div class="content-type">正文</div>城头土见大驿土或路旁土皆是。但戊寅见己酉、庚午，己卯见戊申、辛未为正。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉逢壬寅而贯朽粟陈。</div><div class="content-item text"><div class="content-type">正文</div>驿路花香，早岁登科荣上苑。</div><div class="content-item text"><div class="content-type">正文</div>戊申、己酉春生逢驿马及乙木、石榴、杨柳木者，皆合格。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>大驿土者，堂堂大道，坦坦平途，九州岛无所不通，万国无所不至，此乃位属坤方，德乃厚载，轮天转日，负海乘山之土也。发生万物，以木为基。戊申，长生之土，德厚无疆，见三、四木皆能滋生。己酉，自败之土，木多则窃气；大林合中逢冲，主夭。别木则吉，更以禄贵参之。井泉、涧下二水清贵不燥，如戊申见丁丑，或乙酉、己酉见丙子或甲申，谓之官贵，主吉。天河丙午而己酉得之，丁未而戊申得之，亦为贵禄，主福。长流戊申见癸巳，己酉见壬辰，亦吉，多逢则不宁静。大溪乙卯，为东震发生之义，单见亦吉。海水对穿，土不能胜，日时遇主夭，得山稍轻。内戊申见癸亥，戊癸合申亥，为地天交泰，反吉。火见太阳、霹雳，谓之圣火，最能发生。此土如逢水助，主显达。其于凡火，再逢木生之，更燥，主凶夭。五行见土，唯路旁最宜，屋上、壁上、砂中纵先得木，亦为泯绝，城头有水，稍吉。命若有金，清秀，吉。钗钏得辛亥，金箔得壬寅，戊申遇之，柱中更加水助，乃地天交泰，水绕山环大格，主贵。己酉见庚戌、癸卯稍次；砂金造化亦同。剑金须候木得用，不然无益。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>大驿土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">大驿土是说申酉在八卦方位上为坤门之土，酉在八卦方位上为兑为泽，戊己土又回归于坤泽之上，坤有大道之意，回归是君王巡视大驿，所以称之谓大驿土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的大驿土，有的人认为是驿站之土，五行俱全，其年生的人，交运期间不能出外，怕人多踩踏。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己酉土</div>秋间禾稼，喜申酉及冬。退神、截路、九丑、阙字、曲脚、破字、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>申为坤门之地，酉为兑金沼泽，将中央戊己大地之土放在沼泽之上，非是一般浮薄的尘土，沼泽土回归于大地土之下，万物生命收敛，回归了土的本性。</div><div class="content-item text"><div class="content-type">正文</div>大驿土由于是万物生命收敛回归停留的土地，将生命之马的象征停留在泽土之上，称之为驿土。</div><div class="content-item text"><div class="content-type">正文</div>驿站是古代政府官员停留休息的地方，等于今日的政府宾馆，故将回归沼泽的厚土引喻为大驿土。</div><div class="content-item text"><div class="content-type">正文</div>大驿土是收敛万物回归之土，所以，出生在大驿土年的人，是属于比较高贵的命格。</div><div class="content-item text"><div class="content-type">正文</div>大驿土既为官员之土，必以清静之水为宜，比如遇井泉水、涧下水、长流水之类的水称之谓御园舒海格，再有金箔金、钗钏金的装饰，则有御辇驾銮之贵。</div><div class="content-item text"><div class="content-type">正文</div>而那些气势旺盛的纳音干支，往往遇到为凶。比如：大驿土命逢大海水，则有淹煞冲身之祸；遇到山头火、山下火等会焚烧驿站济生之物，如遇太阳火、霹雳火，只好用水来化解，这样通过化解，物极必反，反而命格显的更贵。</div><div class="content-item text"><div class="content-type">正文</div>大驿土在命局里有着它的特殊品质和含意，因为大驿土是受天的使命，回归了沼泽的土地。</div><div class="content-item text"><div class="content-type">正文</div>这种返朴归真的土地，也是古人对天象的观察和研究，认为天的运行法则就是讲究回归。</div><div class="content-item text"><div class="content-type">正文</div>比如，香港的回归，就是大驿土的象征，由此可见，大驿土虽然忌讳大海水，但是只有汹涌澎湃的大海水，才能得保持其本质的特色，才能显得大驿土更加辉煌壮丽。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>大驿土者，此时气已归息，物当收敛，龟缩退闲，美而无事之土。</div><div class="content-item text"><div class="content-type">正文</div>大驿土者，堂堂大道，坦坦平途，九洲无所不通，万国无所不至。此土位属坤方，德乃厚以载物，轮天转日，负海乘山，发生万物之土。</div><div class="content-item text"><div class="content-type">正文</div>但以戊申为长生之土，其土德厚无疆，见三四木都能滋养。己酉为自败之土，见木多则窃气。</div><div class="content-item text"><div class="content-type">正文</div>此土遇清金，再逢水助，谓之地天交泰，水远山环之上格，主贵。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">驿站连途之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">龟缩退闲，美而无事，收敛之土。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">戊申</div>重阜之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">秋间田地，喜申酉及火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">戊申重阜之土，盖以五行木绝于申，则木不能克之，若见金水多助，则成富贵尊荣之格，若得时于申酉之秋，则以济世成器。再以金水并济，则成终身高贵尊荣之格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜申酉，得时于秋，宜金水多助，喜火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌大海水对穿，则土不能胜。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">己酉</div>自败之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">田间禾稼之土，喜申酉及冬。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">己酉自败之土，其气不足，藉火以相助，见丁卯、丁酉火则吉，切忌死绝，畏忌辛卯与辛酉木，灾蹇夭折。己酉自败之土，木多则窃气，逢大林木合中逢冲，主夭折，得丙午天河水主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">喜及申酉，宜时于冬，见丁卯炉中火、丁酉山下火则吉，有丙午天河水主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌辛卯松柏木，辛酉石榴木，及大林木合中逢冲则成灾。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">驿土承林格</h4><div class="content-item text"><div class="content-type">正文</div>大驿土者，坦坦大道，九州岛岛通途，负海乘山，发生万物之土。</div><div class="content-item text"><div class="content-type">正文</div>此土以木为养育之基质，其类有两种性能。</div><div class="content-item text"><div class="content-type">正文</div>戊申为长生之土，清厚无疆之功，命中有三四木能滋生，称之谓驿土承林格，必是才华显达之命。</div><div class="content-item text"><div class="content-type">正文</div>但以己酉为自败之土，木多则以盗气之论。</div><div class="content-item text"><div class="content-type">正文</div>再以见大林木而言，此木五行合中，若过冲破，则主夭折，见其它木则以吉论，更以有禄贵为上吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">驿土成林格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊申大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">石榴木，桑柘木，杨柳木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">更有禄贵为上吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌大林木五行合化中，若遇冲破，则主夭折，见其它木则以吉论。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">大驿土为沼泽回归之沃土，戊申又为德厚无疆之土，此土见三四木都能滋生，故称之大驿承林，惟忌见大林木，若有冲破，则主夭折，见其它木皆以吉论。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4><div class="content-item text"><div class="content-type">正文</div>盖以此土坦坦大道，轮天转日，负海乘山，发生万物之土。</div><div class="content-item text"><div class="content-type">正文</div>此土以水为润土沃质，见井泉水，涧下水二水清贵不燥主福贵。</div><div class="content-item text"><div class="content-type">正文</div>比如，戊申大驿土见丁丑涧下水或乙酉泉中水；己酉大驿土见丙子涧下水，或甲申泉中水称之谓官贵，主吉。</div><div class="content-item text"><div class="content-type">正文</div>再以己酉大驿土得丙午天河水，戊申大驿土得丁未天河水，亦为贵禄，主福。</div><div class="content-item text"><div class="content-type">正文</div>这两种格局称之谓官贵福禄格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">官贵福禄格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊申己酉大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊申见丁丑涧下水，或乙酉泉中水主官贵，得丁未天河水为福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">己酉见丙子涧下水，或甲申泉中水主官贵，得丙午天河水为福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是一种组合格局</span></div></div><div class="content-item text"><div class="content-type">正文</div>此土逢涧下水为依山，见井泉水为秀丽，构成山贵，天河水为银河之水，土不能克，但见见土有滋润之功，故以大驿土为福禄之称。</div></div><div class="subsection"><h4 class="subsection-title">地天交泰格</h4><div class="content-item text"><div class="content-type">正文</div>再以戊申大驿土见癸巳长流水，己酉大驿土见壬辰长流水亦主吉，但此水是晨曦带风之水，多逢则主不宁静。</div><div class="content-item text"><div class="content-type">正文</div>大溪水乙卯为东震发生万物之水，单见也主吉。</div><div class="content-item text"><div class="content-type">正文</div>大海水为对穿之水，大驿土不能胜任，日时遇之主夭折。但以大海水而言，如果命中有山稍吉。</div><div class="content-item text"><div class="content-type">正文</div>如果以癸亥大海水而雷，癸亥见戊申为戊癸合申亥，称之谓地天交泰之格，见之反吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">地天交泰格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊申己酉大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊申见癸亥大海水，或以见癸巳长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">己酉见壬辰长流水，又以见乙卯大溪水，主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">大海水对穿，日时遇之主夭折，但以柱中有山稍吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以戊申见癸亥大海水，天干戊癸合化，地支申亥合化，由于天地交错合化，故称之为地天交泰格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">圣火显达格</h4><div class="content-item text"><div class="content-type">正文</div>盖以大驿土为气已归息，龟缩退闲，回归之土。</div><div class="content-item text"><div class="content-type">正文</div>此土见太阳火，霹雳火是天上圣火，最能发生此土，如再逢水助，称为圣水显达格，主贵。但此土若见其它火，再逢木生，其土更燥，主凶夭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">圣火显达格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">太阳火，霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再逢火助</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见其它火，再逢木生土燥，主夭折。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">太阳火，霹雳火为天上圣火，再逢水助，大驿土则显其育物之功，故称之为圣火显达格，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">齐功并德格</h4><div class="content-item text"><div class="content-type">正文</div>大驿土者，坦坦大道，平途九州，以发生万物为功德。</div><div class="content-item text"><div class="content-type">正文</div>路旁土者，大地连途，平田万顷，禾稼赖以资生，草木由此畅茂之土。</div><div class="content-item text"><div class="content-type">正文</div>这两种土有共同德行，所以，大驿土最适宜与路旁土为伍，称之谓齐功并德格。</div><div class="content-item text"><div class="content-type">正文</div>再以见屋上土，壁上土，砂中土，由于这些土性质不一样，即使先得木，大驿土逢之，也为绝土。</div><div class="content-item text"><div class="content-type">正文</div>城头土为厚载之土，若有水助，与大驿土相见，稍吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">齐功并德格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以见城头土有水助，稍吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌屋上土，壁上土，砂中土为绝土，不能济养驿土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">路旁土为育养禾稼之土，大驿土为德厚无疆之土，此二土相见功能无疆，故称谓齐功并德，再以城头土稍吉，其它土无用。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论金</h4></div><div class="subsection"><h4 class="subsection-title">水远山环格</h4><div class="content-item text"><div class="content-type">正文</div>大驿土者，龟缩收敛，美而无事之土，当以见清秀之金为吉。</div><div class="content-item text"><div class="content-type">正文</div>此土逢辛亥钗钏金，壬寅金泊金再有水助，与戊申大驿土相遇，此乃地天交泰，命书称之为水远山环之贵格，必是才华显达之人。</div><div class="content-item text"><div class="content-type">正文</div>再以己酉大驿土，见庚戌钗钏金，或者砂中金亦吉。</div><div class="content-item text"><div class="content-type">正文</div>但以剑锋金而言，此土逢之，须有木为资助，不然，没有什么益处。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水远山环格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">戊申己酉大驿土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊申见辛亥钗钏金，壬寅金箔金，再有水助，称之为水远山环。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以己酉见庚戌钗钏金，癸卯金箔金，或者砂中金也主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">但以逢剑锋金，须有木为资助方吉，如果无木则见无益。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以戊申见壬寅为山边驿站，金箔金，钗钏金又为妆点驿站之金，再有水助，则称为水远山环格，主官贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

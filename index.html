@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纳音命理学总纲 - 六十甲子详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 30px;
+            width: 300px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            outline: none;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .wuxing-sections {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .wuxing-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .wuxing-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .wuxing-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .wuxing-title.jin::after { background: linear-gradient(90deg, #f39c12, #e67e22); }
+        .wuxing-title.mu::after { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .wuxing-title.shui::after { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .wuxing-title.huo::after { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .wuxing-title.tu::after { background: linear-gradient(90deg, #8e44ad, #9b59b6); }
+
+        .ganzhi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ganzhi-card {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ganzhi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ganzhi-card:hover::before {
+            left: 100%;
+        }
+
+        .ganzhi-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+
+        .ganzhi-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .ganzhi-nayin {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .ganzhi-books {
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        .stats-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .ganzhi-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+            }
+            
+            .ganzhi-card {
+                padding: 15px;
+            }
+            
+            .ganzhi-name {
+                font-size: 1.2rem;
+            }
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255,255,255,0.9);
+            color: #2c3e50;
+            border-color: rgba(255,255,255,0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">纳音命理学总纲</h1>
+            <p class="subtitle">六十甲子 · 古代智慧传承</p>
+            <p class="description">探索中华文明中的纳音理论，了解六十甲子的深奥内涵。每个甲子都承载着古代先贤的智慧，蕴含着天地人和的哲学思想。</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="搜索甲子..." id="searchInput">
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterByWuxing('all')">全部</button>
+            <button class="filter-btn" onclick="filterByWuxing('金')">金</button>
+            <button class="filter-btn" onclick="filterByWuxing('木')">木</button>
+            <button class="filter-btn" onclick="filterByWuxing('水')">水</button>
+            <button class="filter-btn" onclick="filterByWuxing('火')">火</button>
+            <button class="filter-btn" onclick="filterByWuxing('土')">土</button>
+        </div>
+
+        <main class="wuxing-sections">
+            
+            <section class="wuxing-section">
+                <h2 class="wuxing-title jin">金类纳音</h2>
+                <div class="ganzhi-grid">
+            
+                    <a href="甲子.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲子</div>
+                        <div class="ganzhi-nayin">海中金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙丑.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙丑</div>
+                        <div class="ganzhi-nayin">海中金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬申.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬申</div>
+                        <div class="ganzhi-nayin">剑锋金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸酉.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸酉</div>
+                        <div class="ganzhi-nayin">剑锋金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="庚辰.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚辰</div>
+                        <div class="ganzhi-nayin">白蜡金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛巳.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛巳</div>
+                        <div class="ganzhi-nayin">白蜡金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="甲午.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲午</div>
+                        <div class="ganzhi-nayin">沙中金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙未.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙未</div>
+                        <div class="ganzhi-nayin">沙中金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬寅.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬寅</div>
+                        <div class="ganzhi-nayin">金箔金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸卯.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸卯</div>
+                        <div class="ganzhi-nayin">金箔金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="庚戌.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚戌</div>
+                        <div class="ganzhi-nayin">钗钏金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛亥.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛亥</div>
+                        <div class="ganzhi-nayin">钗钏金</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                </div>
+            </section>
+            
+            <section class="wuxing-section">
+                <h2 class="wuxing-title mu">木类纳音</h2>
+                <div class="ganzhi-grid">
+            
+                    <a href="戊辰.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊辰</div>
+                        <div class="ganzhi-nayin">大林木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己巳.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己巳</div>
+                        <div class="ganzhi-nayin">大林木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬午.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬午</div>
+                        <div class="ganzhi-nayin">杨柳木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸未.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸未</div>
+                        <div class="ganzhi-nayin">杨柳木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="庚寅.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚寅</div>
+                        <div class="ganzhi-nayin">松柏木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛卯.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛卯</div>
+                        <div class="ganzhi-nayin">松柏木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="戊戌.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊戌</div>
+                        <div class="ganzhi-nayin">平地木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己亥.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己亥</div>
+                        <div class="ganzhi-nayin">平地木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬子.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬子</div>
+                        <div class="ganzhi-nayin">桑柘木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸丑.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸丑</div>
+                        <div class="ganzhi-nayin">桑柘木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="庚申.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚申</div>
+                        <div class="ganzhi-nayin">石榴木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛酉.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛酉</div>
+                        <div class="ganzhi-nayin">石榴木</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                </div>
+            </section>
+            
+            <section class="wuxing-section">
+                <h2 class="wuxing-title shui">水类纳音</h2>
+                <div class="ganzhi-grid">
+            
+                    <a href="丙子.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙子</div>
+                        <div class="ganzhi-nayin">涧下水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁丑.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁丑</div>
+                        <div class="ganzhi-nayin">涧下水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="甲申.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲申</div>
+                        <div class="ganzhi-nayin">泉中水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙酉.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙酉</div>
+                        <div class="ganzhi-nayin">泉中水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬辰.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬辰</div>
+                        <div class="ganzhi-nayin">长流水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸巳.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸巳</div>
+                        <div class="ganzhi-nayin">长流水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丙午.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙午</div>
+                        <div class="ganzhi-nayin">天河水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁未.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁未</div>
+                        <div class="ganzhi-nayin">天河水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="甲寅.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲寅</div>
+                        <div class="ganzhi-nayin">大溪水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙卯.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙卯</div>
+                        <div class="ganzhi-nayin">大溪水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="壬戌.html" class="ganzhi-card">
+                        <div class="ganzhi-name">壬戌</div>
+                        <div class="ganzhi-nayin">大海水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="癸亥.html" class="ganzhi-card">
+                        <div class="ganzhi-name">癸亥</div>
+                        <div class="ganzhi-nayin">大海水</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                </div>
+            </section>
+            
+            <section class="wuxing-section">
+                <h2 class="wuxing-title huo">火类纳音</h2>
+                <div class="ganzhi-grid">
+            
+                    <a href="丙寅.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙寅</div>
+                        <div class="ganzhi-nayin">炉中火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁卯.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁卯</div>
+                        <div class="ganzhi-nayin">炉中火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="甲戌.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲戌</div>
+                        <div class="ganzhi-nayin">山头火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙亥.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙亥</div>
+                        <div class="ganzhi-nayin">山头火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="戊子.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊子</div>
+                        <div class="ganzhi-nayin">霹雳火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己丑.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己丑</div>
+                        <div class="ganzhi-nayin">霹雳火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丙申.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙申</div>
+                        <div class="ganzhi-nayin">山下火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁酉.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁酉</div>
+                        <div class="ganzhi-nayin">山下火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="甲辰.html" class="ganzhi-card">
+                        <div class="ganzhi-name">甲辰</div>
+                        <div class="ganzhi-nayin">覆灯火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="乙巳.html" class="ganzhi-card">
+                        <div class="ganzhi-name">乙巳</div>
+                        <div class="ganzhi-nayin">覆灯火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="戊午.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊午</div>
+                        <div class="ganzhi-nayin">天上火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己未.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己未</div>
+                        <div class="ganzhi-nayin">天上火</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                </div>
+            </section>
+            
+            <section class="wuxing-section">
+                <h2 class="wuxing-title tu">土类纳音</h2>
+                <div class="ganzhi-grid">
+            
+                    <a href="庚午.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚午</div>
+                        <div class="ganzhi-nayin">路旁土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛未.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛未</div>
+                        <div class="ganzhi-nayin">路旁土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="戊寅.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊寅</div>
+                        <div class="ganzhi-nayin">城头土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己卯.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己卯</div>
+                        <div class="ganzhi-nayin">城头土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丙戌.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙戌</div>
+                        <div class="ganzhi-nayin">屋上土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁亥.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁亥</div>
+                        <div class="ganzhi-nayin">屋上土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="庚子.html" class="ganzhi-card">
+                        <div class="ganzhi-name">庚子</div>
+                        <div class="ganzhi-nayin">壁上土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="辛丑.html" class="ganzhi-card">
+                        <div class="ganzhi-name">辛丑</div>
+                        <div class="ganzhi-nayin">壁上土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="戊申.html" class="ganzhi-card">
+                        <div class="ganzhi-name">戊申</div>
+                        <div class="ganzhi-nayin">大驿土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="己酉.html" class="ganzhi-card">
+                        <div class="ganzhi-name">己酉</div>
+                        <div class="ganzhi-nayin">大驿土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丙辰.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丙辰</div>
+                        <div class="ganzhi-nayin">沙中土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                    <a href="丁巳.html" class="ganzhi-card">
+                        <div class="ganzhi-name">丁巳</div>
+                        <div class="ganzhi-nayin">沙中土</div>
+                        <div class="ganzhi-books">6本书籍</div>
+                    </a>
+                
+                </div>
+            </section>
+            
+        </main>
+
+        <section class="stats-section">
+            <h2 class="stats-title">文献统计</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">甲子条目</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">经典文献</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">纳音类型</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">五行分类</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+            <p>数据来源：鬼谷遗文、五行精纪、三车一览、元女搜髓赋、三命通会、中华纳音预测学</p>
+        </footer>
+    </div>
+
+    <script>
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.ganzhi-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // 五行筛选功能
+        function filterByWuxing(wuxing) {
+            const sections = document.querySelectorAll('.wuxing-section');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // 更新按钮状态
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // 显示/隐藏对应五行
+            sections.forEach(section => {
+                if (wuxing === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    const title = section.querySelector('.wuxing-title').textContent;
+                    if (title.includes(wuxing)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // 添加滚动效果
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.ganzhi-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // 初始化卡片动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.ganzhi-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html> 

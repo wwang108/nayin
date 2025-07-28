@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>癸丑 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">癸丑</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>癸丑禄得源，乃刚柔相济之木，水土承于旺方，则生育利物，金制于生成，皆可以立功立事，惟恐生旺逢火。</div><div class="content-item note"><div class="content-type">注释</div>禄气相亲，乃成木体。喜春夏生于西北，归于败地亦无忌。春夏归北则五行无忌，纵甲子亦不克，戊子己丑尤喜。最嫌戊午之火、甲午之金，损干支之德。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸丑木</div>伤水少之木，喜金水及春</div><div class="content-item text"><div class="content-type">正文</div>壬子癸丑前者是专位之木后者是偏库之木，遇死绝则富贵，生旺则贫贱，水多则夭折，金多土盛为佳。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>壬子幽阴之木，阳弱阴盛，柔而无立，类从水德用事，惟对以丙午水，则为水木冲粹之德，类入神仙异士标格，非常流也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">烛神经云：</span>壬子之木失于优柔，其或扬之仁而高明。注云：壬子木在水旺之乡，假子中得微阳之气而生，柔脆易折，自败木也。扬之者欲得火土之气，益之使敷荣，则仁勇而高明。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">玉霄宝鉴云：</span>谓桑拓木取之以时蚕衰之月，桑拓受生气也。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>壬子癸丑桑柘木</div><div class="content-item question"><div class="content-type">问答</div>“何以壬子癸丑曰桑柘木？”答曰：“气居盘屈，形状未伸，居于水地在木，未能施刀斧之劳，乃曰桑柘木。”论曰：柔而失位，覆藩茂亏，喜逢水土以相养，金人木见徒劳无功。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>嫩柳柔柔，撄锋便折。</div><div class="content-item text"><div class="content-type">正文</div>杨柳见前，桑柘木乃壬子癸丑。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未，值辛亥而女子娉婷。</div><div class="content-item text"><div class="content-type">正文</div>壬午、癸未杨柳木也。女子生于春月，更逢辛亥为钗钏金，岂不腰脚婀娜、玉貌娉婷。诗曰：桑出罗兮柘出绫，绫罗妆束出聘婷。娉婷红粉歌金缕，歌与桃花柳絮听。壬子、癸丑亦然用此。但四柱喜见贵神，若见咸池主淫荡。若见己巳巽风者乃无主杨花，随风漂泊，亦非吉也。</div><div class="content-item text"><div class="content-type">正文</div>壬子、癸丑桑柘之材，值辛亥珠围翠绕。</div><div class="content-item text"><div class="content-type">正文</div>见前。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>桑柘木者，缯彩镃基，绮罗根本，士民飘飘之袂，圣贤楚楚之衣。此木供蚕为弧，其用甚大。最爱砂土，以为根基。又以辰巳为蚕食之地，不宜刑冲互破。路旁、大驿二土，次吉，余土无益。水喜天河为雨露之滋，长流、溪涧、井泉诸水皆可相依，亦须先得土为基，更加禄贵为妙。沧海水漂泛无定，无土，主夭。见火灯头最吉，亦以辰巳之中为蚕位故也。炉中位居寅卯，木之旺地；天上、霹雳二火，与此木干支有合化之情，有坎离交媾之妙，俱吉。但诸火不宜迭见。以金言之，砂中第一，剑锋能修整此木，为次，钗泊二金须得土为基，如逢冲破，又凶。木喜庚寅、辛卯，为以弱就强，以小变大，作贵格论。纵无砂土，亦吉。平地、柏、榴，无土则凶。大林乃东南蚕食之位，有土资生，主大贵。遇杨柳为桑柳成林，亦是贵格，须生春夏方吉。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>桑柘木</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">桑柘木是说子丑天时二阳发生，气居盘屈于水地，物以弯曲不敢露头，惟有寅木慢慢升起，比作桑柘木，纽纹弯曲之象，适时而露头。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱有桑树形象，有的说是桑树扭纹，不成器材，有的说是其年生人性格顽固，按其桑柘木的性质，是专供蚕食之木，吐丝织绸于世人妆饰。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸丑木</div>伤水少之木，喜金水及秋。华盖、福星、八专、破字、阙字、羊刃。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>以壬癸为胞胎之气，子丑为胞胎之生，以子属水而生出木来，以丑属金比作斧斤之器，桑柘木是一种蚕食之树，古代人用之桑皮制作衣服，所以桑树刚刚长好，作为丑为斧斤之器，就来砍伐了。因而，将刚生之木，又来砍伐的树木称之为桑柘木。</div><div class="content-item text"><div class="content-type">正文</div>桑柘木生于傍畔之地，其果实花丽黑红，甜酸可口，别名桑钱树，桑树叶子供养蚕，其树木质坚韧顽固重提可挑千斤，木质纹理扭曲，不能做正。</div><div class="content-item text"><div class="content-type">正文</div>由于桑柘木生于傍畔之地，路旁土、沙中土、大驿土是最适宜生长的地方，尤以冬天逢之，则为寒梅送香，再有长流水、涧下水、井泉水滋润，称为寒木回春。</div><div class="content-item text"><div class="content-type">正文</div>桑柘木性格顽固，喜好攀高结贵，命遇松柏木为人贵济身；喜好柔情抒怀，如命遇杨柳木为桑柳成林；喜好入林结伴，如命遇大林木为苍海存身，惟有平地木、石榴木与桑柘木相见，会引起金鸡打斗、同类相残之凶。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>桑柘木者，木气居于壬癸水地，子丑胎胞，始生盘屈，形状未能伸直，按其节令，此时以为残衰之月，桑柘则受气，是取其木适时而生之，以供蚕食之用。</div><div class="content-item text"><div class="content-type">正文</div>此木质地屈曲顽韧，果实醇香，叶绿苍翠，专供蚕食之为用，是为绮罗丝织之根本，以供士民飘飘之服饰，圣贤楚楚之衣着，满足人间富贵之仪表。</div><div class="content-item text"><div class="content-type">正文</div>此木最爱以砂中土为根基，又以见辰巳为蚕食之地，天河水为雨露之资，但此木不宜刑冲克破，而损其生养。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">形壮未伸，曲屈之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气居盘屈于水地，专供蚕食之弧木。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬子</div>专位之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">伤水多之木，喜土及夏。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">专位之木，遇死绝则富贵，生旺则贫贱，水多则夭折，金多土盛为佳。</span></div></div><div class="content-item text"><div class="content-type">正文</div>壬子，幽阴之木，阳弱阴盛，木质柔而不能直立，性喜仁水用事，惟对丙午天河水则为水木纯粹之德，逢之如若神仙异士，格非常流。</div><div class="content-item text"><div class="content-type">正文</div>壬子之木，失于优柔，其或弘扬仁厚之高明。壬子之木在水旺之乡，借子中得微水滋润而生，柔脆易折，则自败之木，欲得火旺之气益之，使其敷荣则仁勇而高明。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">宜逢死绝则富贵，金多土盛为佳。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌水多则夭折。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸丑</div>偏库之木。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">伤水少之木，喜金水及秋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">偏库之木，遇死绝则富贵，生旺而贫贱。遇金箔金、山涧水自旺主吉，最爱砂土以为根基，天河水最为滋长其势，诸水皆可相依，但须得土为基，遇沧海水漂泛无定，无土则主夭折，遇戊子霹雳火，戊癸合化之情有坎离交媾之势。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">逢土为根基，诸水皆可相依。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌大海水漂泛无定，无土则夭折。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论土</h4></div><div class="subsection"><h4 class="subsection-title">砂土福禄格</h4><div class="content-item text"><div class="content-type">正文</div>桑柘木者，醇香叶绿之树，盘屈顽韧之木，千蚕啾啾之膳食，飘飘丝织之根本，最喜爱砂中土为根基，故将此木见砂中土为砂土福禄格。</div><div class="content-item text"><div class="content-type">正文</div>但以砂中土中辰巳为蚕食之地，最忌刑冲互破，则成为蚕口夺食。</div><div class="content-item text"><div class="content-type">正文</div>桑柘木者，平生奉献于蚕食，生性最爱砂土，但以见路旁，大驿二土为次吉，见其它土则无益。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">砂土福禄格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">路旁土，大驿土，其它土无益。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格最忌刑冲克破，则成为蚕口夺食。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">桑柘木者，绮罗丝织之根本，最爱砂中土为根基，复以辰巳为蚕食之地，故以见砂中土称之砂土福禄格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论水</h4></div><div class="subsection"><h4 class="subsection-title">银汉扶桑格</h4><div class="content-item text"><div class="content-type">正文</div>桑柘木者，砂土生基之质，最喜天河水为雨露之资，称谓银汉扶桑格。</div><div class="content-item text"><div class="content-type">正文</div>长流水、大溪水、涧下水、井泉水诸水皆可相依，但须先得土为基，更加禄贵马为妙。</div><div class="content-item text"><div class="content-type">正文</div>逢大海水则漂泛无定，若再无土制化，桑柘木将主夭折。</div><div class="content-item text"><div class="content-type">正文</div>盖以此木辰巳为东南蚕食之树，最忌刑冲互破，此木将为蚕口夺食。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">银河扶桑格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天河水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">长流水，大溪水，涧下水，井泉水诸水可依，但必须先得土为基，更有禄马贵人为妙。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见大海水无土制化，漂泊主夭，</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">桑柘木者，醇香叶绿之果，性喜仁慈之水，惟对天河水有纯粹之缘，故称之谓银河扶桑格，主一生福禄，再见禄马贵人的扶助，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论火</h4></div><div class="subsection"><h4 class="subsection-title">灯火照蚕格</h4><div class="content-item text"><div class="content-type">正文</div>桑柘木者，最喜覆灯火照耀，因为辰巳之中是为蚕食之位，故称之谓灯火照蚕格。</div><div class="content-item text"><div class="content-type">正文</div>此木见炉中火，以寅卯位居木旺之地，主吉。</div><div class="content-item text"><div class="content-type">正文</div>见天上火，霹雳火，二火与此木有干支合化之情，坎离交媾之妙。</div><div class="content-item text"><div class="content-type">正文</div>比如，壬子见己丑合化，癸丑逢戊子干支都合化，癸丑见戊午天上火亦为戊癸合化俱吉。</div><div class="content-item text"><div class="content-type">正文</div>但此木不能以诸火重叠相见，见则有火爆之变。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">灯火照蚕格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">最忌刑冲克破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">桑柘木者，叶绿醇香之木，专供蚕食之用，覆灯火辰巳为蚕食之地，此木最喜见灯头火的照耀，称谓灯火照耀格。此格最忌刑冲克破，逢之为蚕口夺食。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">坎离交媾格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬子癸丑桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬子见己丑霹雳火，癸丑见戊子霹雳火或戊午天上火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此格不能二火叠见，见则有火爆之变。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火为神龙之水火，天上火为万物生养之火，这丙种者是来自天上之火，有育养万物之功德，桑柘木位居八卦坎位，故称之谓坎离交媾，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论金</h4></div><div class="subsection"><h4 class="subsection-title">砂金养生格</h4><div class="content-item text"><div class="content-type">正文</div>桑柘木者，砂土生基之树，但以见砂中金有辰巳为蚕食之地，亦主吉论，称之谓砂金养生格。</div><div class="content-item text"><div class="content-type">正文</div>此木逢剑锋金，以地支申与子合，但以剑锋金能修理此树，此木见则主凶煞。</div><div class="content-item text"><div class="content-type">正文</div>白蜡金以壬子见庚辰半合，癸丑逢辛巳半合，亦吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">砂金养生格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬子癸丑桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">再以壬子见庚辰白蜡金为半合，癸丑见辛巳白蜡金也为半合，逢剑锋金为次吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见钗钏金，金箔金必须得土为基，若逢冲破，主凶煞。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">桑柘木最喜砂质土基，砂中金属含土砂金，再以砂金辰巳为蚕食之地，故称之谓砂金养生格，主禄贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论木</h4></div><div class="subsection"><h4 class="subsection-title">桑柳成林格</h4><div class="content-item text"><div class="content-type">正文</div>桑柘木者，喜见庚寅辛卯松柏木，是为以弱就强，以小变大，作贵格论之，纵无砂土，亦以为吉。</div><div class="content-item text"><div class="content-type">正文</div>但以见平地木、石榴木，须以土资方吉，无土则凶，或者此格有辰巳砂中土，再见戊戌平地木，则辰戌相冲主凶，必须权衡辨别。</div><div class="content-item text"><div class="content-type">正文</div>以金泊金最微，不能相生，最不会有超显之理。</div><div class="content-item text"><div class="content-type">正文</div>见大林木乃东南蚕食之位，有土资生，则主大贵。</div><div class="content-item text"><div class="content-type">正文</div>桑柘木遇杨柳木为桑柳成林之贵格，但须生于春夏方吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">桑柳成林格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">桑柘木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见杨柳木，须生于春夏方占。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见松柏木以弱就强也作贵论。见大林木辰巳为蚕食之地，再有土资生，则主大贵，称蚕食桑林。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">见平地木，石榴木须得土生，无土主凶，忌冲破。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">桑柘木者，逢死绝而富贵，杨柳木者，逢死绝而生旺，故以桑木见杨柳木同类相资，称之谓桑柳成林。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

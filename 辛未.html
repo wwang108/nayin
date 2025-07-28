@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辛未 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">辛未</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>辛未禄自藏，乃自本立形之土，有火相助（如戊午火，上承戊土生金，下有火地生土），得木相乘，水轻木重亦可以小康（木可以归未，庚寅可用，甲寅更佳，阴干稍有不合），若败而乘禄多，方为厚载之福。</div><div class="content-item note"><div class="content-type">注释</div>命下坐土地，未乃土安静之地，见木旺亦可收库。先天得火之气，见火自然成禄神之金。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛未土</div>含万宝待秋成，喜春及秋</div><div class="content-item text"><div class="content-type">正文</div>庚午辛未始生之土，木不能克，惟忌水多，反伤其气，木多却有归，盖木归未也。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>庚午辛未戊申丁巳，皆厚德之土，含容镇静，和气融怡，福禄优裕。入格则多歴方岳之任，有普惠博爱之功。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>庚午辛未路旁土</div><div class="content-item question"><div class="content-type">问答</div>“庚午辛未何以谓之路旁土？”答曰：“气当成形，物以路彰，有形可质，有物可彰，乃曰路旁土也。”《论》曰：壮以及时乘，厚载木多，不虑水盛，无嫌土重，反为滞物。金多必主损伤，火多则燥，物难舒伸。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>路旁尘垢，须防林木风吹。</div><div class="content-item text"><div class="content-type">正文</div>庚午、辛未怕戊辰、己巳。盖巳乃风门故云。</div><div class="content-item text"><div class="content-type">正文</div>南面百城，只为戊寅逢己酉。</div><div class="content-item text"><div class="content-type">正文</div>城头土见大驿土或路旁土皆是。但戊寅见己酉、庚午，己卯见戊申、辛未为正。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item book_reference"><div class="content-type">典籍</div>路旁土者，大地连途，平田万顷，禾稼赖以资生，草木由之畅茂。此乃火暖土温，长养万物之土也。故须假水为先，乃灌溉滋润之。论次第尤宜水化为妙，更得金来相助，则禾稼成实。如庚午见甲申，辛未见乙酉为禄，若无冲破，主早贵。天上水雨露相滋，庚午喜见丁未，辛未喜见丙午，为官贵禄合之妙。涧下庚午见丁丑，贵禄交驰；辛未见丙子，化水逢生。大溪乙卯为雷，能发生此土。又乙庚合化，故皆主吉。长流、大海二水以其不能浇灌此土，故最忌之，主凶夭。火逢霹雳，庚午见己丑，贵禄交穿，辛未见戊子，印贵朝阳，皆吉。天上火就位相生，太燥则土反不能生物，有水润之始得，若独见，主夭。炉中火亦燥，亦主妨寿。灯头有屋土，方应造化，名超凡入圣，不然亦凶。见木可以发生，然有贵人禄马则吉，刑煞冲破则凶。只有庚寅木，此土逢之大好，大林不能胜载。如逢土位见丙辰、丙戌、辛丑、辛未，皆吉。若庚午见辛未，辛未见庚午，为二仪贵偶，无有不贵。钗钏、砂中二金可以滋助，清水金水并见，大吉。若命已见水，无金运，遇此金亦福。乙丑海金可为山论，若得天河清水助之，庚生人大好。《妙选》有金马嘶风格，以庚午、甲午生人得辛巳时；有马化龙驹格，又以午生人见辰时；有哨风猛虎格，以庚辛生人得辛巳、乙巳，俱以贵论。而水、火、土、金似不相拘。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>路傍土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">路傍土是说午为太阳火过宫，未土中的木又生了旺火，结果，未土受旺火灼慯，土伤不能育物，是指养育禾稼的大地土，因干旱不能养育庄稼，遇水灌溉又能发生。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上的路傍土，好像过道遗弃的尘土，怪不得术土将路傍土说成是大路沿途的道旁土，没有人启用，命很微薄，又说是火能生土，遇火年才能发达。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛未土</div>含万宝，待秋成，喜秋及火。华盖、悬针、破字。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>五行未为土，未的原意是枝叶茂盛的树木，木墓葬于未库，而又生出了木，木又生出了午之旺火，结果火旺克金，未土又受了旺火的刑伤，土受刑伤，非但不能生金，连育物的能力也没有了，就象被遗弃的路旁土。</div><div class="content-item text"><div class="content-type">正文</div>但路旁土始于承形之土，凡物以显彰为贵，有形可有质量，有物可有彰华，非但极好，遇到水的灌溉，还可以回归大地，所以，路旁土年出生的人，要在壮年时乘骑远游，还是可以达到抱负的。</div><div class="content-item text"><div class="content-type">正文</div>如果路旁土年出生的人，生月有长流水，日柱为泉中水，这样路旁土得到安静之水的滋润和灌溉，回归了大地的沃土，则成为寒谷回春之格。</div><div class="content-item text"><div class="content-type">正文</div>寒谷回春的格局，与其他格局不同，是因为路旁土受到水的灌溉和滋润，路旁土则生旺以能育物，未土回归了育物的本性而生出了茂盛的树木，流年运行到剑锋金之年，旺财逢金伐，也可以建宫修殿，则成为高贵福禄的命局。</div><div class="content-item text"><div class="content-type">正文</div>路旁土最忌火旺灼烧，遇木旺则克死，则此土不能育物。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>路旁土者，气当承形，实际上是指养育庄稼之土，大地连途，平田万倾，顾名思义，路旁生草木禾稼之土，称谓之路旁土。</div><div class="content-item text"><div class="content-type">正文</div>此土乃为属火暖土温，长养万物之土，必须借水为先，乃灌溉滋润为贵，更得金来相助，则禾稼才能成宝为实。</div><div class="content-item text"><div class="content-type">正文</div>但以长流水、大海水，以其二水不能浇灌此土，所以最忌，见则主凶。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">育养禾稼之土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气当承形育物，未成器之土。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">庚午</div>胎生之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">路旁干土，喜水及春。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">其性燥火未退，尤如母腹胎儿之形气，以厚德载物，含容镇静，有普惠博爱之功，始于燥土，木不能克。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">未库之土，与木回归，方显茂盛，喜水济身，适宜春温，和气融洽。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">性燥之土，忌火灼伤。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">辛未</div>始生之土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">含万宝之土，待秋成，喜秋及火。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">辛未始生之土，其气含万宝之质，尤与大驿土之比，能以厚德载物，合容镇静，和气融洽，福禄优裕，入格则能承担重任。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">盖以世间物论，辛未为秋成之土，土气回归，宜于秋爽气高，土性济存，喜水能补其阳气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">秋成之土，阴性济存，虽木不能克，惟忌水多反伤其身。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">禄合宫贵格</h4><div class="content-item text"><div class="content-type">正文</div>路旁土者，大地连途，禾稼赖生，草木由此畅茂之土，必先以借水灌溉沃质，尤以水化为妙，更得金来相助，则禾稼才能成实。</div><div class="content-item text"><div class="content-type">正文</div>比如，庚午见甲申泉水，辛未见乙酉泉水，是以禄养为贵。主少年显达，但此格不能冲破，遇冲破则不能荣禄。</div><div class="content-item text"><div class="content-type">正文</div>此土逢天河雨露相资，以庚午喜见丁未天河，辛未喜见丙午为天河，为官贵禄合之妙格，称之贵禄交驰格。</div><div class="content-item text"><div class="content-type">正文</div>此格以庚午路旁土，见丁丑涧下水，为化水逢生格。再以大溪水而论，庚午路旁土，见乙卯大溪水，为乙卯施雷，能发生此土，又以天干乙庚合化，故皆主吉。</div><div class="content-item text"><div class="content-type">正文</div>以长流水，大海水而言，二水以其质不能浇灌，所以，此土最忌，见之主凶夭。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">禄合官贵格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲申泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丁末天河水，更得金来相助。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">土和水的五行属性到申位，都属于长生旺象，而且命中庚午路旁土与丁未天河水，地支午未相合，再有金的财禄资生，故称之为禄合官贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">禄合官贵格（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛未路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙酉泉中水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙午天河水，更得金来相助。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是第二种禄合官贵格，也是以水土合化到酉位，互相滋补生扶，命中地支午未相合，再得金来相助，必为官贵合禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">贵禄交驰格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁上</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丁丑涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">忌见长流水、大海水主凶夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格虽有地支丑午相害，但以天干庚金到丑位为贵人，丁火到午为临官，故以贵禄交驰而得名。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">乙卯施雷格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙卯大溪水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见长流水、大海水主凶夭</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以乙卯大溪水有雷，能发生路旁土的功用，并以天干乙庚合化主贵，故名之为乙卯施雷格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">化水逢生格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛末路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">丙子涧下水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见长流水、大海水土凶夭。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">命中虽有地支子末相吉，但以天干丙辛合化生水而灌溉路旁土育养万物，故名为化水逢生格，主福禄。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">贵禄交穿格</h4><div class="content-item text"><div class="content-type">正文</div>盖因此土为火暖土温，长养万物之土。</div><div class="content-item text"><div class="content-type">正文</div>此土见火，以庚午见己丑霹雳火，为贵禄交穿格。辛未见戊子霹雳火为印贵朝阳格。</div><div class="content-item text"><div class="content-type">正文</div>这两种格局，以霹雳火为龙神水中之火，滋养路旁土，虽然一生辛苦，但必为富禄之贵。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">贵禄交穿格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己丑霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">庚午虽属干土，霹雳火乃属龙神之水火，此土遇雷水灌溉则发生功效，故称之谓贵禄交穿。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">印贵朝阳格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">辛未路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊子霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">辛未乃属含万宝之土，得到雷水的灌溉，发生万物之荣华，故称谓印贵朝阳，虽然一生辛苦，但必为官禄之贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">超凡入圣格</h4><div class="content-item text"><div class="content-type">正文</div>此格以天上火就位相生，因其火太燥，路旁土不能生物，若有清水灌溉润泽，也于反得其势，成为水火滋润之格。但此格如果独见太阳火，则主夭折。</div><div class="content-item text"><div class="content-type">正文</div>炉中火也为燥火，见之主妨寿限。</div><div class="content-item text"><div class="content-type">正文</div>若逢覆灯火，必须有屋上土方能接应造化，命书称之谓超凡入圣格。此格如果独见灯头火，亦为主凶。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">水火滋润格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天上火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">须有清水灌溉，比如：泉中水、涧下水等。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌单独见火，无水主凶，炉中火就位妨寿限。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以清水灌溉养阴，再得天上火照耀为育阳。阴阳交媾，万物发荣，故称谓水火滋润格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">超凡入圣格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌单独见火，无水济主凶，炉中火就位妨寿限。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">覆灯火乃东南方水养之火，屋上土中戌亥为天门正位，故有超凡入圣之称。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论木</h4></div><div class="subsection"><h4 class="subsection-title">松柏扶土格</h4><div class="content-item text"><div class="content-type">正文</div>路旁土者，火燥土温，草木由生之土，见木可以发生其势，然必有贵人禄马到位则吉，有刑冲克破则凶，只有庚寅松柏木此土见之最好。大林木此土不能胜载，其它木无用。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">松柏扶土格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">庚寅松柏木</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格必须有贵人禄马到位主吉，比如：天干庚金见地支中有牛或羊，或者以庚禄地支中有猴为禄等。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见大林木，其它木无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格以松柏木的地支与路旁土的地支能够合化互养，故称之谓松柏扶土。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">二仪贵偶格</h4><div class="content-item text"><div class="content-type">正文</div>此土命中有丙辰砂中土、丙戌屋上土、辛丑壁上土、辛末路旁土，或得其一主吉。</div><div class="content-item text"><div class="content-type">正文</div>此土以庚午见辛未，辛未见庚午，这种格局命书称之谓二仪贵偶格，逢者，无有不贵之理。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">二仪贵偶格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">此格以庚午路旁土见辛末路旁土，辛末路旁土见庚午路旁土，名为二仪贵偶，是以午未合化主仪。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙辰砂中土、丙戌屋上土、辛丑壁上土，或得其中之一，主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">二仪贵偶，就像一对高贵的夫妇相随相伴，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论金</h4></div><div class="subsection"><h4 class="subsection-title">海金天水格</h4><div class="content-item text"><div class="content-type">正文</div>此土虽为路旁温土，其质以见清水、金水方可滋润，再以金水并见主大吉。</div><div class="content-item text"><div class="content-type">正文</div>比如见乙丑海中金，此金为依山畔水之清金，若得天河水助之，以庚午人逢之最好，此命生人，称之谓海金天水格，主大贵。此土再以见钗钏金、砂中金可以滋润其土质，再以金水并见，主大贵，如果命已见水，而无金运，也主福庆。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">海金天水格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙丑海中金、丙午天河水，主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格再以见钗钏金，砂中金有水济主贵，如果见水无金，也主福庆。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此格似乎以天地相应，金水荣物，路旁土则能以自己的功能养育禾稼。</span></div></div></div><div class="subsection"><h4 class="subsection-title">金马嘶风格</h4><div class="content-item text"><div class="content-type">正文</div>还有一种命，叫作金马嘶风格，是以庚午路旁土生人，命中有甲午砂中金，时柱得辛巳白蜡金，称之谓金马嘶风格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>又有马化龙驹格，是以庚午人生于辰时为马化龙驹。</div><div class="content-item text"><div class="content-type">正文</div>又有哨风猛虎格，是以庚午、辛未生人，见辛巳白蜡金，乙巳覆灯火俱以贵论，此格以水、火、土、金不太相忌。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金马嘶风格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">甲午砂中金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">时柱中见辛巳白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">庚午为金马，巳为金的长生之地，巳又有东南巽风之意，甲午为马的归属得地，故称之为金马嘶风格，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">马化龙驹格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午路旁上</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">生于辰时</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">庚午为金马，辰时有龙池之意，金马生于龙池，命书称之谓马化龙驹，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">哨风猛虎格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">庚午辛末路旁土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛巳白蜡金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">乙巳覆灯火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">午为火局合汇的象征，巳为东南巽风之地，巳父为金的长生，旺盛的金马比作猛虎，故将此格喻称为哨风猛虎，主贵。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

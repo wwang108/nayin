@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丁亥 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">丁亥</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>丁亥地贵符，乃福壮临官之土，若润之以水，丽泽以金，处魁罡坤艮之方（辰戌丑未），可以显功遂名。</div><div class="content-item note"><div class="content-type">注释</div>和丙戌同样喜火，相较之下对金的忌讳小些，</div><div class="content-item text"><div class="content-type">正文</div>对木的忌讳反而大些。如丙戌喜辛卯，此土却忌之。</div><div class="content-item book_reference"><div class="content-type">典籍</div>《五行要论》云此土喜水火旺气（子午是），</div><div class="content-item text"><div class="content-type">正文</div>遗文讲此土喜辰戌丑未。理在何？</div><div class="content-item text"><div class="content-type">正文</div>前者指的是英明之气，后者指的是归藏之乡，所云喜忌不同。用子午则文章清华之贵，用辰戌丑未有家底殷厚之美。</div><div class="content-item text"><div class="content-type">正文</div>继续延伸一下，此土自带一合（亥为壬，丁壬自合），最喜的壬干所配有什么——壬辰、壬子、壬午、壬戌。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁亥土</div>平原，喜火及木</div><div class="content-item text"><div class="content-type">正文</div>丁亥临官之土，木不能克，嫌金多，须得火以生救之乃吉，忌己亥辛卯之木。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">五行要论云：</span>丁亥庚子二土，中含全数，内刚外和，禀之者得有定力，上下济之以水火旺气，能建功立事，敢为威果之行。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>丙戌丁亥屋上土</div><div class="content-item question"><div class="content-type">问答</div>“丙戌丁亥何以谓之屋上土？”答曰：“气成物府，事以美圆，阴阳历遍，势得其闲，乃曰屋上土也。”《论》曰：势周而美备矣贵乎，安静若以火木而生旺之，是徒增其至於死绝，却喜以安。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>屋上土、壁上土愁逢杨柳。</div><div class="content-item text"><div class="content-type">正文</div>丙戌、丁亥，庚子、辛丑是。二土怕壬午、癸未。</div><div class="content-item text"><div class="content-type">正文</div>墙倾土覆，只因丙戌遇壬辰。</div><div class="content-item text"><div class="content-type">正文</div>屋上土遇长流水冲，岂不如斯？</div><div class="content-item text"><div class="content-type">正文</div>丁亥丙戌，若遇壬寅真可羡。</div><div class="content-item text"><div class="content-type">正文</div>屋上土遇金箔金必华屋重重、雕梁峻宇。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>屋上土者，埏埴为林，水火既济，盖蔽雪霜之积，震凌风雨之功。此土瓦也，非木无以架之，故以木为根基。平地为上，大林次之。余取天干化木，亦吉，只怕冲破。此已成之土，不宜见火，炉中丙寅最凶，丁卯稍可；太阳、霹雳可取相资。山下、山头，有木生之则祸。灯头丙戌见乙巳为上，丁亥见甲辰次之，谓之火土入堂格，若柱中木多，亦不为吉。水宜天河、井泉、涧下皆吉，如先得平地木成格，大贵；溪流无木主夭，若丙戌而得癸巳，丁亥而得甲寅，则又别论，再看日时所成造化何如。大海无山则不宜见土。土见路傍，如丙戌得辛未，丁亥得庚午，阴阳互见，更假木为基，主贵。壁土亦宜，余则汨没。若缺木而三刑聚，纵是二土亦凶，砂土独丁巳不妨。金唯剑锋、钗钏最吉。丁见壬申，天干化木，地支乾坤清夷，丙见辛亥，天干化水，地支丙入乾户，皆大贵格。若丁亥见庚戌，丙戌见癸酉，则不为吉；箔金有粉饰之用，亦吉；余金无用，当以贵禄参详。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>屋上土</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">屋上土是说戌为火库，天门之火炎上生成了屋上土，又以丙丁火炼土为瓦器，铺盖屋顶瓦器之土。屋上土喜安静，遇木作栋梁，称之木瓦辉煌。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">画谱引意为房屋，人们理解为屋顶上的尘土，非当不厚，遇风就会吹散，遇水就会流失，叹息命运薄弱的可怜。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁亥土</div>平原，喜火及木。天乙、福星、官贵、德合、平头。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>以戌亥为天上的门户，丙丁火燃烧旺极天门，火性燃及能通上天，所生的土自然也不在下面，所以引伸为屋上土，屋上土以戌亥土水为泥，再遇丙丁火的燃烧，这样，屋上土实际上泛指火炼土金而成功砖瓦，但凡造屋修房，砖瓦木石各有所用，砖瓦为屋，必以木石支撑，因而，屋上土喜欢与木为吉，如果再遇钗钏金、金箔金造作工艺和镂饰装点，更显得琉金屋瓦金壁辉煌、巍峨壮丽。</div><div class="content-item text"><div class="content-type">正文</div>根据这个道理，屋上土生年的人，生月若是天上火，生日是松柏木，木火辉映琉金之砖瓦，则成驾殿天门之格，一生福禄富贵荣华。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是屋上土，生月是钗钏金，生日是金箔金的镂饰装点，则称飞檐筑瓦之格（古代建筑，辉煌的堂殿，屋脊上必有五脊六兽飞檐琉瓦，人们依照六兽的模样，烧成琉金砖瓦以示镇邪）壮年显贵。</div><div class="content-item text"><div class="content-type">正文</div>屋上土喜木的支撑，但遇杨柳木则不能显达。喜金，见沙中金基础不能坚实。喜天上火，遇山下火则不能显贵，见霹雳火一生艰辛。忌大海水冲毁殿堂，其身也毁于一旦。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>盖因此时五行土气，聚成物府之土；丙丁之火，自子至亥，阴阳历通，势得其闲，事以美圆之丽，聚合为成功之土。</div><div class="content-item text"><div class="content-type">正文</div>屋上土者，植土于林木之上，水土既济之德，盖蔽雪霜之积，遮蔽风雨之功。</div><div class="content-item text"><div class="content-type">正文</div>此土乃火炼之瓦，非木无以架之，故以木为根基，平地木为上，大林木次之。</div><div class="content-item text"><div class="content-type">正文</div>此土因炼烧成功为瓦，忌再见火冲破，以逢丙寅炉火最凶。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">火土受气而成形之象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气成万物之府，事以万物美图，炼瓦成就之土。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丙戌</div>福壮禄厚之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">堆阜之土，居五行之中行，负载之命，主养育之权，处高下而得位，福壮禄厚之土，若遇火盛则贵不可言。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">盖以屋上土四季有功，但以丙戌为堆阜之土，喜春夏，遇水成济功物，火盛炼成砖瓦则贵不可言，木不能克之。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌见生旺之金，阜土流气。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">丁亥</div>临官之土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">平原之土，喜火及木。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">临官之土，木不能克，如果见金多，必须得火生救之乃吉，忌水太过则汗漫无归，过壬辰正印之水，心识如镜，春夏得之作大福慧，若是秋冬之类土则奸诈无德。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">金多须得火生救之，遇壬辰长流水有清明润沃之德，心识如镜，宜木克之，喜火生之，宜生春夏得令之土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌己亥平地木、辛卯松柏木克之。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论木</h4></div><div class="subsection"><h4 class="subsection-title">平地屋瓦格</h4><div class="content-item text"><div class="content-type">正文</div>屋上土者，屋瓦成功之土。</div><div class="content-item text"><div class="content-type">正文</div>此土无木，则不能架之，所以，须以木为根基。</div><div class="content-item text"><div class="content-type">正文</div>木以平地木为上，谓之平地屋瓦格，主吉，大林木次之。</div><div class="content-item text"><div class="content-type">正文</div>此土见其它木，则取其天干能合化为木，主吉，只怕有刑冲克破，而冲散此土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">平地屋瓦格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">平地木为上格，大林木次之</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见其它木，取天干合化则吉</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌刑冲克破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">屋上土者，炼烧屋瓦成功之土，此土得以平地木支撑，即成功为屋上之瓦，再取其它木天干合化为贵，故称之为平地屋瓦格。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">火土入堂格</h4><div class="content-item text"><div class="content-type">正文</div>盖以此土为炼瓦成功之土，不宜再见火，但以见炉中火丙寅之火最凶，见丁卯炉火稍可。</div><div class="content-item text"><div class="content-type">正文</div>此土见太阳、霹雳神火可以相资互得益彰。</div><div class="content-item text"><div class="content-type">正文</div>见山下火、山头火再有木生，则成祸害。</div><div class="content-item text"><div class="content-type">正文</div>以丙戌屋上土见乙巳覆灯火为上吉，见甲辰覆灯火次之，这种格局命书上称之谓火土入堂格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>但这种格局，以见木少成吉格，如果此格中木多，反为不吉。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">火土入堂格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙戌屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙巳覆灯火上吉，甲辰覆灯火次之。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">天上火、霹雳火相资，以木少为吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌见丙寅炉火最凶，见山下火、山头火再有木，则成祸害。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">屋上土者，遮寒避雪之堂，此土见灯火，称之为火土入堂，主福禄。此土忌逢炎火，再有木助，木烧火旺，则成祸害。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、论水</h4></div><div class="subsection"><h4 class="subsection-title">金水映宫格</h4><div class="content-item text"><div class="content-type">正文</div>盖因屋上土为泥瓦炼烧，成功之土，延伸为林木之土，水火既济之功，清水润泽，阴阳历遍之土。</div><div class="content-item text"><div class="content-type">正文</div>此土以见天河水、涧下水、井泉水皆吉，如果先得平地木，成为金水映宫格，主大贵。</div><div class="content-item text"><div class="content-type">正文</div>此土若见大溪水、长流水，命中没有木，多主夭折，或者以丙午屋上土，见癸巳长流水；丁亥屋上土，见甲寅大溪水又当别论，再看日时所成造化如何，再与以分析而定夺。</div><div class="content-item text"><div class="content-type">正文</div>此土若见大海水，命中无山，则不宜见土。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">金水映宫格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">天河水、涧下水、井泉水，先得平地木主大贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">丙戌屋上土见癸巳长流水，丁亥屋上土见甲寅大溪水主吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">如果见大海水无山可托，则不宜见土。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">屋上土者，宫室之殿瓦，有清水掩映，则称之谓金水映宫，主要看日时生合造化如何，忌冲破。</span></div></div></div><div class="subsection"><h4 class="subsection-title">4、论土</h4></div><div class="subsection"><h4 class="subsection-title">木瓦辉煌格</h4><div class="content-item text"><div class="content-type">正文</div>屋上土者，炼烧成功之土，若以土重，则成瓦朽，但以此土见路旁土为宜。</div><div class="content-item text"><div class="content-type">正文</div>比如，丙戌屋上土见辛末路旁土，丁亥屋上土得庚午路旁土，此为阴阳互见互养，再以借木为根基，木以平地木为上，称为木瓦辉煌格，主贵。</div><div class="content-item text"><div class="content-type">正文</div>此土见壁上土亦宜，见其它土无用。</div><div class="content-item text"><div class="content-type">正文</div>此格若缺木，而再有三刑聚纵，有二土亦为凶格，惟见丁巳砂中土，没有什么害处。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">木瓦辉煌格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙戌屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛未路旁土，再借平地木，主贵。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">土重瓦朽，再以木制则凶。此格若无木，再有三刑则为凶格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙戌屋上土有平地木支撑，则成为屋瓦宫室；再有辛未路旁土，丙辛化水，称为木瓦辉煌格，主贵。如果见土太重，木瓦也就不能辉煌了。</span></div></div></div><div class="subsection"><h4 class="subsection-title">5、论金</h4></div><div class="subsection"><h4 class="subsection-title">乾坤清夷格</h4><div class="content-item text"><div class="content-type">正文</div>屋上土者，成功之瓦土，鎏金则以照耀，惟以剑锋金、钗钏金最吉。</div><div class="content-item text"><div class="content-type">正文</div>但以丁亥屋土，见壬申剑锋金，则以天干丁壬化木、地支相生，此谓之乾坤清夷格。</div><div class="content-item text"><div class="content-type">正文</div>再以丙戌屋上土见辛亥钗钏金为天干丙辛化水，地支丙入乾户，故称之谓大贵格。</div><div class="content-item text"><div class="content-type">正文</div>如果反为丁亥见庚戌，丙戌见癸酉，则为不吉。</div><div class="content-item text"><div class="content-type">正文</div>再以见金箔金有妆饰之用，见之也吉。</div><div class="content-item text"><div class="content-type">正文</div>见其它金则无用，当以贵禄参详。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">乾坤清夷格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丁亥屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬申剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">金箔金也吉，其它金无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">丁亥见庚戌钗钏金则为吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">亥为天门，故称乾坤，再有天干丁壬合化，则以乾坤清夷而名之，主贵；再以见金箔金是描彩装饰之金，能够碧金琉瓦；但庚戌钗钏金为刀剑之金，木瓦逢之，则为不吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">丙入乾户格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">丙午屋上土</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">辛亥钗钏金</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">助音:</div>金箔金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">丙戌见癸酉剑锋金为刃金伤瓦不吉，见其它金无用。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">丙火入于戌亥天门，故以丙戌见辛亥称为丙入乾户，再以丙辛合化，碧瓦琉金，主大贵。再逢金箔金，装点屋瓦而辉煌，但剑锋金为刃金伤瓦，就不吉了。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 

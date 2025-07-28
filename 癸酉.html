@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>癸酉 - 纳音命理详解</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gan-zhi-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .books-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        .book-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .book-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .content-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-item.note {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .content-item.quote {
+            border-left-color: #9b59b6;
+            background: #f4f1f7;
+        }
+
+        .content-item.question {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .content-item.item {
+            border-left-color: #27ae60;
+            background: #f0f9f0;
+        }
+
+        .content-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #8e44ad;
+            margin-right: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .format-field {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #e74c3c;
+            min-width: 80px;
+            margin-right: 10px;
+        }
+
+        .field-content {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .gan-zhi-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .book-section {
+                padding: 20px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="gan-zhi-title">癸酉</h1>
+            <p class="subtitle">古代纳音命理学经典记载</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">总纲</a>
+            <a href="#" class="nav-link" onclick="history.back()">返回</a>
+            <a href="#" class="nav-link" onclick="window.scrollTo(0,0)">回到顶部</a>
+        </nav>
+
+        <main class="books-container">
+            <section class="book-section"><h2 class="book-title">鬼谷遗文</h2><div class="content-item text"><div class="content-type">正文</div>癸酉贵符印，乃刚锐利用之金，不嫌绝败，惟畏鬼多，若平易而不相刑（莫自刑，也怕辰午酉亥自刑并起），当有自然之材器。</div><div class="content-item note"><div class="content-type">注释</div>和壬申性质有相近之处，同为旺金，也是已成之金。</div><div class="content-item text"><div class="content-type">正文</div>不需要再来火炼，对火抗性较之壬申稍强，因为火在酉死，精纯之金不含水数。可以用金木相成、金白水清来成格，</div><div class="content-item text"><div class="content-type">正文</div>用专旺层次不差，但是损寿和伤六亲。</div><div class="content-item text"><div class="content-type">正文</div>和壬申互见是阴差阳错，伤尽六亲。</div></section><section class="book-section"><h2 class="book-title">五行精纪</h2><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸酉金</div>金之椎鉴，喜木及寅卯</div><div class="content-item text"><div class="content-type">正文</div>癸酉坚成之金，火死于酉，见火何伤，惟忌丁酉火，就位克之。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">阎东叟云：</span>癸酉自旺之金，禀纯粹之气，春夏为性英明，秋冬尤贵。入格则功业节概，挺特出伦；带杀则少年刚劲，四十之后，渐成纯德。</div><div class="content-item quote"><div class="content-type">引用</div><span class="author">玉霄宝鉴云：</span>壬申癸酉，金旺之位，不可复旺，旺则伤物；不可见火，见火则自伤。</div></section><section class="book-section"><h2 class="book-title">三车一览</h2><div class="content-item text"><div class="content-type">正文</div>壬申癸酉剑锋金</div><div class="content-item question"><div class="content-type">问答</div>“何以壬申癸酉曰剑锋金？”答曰：“气盛物极，当施收敛之功，颖脱锋锐之刃，乃曰剑锋金。”《论》曰：执性坚刚，勿宜生旺，则谓功成不退，有伤和气，若见休囚退藏锐气，物无损伤。</div></section><section class="book-section"><h2 class="book-title">元女搜髓赋</h2><div class="content-item text"><div class="content-type">正文</div>诸木凡六，总受制于剑锋。</div><div class="content-item text"><div class="content-type">正文</div>炉火剑金，银汉水会合而势愈锋芒。</div><div class="content-item text"><div class="content-type">正文</div>丙寅、壬申、丙午三者聚于八字之中，则火候匀停，淬砺功到，岂不成干将莫邪也哉？</div><div class="content-item text"><div class="content-type">正文</div>剑锋最利九秋时。</div><div class="content-item text"><div class="content-type">正文</div>诸木凡六，总受制于剑锋。</div></section><section class="book-section"><h2 class="book-title">三命通会</h2><div class="content-item text"><div class="content-type">正文</div>剑锋金者，白帝司权，刚由百炼，红光射于斗牛，白刃凝于霜雪。此金造化，非水不能生，大溪、海水，日时相逢为上格；井泉、涧下，有霹雳助或得乙卯之雷方好。若无雷雳，亦金白水清格也。秋生更吉，日时遇长流，在壬辰为宝剑，化为青龙，癸巳亦得此剑，不能通变。然癸丑为剑气冲头，最吉。松柏、杨柳亦吉，但多聚散。大林、平地嫌有土制，主劳苦。火见神龙，阴阳交遇，如壬申逢己丑、癸酉逢戊子，方为上格。遇天上、炉中二火，无水救则夭。诸土见皆不吉，以其埋没。只壁上、城头有磨锋淬砺之用，此二土则可。金喜同类，如壬申见壬申，癸酉见癸酉，有木制之，是谓盘根错节，所以别利器也。无木主带疾。海、砂、白蜡此三金内，乙丑独喜。钗钏成器，相见亦宜。若柱有未成之金，无加于剑，最忌之。见则性蒙猖狂，戌则金混杂时中，却宜火胜。大抵剑锋乃金之最有利者，只宜水润，不宜火刑，如见寅巳，三刑全者大凶。</div></section><section class="book-section"><h2 class="book-title">中华纳音预测学</h2><div class="section"><h3 class="section-title">纳音喻象</h3><div class="content-item text"><div class="content-type">正文</div>剑锋金</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">原意：</span><span class="field-content">剑锋金是说申酉金得位，又遇壬癸水养育凝金，金逢水沥，虹光射斗，就象剑锋金的刃钢一样锋利，遇神火淬金显威。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">误区：</span><span class="field-content">图谱上画一口宝剑，又指示锋刃之金，术士将图谱上的画意错误地理解为剑锋刃口上的一点点金少得可怜，民间又传说成剑锋金上的一点点金，叹息自命可怜，使人误入岐途。</span></div></div></div><div class="section"><h3 class="section-title">纳音性质简表</h3><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸酉金</div>金之椎凿，喜木及寅卯。伏神、破字、聋哑。</div></div><div class="section"><h3 class="section-title">纳音由来</h3><div class="content-item text"><div class="content-type">正文</div>申酉金正位之金，金又临官于申，帝旺在酉，壬癸水又以阴极之气生出了金，金既生于旺象，其刚强程度非能比剑锋之金，喻象引伸为剑锋金，虹光一道可射落天上的斗牛，白刃的锋芒寒光逼人，仿佛象凝结了霜雪一般。</div><div class="content-item text"><div class="content-type">正文</div>剑锋金生年的人，性格刚强，如果生月是砂中金，生日为砂中土，则为独现寒梅之格，流年再遇大林木，则成为骏马驰原之势，大显神威。</div><div class="content-item text"><div class="content-type">正文</div>如果剑锋金生年的人，生月是大海水，形成阴极补金之势，为七星钳锋之格，日柱再有松柏木助威，则成金猴出世之贵。</div><div class="content-item text"><div class="content-type">正文</div>如果生年是剑锋金，生月是松柏木，生日是涧下水，则成寒松吐翠，必为栋梁之材。</div><div class="content-item text"><div class="content-type">正文</div>剑锋金若逢城头土，或大驿土，则为锋刃补薪之势，但忌炎火焚烧而退锋，一生无用武之地，遇同类剑锋金则成刀光不测，遇其他金则成贫困。</div></div><div class="section"><h3 class="section-title">纳音取象</h3><div class="content-item text"><div class="content-type">正文</div>剑锋金者，天干当值壬癸正位之水，地支申酉乃属正位之金，西方白帝司权，气盛物极之象，刚由百炼而生，有金水淬沥之德，当施收敛之功，乃喻为颖脱锋锐之刃金，白刃凝于霜雪之气，虹光射于斗牛之威。此金要发生造化，非见水不能生，此金日时逢大溪水、大海水形成利剑劈水之威势，成为上格，或得壬辰宝刃化为青龙，见癸丑刃气冲斗最吉，见癸巳则不为吉，此金逢秋生更为得时。</div></div><div class="section"><h3 class="section-title">纳音性质</h3><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">阴极凝金之喻象。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">气盛物极淬水之刃金，成器之金。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">壬申</div>淬水刃金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">戈戟之金，喜子午卯酉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">壬申临官之金，持天将之威资，临官之气行，秋冬掌生杀之权威，入格以功名自夺，带煞以刻薄为能。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">利见水土，适宜秋冬显其生杀权威。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">生于春夏吉少凶多，忌见丙申、丙寅、戊午之火则灾害。</span></div></div><div class="content-item item"><div class="content-type">条目</div><div class="item-title">癸酉</div>坚成之金。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">象：</span><span class="field-content">锥凿之金，喜木及寅卯。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">性质：</span><span class="field-content">坚成之金，火死于酉，见火何伤，惟见丁酉火就位克之。癸酉自旺之金，禀纯粹之气，入格则有功业接济成功，出伦带煞则少年刚劲，四十之后渐成纯德。</span></div></div><div class="content-item text"><div class="content-type">正文</div>壬申癸酉金旺之位，不可再旺，旺则伤物；不可见火，见火则自伤。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜：</span><span class="field-content">春夏英明，秋冬尤贵，喜木旺气。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">忌：</span><span class="field-content">忌丁酉山下火克伤。</span></div></div></div><div class="section"><h3 class="section-title">纳音格局</h3><div class="subsection"><h4 class="subsection-title">1、论水</h4></div><div class="subsection"><h4 class="subsection-title">利剑辟水格</h4><div class="content-item text"><div class="content-type">正文</div>盖因剑锋金出于壬癸正位之水，申酉正位之金，刚由百炼，气盛物极，霜雪之气凝于利刃，是以此金非水不能生旺，故以日时相逢大溪水、大海水为利剑辟水之格。</div><div class="content-item text"><div class="content-type">正文</div>此金若以见井泉水、涧下水论之，须有霹雳火相助，或得乙卯大溪水有雷最好，若无雷助，亦成金白水清格，若是秋生更吉。</div><div class="content-item text"><div class="content-type">正文</div>此格必是刚直不阿，少年有为之才。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">利剑辟水格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见人溪水、大海水为上格。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格若逢井泉水，须有霹雳火助。如果得乙卯大溪水有雷助，名之利剑辟水。如果是甲寅大溪水，即称之为金白水清格，主福禄。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">忌冲破</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金见雷水淬金，剑锋在雷电中形成辟水锋利，主官贵。如果没有雷助，此金则锋芒内藏，虽也主贵，但只以金白水清，称之禄贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">宝剑化龙格</h4><div class="content-item text"><div class="content-type">正文</div>此格以剑锋金日时遇壬辰长流水，子平称为壬骑龙背之贵，命书喻为宝剑化为青龙，称为宝剑化龙格，但以癸巳长流水来讲，巳为火旺之地，则不能通变。</div><div class="content-item text"><div class="content-type">正文</div>然以柱中逢癸丑桑柘木之见，丑为金库补锋，丑又为牛，剑气冲斗，则成为虹光射斗之最，风云万里之才。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">宝剑化龙格</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">日时见壬辰长流水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">此格柱中逢癸丑桑柘木，名为虹光射斗，万里英才。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">此金生于壬辰日时者，壬辰有龙池化生的象征，所以，称之谓宝剑化苍龙之说，主贵。如果柱中有癸丑桑柘木，癸丑有北辰斗罡之意，故名为虹光射斗，主万里英才之显达。</span></div></div></div><div class="subsection"><h4 class="subsection-title">2、论火</h4></div><div class="subsection"><h4 class="subsection-title">神火淬金格</h4><div class="content-item text"><div class="content-type">正文</div>盖以剑锋金为阴极凝气之金，忌见真火退锋，但以霹雳火论之，则以为剑锋金白刃凝于雷水之沥，虹光可射斗牛之威。</div><div class="content-item text"><div class="content-type">正文</div>再以癸酉见戊子，癸酉为锥凿之金，戊子为神龙之火，神火沥水，刚由百炼，更使锥凿之坚利，白刃凝聚霜雪，以此为神火淬金之格。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">神火淬金格（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">壬申剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">己丑霹雳火，也称神火沥水</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此金忌见真火退锋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">霹雳火为神龙之火，此金见之雷水交加，此金则强硬显威，故称之谓神火淬金。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">神火淬金（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">癸酉剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">戊于霹雳火</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">此金忌见真火退锋。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">这是第二种神火淬金格，这种格局的组成，是以壬申为水局，丑为金局，金水互生。再以癸酉见戊子，本为金局，子为水局，也是金水相生，形成强硬的格局，主贵。</span></div></div></div><div class="subsection"><h4 class="subsection-title">3、杂论</h4></div><div class="subsection"><h4 class="subsection-title">阴差阳错格</h4><div class="content-item text"><div class="content-type">正文</div>盖以剑锋金乃利器之金，只宜水润，不宜火刑，如见寅巳三刑，则主大凶。</div><div class="content-item text"><div class="content-type">正文</div>再以海中金、砂中金、白蜡金，则以乙丑海中金独遇则吉，钗钏金属成器之金，见之也宜，若柱中有未成器之金最忌，恐有性蒙猖狂之危。</div><div class="content-item text"><div class="content-type">正文</div>此金若遇天上火、炉中火，无水救则主夭折。</div><div class="content-item text"><div class="content-type">正文</div>见诸土则有埋没之危，只有壁上土，城头土有磨锋淬沥之用。</div><div class="content-item text"><div class="content-type">正文</div>壬申见壬申，癸酉见癸酉，则成盘根错节之别，若无木助，主带疾伤。此金若见松柏木、杨柳木，嫌其木内有土制克，多主奔波劳苦。</div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错（一）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见寅巳三刑主大凶。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">见天上火、炉中火，无水救主夭折。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">剑锋金者，阴极凝成之金，只宜水润，不宜火刑，寅巳三刑为火的生源之地，见则主大凶。再以见天上火、炉中火为真火，必须有水的解救，如果无水，此金退锋，则主夭折之危。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错（二）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">见天上火、炉中火，无水救主夭折。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">诸土埋金，俱不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">由于剑锋金形质件偏，砂中上、路旁土、屋上土内都有火的存在，大驿土又含申酉金的冲破，这些土都能将剑锋金埋没，所以，只有壁上土、城头土能够与此金结合。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错（三）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">乙丑海中金独遇则吉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">钗钏金也宜</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">宜忌：</span><span class="field-content">最忌未成器之金。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">由于剑锋金是阴极凝成之金，独遇乙丑海中金为顽石之金，此金则显其威，钗钏金戌亥为天门之水，此金见之也宜，再逢其它末成器之金则无益，故不宜见。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错（四）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">壬申见壬申，癸酉见癸酉。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">必须纳音有木，无木主带疾伤。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">剑锋金为阴极强硬之金，大凡物以阴阳交错为吉，如果壬申见壬申，癸酉见癸酉即形成刀兵相见，必须有木的功用削减其锋芒化凶为吉，所以若无木，则主带疾伤。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">格局：</span><span class="field-content">阴差阳错（五）</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">干支：</span><span class="field-content">剑锋金</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">配音：</span><span class="field-content">松柏木、杨柳木，多为聚散。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">助音：</span><span class="field-content">大林木、平地木，多主奔波劳苦。</span></div></div><div class="content-item format_field"><div class="content-type">格式</div><div class="format-field"><span class="field-label">含意：</span><span class="field-content">松柏木为风霜含金的健壮之木，杨柳木是逢死绝而旺盛的抒情之木，两种木并见，此金则主聚散。大林木是原野之木，平地木为柔弱之木，这两种木的并见，此金则主劳苦奔波。</span></div></div></div></div></section>
+        </main>
+
+        <footer class="footer">
+            <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动到指定元素
+        function scrollToElement(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // 添加阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!document.getElementById('progress-bar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3498db, #e74c3c);
+                    z-index: 1000;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            }
+        });
+    </script>
+</body>
+</html> 
