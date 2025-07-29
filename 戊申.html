@@ -231,6 +231,112 @@
                 margin: 5px 0;
             }
         }
+
+        /* Floating Search Widget */
+        .floating-search {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+        }
+
+        .search-toggle-btn {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .search-panel {
+            position: absolute;
+            bottom: 75px; /* Above the button */
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .floating-search.active .search-panel {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-panel input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-family: 'Noto Serif SC', serif;
+            border-bottom: 1px solid #eee;
+        }
+
+        #floatingSearchResults {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #floatingSearchResults li {
+            padding: 0;
+        }
+
+        #floatingSearchResults li a {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        #floatingSearchResults li a:hover {
+            background-color: #f5f7fa;
+        }
+
+        #floatingSearchResults .nayin-name {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .floating-search {
+                bottom: 20px;
+                right: 20px;
+            }
+            .search-toggle-btn {
+                width: 50px;
+                height: 50px;
+            }
+            .search-panel {
+                width: calc(100vw - 40px);
+                max-width: 300px;
+                bottom: 65px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -253,6 +359,18 @@
         <footer class="footer">
             <p>古代纳音命理学文献整理 | 传承中华文化瑰宝</p>
         </footer>
+    </div>
+
+    <div class="floating-search" id="floatingSearchWidget">
+        <button class="search-toggle-btn" id="searchToggleBtn" title="搜索其他纳音">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <div class="search-panel" id="searchPanel">
+            <input type="text" id="floatingSearchInput" placeholder="搜索甲子...">
+            <ul id="floatingSearchResults">
+                <!-- Search results will be populated by JS -->
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -286,6 +404,55 @@
             } else {
                 document.getElementById('progress-bar').style.width = scrolled + '%';
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingSearchWidget = document.getElementById('floatingSearchWidget');
+            const searchToggleBtn = document.getElementById('searchToggleBtn');
+            const searchInput = document.getElementById('floatingSearchInput');
+            const searchResults = document.getElementById('floatingSearchResults');
+
+            const GANZHI_DATA = [{"ganzhi": "甲子", "nayin": "海中金", "url": "甲子.html"}, {"ganzhi": "乙丑", "nayin": "海中金", "url": "乙丑.html"}, {"ganzhi": "丙寅", "nayin": "炉中火", "url": "丙寅.html"}, {"ganzhi": "丁卯", "nayin": "炉中火", "url": "丁卯.html"}, {"ganzhi": "戊辰", "nayin": "大林木", "url": "戊辰.html"}, {"ganzhi": "己巳", "nayin": "大林木", "url": "己巳.html"}, {"ganzhi": "庚午", "nayin": "路旁土", "url": "庚午.html"}, {"ganzhi": "辛未", "nayin": "路旁土", "url": "辛未.html"}, {"ganzhi": "壬申", "nayin": "剑锋金", "url": "壬申.html"}, {"ganzhi": "癸酉", "nayin": "剑锋金", "url": "癸酉.html"}, {"ganzhi": "甲戌", "nayin": "山头火", "url": "甲戌.html"}, {"ganzhi": "乙亥", "nayin": "山头火", "url": "乙亥.html"}, {"ganzhi": "丙子", "nayin": "涧下水", "url": "丙子.html"}, {"ganzhi": "丁丑", "nayin": "涧下水", "url": "丁丑.html"}, {"ganzhi": "戊寅", "nayin": "城头土", "url": "戊寅.html"}, {"ganzhi": "己卯", "nayin": "城头土", "url": "己卯.html"}, {"ganzhi": "庚辰", "nayin": "白蜡金", "url": "庚辰.html"}, {"ganzhi": "辛巳", "nayin": "白蜡金", "url": "辛巳.html"}, {"ganzhi": "壬午", "nayin": "杨柳木", "url": "壬午.html"}, {"ganzhi": "癸未", "nayin": "杨柳木", "url": "癸未.html"}, {"ganzhi": "甲申", "nayin": "泉中水", "url": "甲申.html"}, {"ganzhi": "乙酉", "nayin": "泉中水", "url": "乙酉.html"}, {"ganzhi": "丙戌", "nayin": "屋上土", "url": "丙戌.html"}, {"ganzhi": "丁亥", "nayin": "屋上土", "url": "丁亥.html"}, {"ganzhi": "戊子", "nayin": "霹雳火", "url": "戊子.html"}, {"ganzhi": "己丑", "nayin": "霹雳火", "url": "己丑.html"}, {"ganzhi": "庚寅", "nayin": "松柏木", "url": "庚寅.html"}, {"ganzhi": "辛卯", "nayin": "松柏木", "url": "辛卯.html"}, {"ganzhi": "壬辰", "nayin": "长流水", "url": "壬辰.html"}, {"ganzhi": "癸巳", "nayin": "长流水", "url": "癸巳.html"}, {"ganzhi": "甲午", "nayin": "沙中金", "url": "甲午.html"}, {"ganzhi": "乙未", "nayin": "沙中金", "url": "乙未.html"}, {"ganzhi": "丙申", "nayin": "山下火", "url": "丙申.html"}, {"ganzhi": "丁酉", "nayin": "山下火", "url": "丁酉.html"}, {"ganzhi": "戊戌", "nayin": "平地木", "url": "戊戌.html"}, {"ganzhi": "己亥", "nayin": "平地木", "url": "己亥.html"}, {"ganzhi": "庚子", "nayin": "壁上土", "url": "庚子.html"}, {"ganzhi": "辛丑", "nayin": "壁上土", "url": "辛丑.html"}, {"ganzhi": "壬寅", "nayin": "金箔金", "url": "壬寅.html"}, {"ganzhi": "癸卯", "nayin": "金箔金", "url": "癸卯.html"}, {"ganzhi": "甲辰", "nayin": "覆灯火", "url": "甲辰.html"}, {"ganzhi": "乙巳", "nayin": "覆灯火", "url": "乙巳.html"}, {"ganzhi": "丙午", "nayin": "天河水", "url": "丙午.html"}, {"ganzhi": "丁未", "nayin": "天河水", "url": "丁未.html"}, {"ganzhi": "戊申", "nayin": "大驿土", "url": "戊申.html"}, {"ganzhi": "己酉", "nayin": "大驿土", "url": "己酉.html"}, {"ganzhi": "庚戌", "nayin": "钗钏金", "url": "庚戌.html"}, {"ganzhi": "辛亥", "nayin": "钗钏金", "url": "辛亥.html"}, {"ganzhi": "壬子", "nayin": "桑柘木", "url": "壬子.html"}, {"ganzhi": "癸丑", "nayin": "桑柘木", "url": "癸丑.html"}, {"ganzhi": "甲寅", "nayin": "大溪水", "url": "甲寅.html"}, {"ganzhi": "乙卯", "nayin": "大溪水", "url": "乙卯.html"}, {"ganzhi": "丙辰", "nayin": "沙中土", "url": "丙辰.html"}, {"ganzhi": "丁巳", "nayin": "沙中土", "url": "丁巳.html"}, {"ganzhi": "戊午", "nayin": "天上火", "url": "戊午.html"}, {"ganzhi": "己未", "nayin": "天上火", "url": "己未.html"}, {"ganzhi": "庚申", "nayin": "石榴木", "url": "庚申.html"}, {"ganzhi": "辛酉", "nayin": "石榴木", "url": "辛酉.html"}, {"ganzhi": "壬戌", "nayin": "大海水", "url": "壬戌.html"}, {"ganzhi": "癸亥", "nayin": "大海水", "url": "癸亥.html"}];
+
+            function populateResults(filter = '') {
+                searchResults.innerHTML = '';
+                const lowerCaseFilter = filter.toLowerCase();
+                const filteredData = GANZHI_DATA.filter(item => 
+                    item.ganzhi.toLowerCase().includes(lowerCaseFilter) || 
+                    item.nayin.toLowerCase().includes(lowerCaseFilter)
+                );
+
+                filteredData.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="${item.url}">
+                            <span>${item.ganzhi}</span>
+                            <span class="nayin-name">${item.nayin}</span>
+                        </a>
+                    `;
+                    searchResults.appendChild(li);
+                });
+            }
+
+            searchToggleBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                floatingSearchWidget.classList.toggle('active');
+                if (floatingSearchWidget.classList.contains('active')) {
+                    searchInput.focus();
+                    populateResults(''); // Populate with all items when opened
+                }
+            });
+
+            searchInput.addEventListener('input', function() {
+                populateResults(this.value);
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!floatingSearchWidget.contains(event.target)) {
+                    floatingSearchWidget.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
